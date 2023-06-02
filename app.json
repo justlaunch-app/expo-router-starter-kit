@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "tabs-as-router",
-    "slug": "tabs-as-router",
+    "name": "expo-starter-kit",
+    "slug": "expo-starter-kit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./src/assets/images/splash.png",
