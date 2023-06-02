@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "expo-starter-kit",
+    "slug": "expo-starter-kit"
+  }
+}
