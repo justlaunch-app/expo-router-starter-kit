@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/source-code-pro": "^0.2.3",
+    "@react-native-picker/picker": "2.4.8",
     "@shopify/flash-list": "1.4.0",
     "@types/react": "~18.0.27",
     "expo": "^48.0.7",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@types/react-native": "^0.72.2",
     "tailwindcss": "^3.3.2"
   },
   "resolutions": {
