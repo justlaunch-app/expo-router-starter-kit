@@ -1,0 +1,8 @@
+{
+  "tabs": {
+    "one": "Uno",
+    "two": "Dos",
+    "settings": "Ajustes"
+  },
+  "greeting": "Hola, Mundo!"
+}

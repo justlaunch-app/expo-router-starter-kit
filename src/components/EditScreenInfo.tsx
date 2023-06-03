@@ -1,12 +1,12 @@
-import { Link } from "expo-router";
-import * as WebBrowser from "expo-web-browser";
-import React from "react";
-import { Platform, StyleSheet, TouchableOpacity } from "react-native";
+import { Link } from 'expo-router';
+import * as WebBrowser from 'expo-web-browser';
+import React from 'react';
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
 
-import Colors from "../constants/Colors";
-import { ExternalLink } from "./ExternalLink";
-import { MonoText } from "./StyledText";
-import { Text, View } from "../context/Themed";
+import Colors from '../constants/Colors';
+import { ExternalLink } from './ExternalLink';
+import { MonoText } from './StyledText';
+import { Text, View } from '../context/Themed';
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
@@ -55,7 +55,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
 
 const styles = StyleSheet.create({
   getStartedContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     marginHorizontal: 50,
   },
   homeScreenFilename: {
@@ -68,17 +68,17 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontSize: 17,
     lineHeight: 24,
-    textAlign: "center",
+    textAlign: 'center',
   },
   helpContainer: {
     marginTop: 15,
     marginHorizontal: 20,
-    alignItems: "center",
+    alignItems: 'center',
   },
   helpLink: {
     paddingVertical: 15,
   },
   helpLinkText: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

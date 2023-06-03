@@ -1,9 +1,9 @@
-import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { Platform } from "react-native";
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { Platform } from 'react-native';
 
-import EditScreenInfo from "./../components/EditScreenInfo";
-import { Text, View } from "./../context/Themed";
+import EditScreenInfo from './../components/EditScreenInfo';
+import { Text, View } from './../context/Themed';
 
 export default function ModalScreen() {
   return (
@@ -18,7 +18,7 @@ export default function ModalScreen() {
         <EditScreenInfo path="app/modal.tsx" />
 
         {/* Use a light status bar on iOS to account for the black space above the modal */}
-        <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+        <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       </View>
     </>
   );
