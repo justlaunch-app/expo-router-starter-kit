@@ -19,7 +19,7 @@ export const unstable_settings = {
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     ...FontAwesome.font,
-    SourceCodePro_400Regular,
+    SpaceMono: SourceCodePro_400Regular,
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
