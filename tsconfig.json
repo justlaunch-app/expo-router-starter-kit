@@ -3,5 +3,5 @@
     "allowJs": true
   },
   "extends": "expo/tsconfig.base",
-  "include": ["index.js"]
+  "include": ["index.js" , "app.d.ts"]
 }
