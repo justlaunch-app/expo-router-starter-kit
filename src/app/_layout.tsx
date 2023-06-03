@@ -9,6 +9,8 @@ import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+
+//i18next
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../src/locales/index';
 
@@ -44,7 +46,7 @@ function RootLayoutNav() {
     <>
       <I18nextProvider i18n={i18n}>
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(root)/(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
         <StatusBar />
