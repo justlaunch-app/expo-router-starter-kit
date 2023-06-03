@@ -4,11 +4,17 @@ import {
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme } from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+
+import { ThemeProvider } from './../context/ThemeProvider';
 
 //i18next
 import { I18nextProvider } from 'react-i18next';
@@ -34,23 +40,27 @@ export default function RootLayout() {
   return (
     <>
       {!loaded && <SplashScreen />}
-      {loaded && <RootLayoutNav />}
+      {loaded && (
+        <ThemeProvider>
+          <RootLayoutNav />
+        </ThemeProvider>
+      )}
     </>
   );
 }
 
 function RootLayoutNav() {
+  //dark mode
   const colorScheme = useColorScheme();
+  const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
 
   return (
-    <>
-      <I18nextProvider i18n={i18n}>
-        <Stack>
-          <Stack.Screen name="(root)/(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-        <StatusBar />
-      </I18nextProvider>
-    </>
+    <I18nextProvider i18n={i18n}>
+      <Stack>
+        <Stack.Screen name="(root)/(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+      </Stack>
+      <StatusBar />
+    </I18nextProvider>
   );
 }

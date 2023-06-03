@@ -4,13 +4,12 @@ import { Text, View } from 'react-native';
 
 //i18n
 import { useTranslation } from 'react-i18next';
-import i18n from '../../../locales';
 
 export default function App() {
   const { t } = useTranslation();
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View className="flex-1 items-center justify-center bg-white dark:bg-red-500">
       <Text className="text-blue-500">
         Open up App.js to start working on your app!
       </Text>
