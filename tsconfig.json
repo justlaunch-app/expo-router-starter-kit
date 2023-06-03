@@ -1,4 +1,7 @@
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+  "compilerOptions": {
+    "allowJs": true
+  },
+  "extends": "expo/tsconfig.base",
+  "include": ["index.js"]
 }
