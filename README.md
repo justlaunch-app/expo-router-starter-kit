@@ -58,6 +58,14 @@ An opinionated expo-starter for building robust cross-platform apps blazingly fa
 6. Create a detail page when clicking on an element on the carousel or list item.
 7. Implement onesignal notifications.
 8. Create another tab with universal elements.
+9. ENV variables handling
+10. Re-usable components (Logo, Cards, etc.) 
+
+### Doubts
+1. Instead of simple axios calls using react-query. If you have any opinion about this feel free to open a discussion.
+2. Create a universal library for handling expo-icons. -> Create a universal component which can handle all the icon libs within one component.
+3. E-commerce components/pages
+4. Subscription implementation with [RevenueCat](https://www.revenuecat.com/) 
 
 ## Contributing
 
