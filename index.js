@@ -1,3 +1,4 @@
+//TODO: Convert this to TypeScript
 import { registerRootComponent } from "expo";
 import { ExpoRoot } from "expo-router";
 

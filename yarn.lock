@@ -1233,7 +1233,7 @@
     mv "~2"
     safe-json-stringify "~1"
 
-"@expo/cli@0.7.3":
+"@expo/cli@0.7.3", "@expo/cli@^0.7.3":
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@expo/cli/-/cli-0.7.3.tgz#8d61490f4961d40c38af72b7184e3c7cab70773e"
   integrity sha512-uMGHbAhApqXR2sd1KPhgvpbOhBBnspad8msEqHleT2PHXwKIwTUDzBGO9+jdOAWwCx2MJfw3+asYjzoD3DN9Bg==
@@ -3573,7 +3573,7 @@ expo-web-browser@^12.1.1:
     compare-urls "^2.0.0"
     url "^0.11.0"
 
-expo@^48.0.7:
+expo@^48.0.19:
   version "48.0.19"
   resolved "https://registry.yarnpkg.com/expo/-/expo-48.0.19.tgz#0f13be65d3cac99922666e5939388fc22b147e6a"
   integrity sha512-Pmz2HEwcDdjWPq5fM3vF++je0hjZIBX9aTZEkm6sBv09Vfhe4+CuiuKDq3iE+N6G9l2+eFYoRCApDwLqcRMiPA==

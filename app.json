@@ -11,13 +11,13 @@
       "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
-    },    
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
-    ],    
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -30,6 +30,12 @@
     "web": {
       "bundler": "metro",
       "favicon": "./src/assets/images/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "771e0de4-bc78-43ea-82b5-18ea2cd74820"
+      }
+    },
+    "owner": "zoltanfodor_dev"
   }
 }

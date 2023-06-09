@@ -7,10 +7,11 @@
   },
   "dependencies": {
     "@expo-google-fonts/source-code-pro": "^0.2.3",
+    "@expo/cli": "^0.7.3",
     "@react-native-picker/picker": "2.4.8",
     "@shopify/flash-list": "1.4.0",
     "@types/react": "~18.0.27",
-    "expo": "^48.0.7",
+    "expo": "^48.0.19",
     "expo-constants": "~14.2.1",
     "expo-image": "~1.0.1",
     "expo-linking": "~4.0.1",
