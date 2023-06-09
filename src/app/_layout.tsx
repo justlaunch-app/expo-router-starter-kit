@@ -9,6 +9,7 @@ import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import OneSignal from 'react-native-onesignal';
 
 //i18next
 import { I18nextProvider } from 'react-i18next';
@@ -25,6 +26,27 @@ export default function RootLayout() {
     ...FontAwesome.font,
     SpaceMono: SourceCodePro_400Regular,
   });
+
+  //One Signal Notifications
+  useEffect(() => {
+    if (error) throw error;
+
+    /*
+      You can dirrectly add your OneSignal App ID here or you can use Expo constants: 
+      https://docs.expo.dev/versions/latest/config/app/ 
+    */
+
+    // Initialize OneSignal
+    OneSignal.setAppId(''); //TODO: set app id
+    OneSignal.setNotificationOpenedHandler((notification) => {
+      console.log('OneSignal: notification opened:', notification);
+      //Logic to handle notifications goes here
+    });
+    OneSignal.promptForPushNotificationsWithUserResponse((response) => {
+      console.log('OneSignal: User accepted notifications:', response);
+      //Logic to handle notifications goes here
+    });
+  }, [error]);
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
