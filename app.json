@@ -15,11 +15,10 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zoltanfodor.expo-starter-kit"
     },
     "android": {
       "adaptiveIcon": {
@@ -33,9 +32,18 @@
     },
     "extra": {
       "eas": {
-        "projectId": "771e0de4-bc78-43ea-82b5-18ea2cd74820"
+        "projectId": "771e0de4-bc78-43ea-82b5-18ea2cd74820",
+        "oneSignalAppId": "<CHANGE TO YOUR ONESIGNAL KEY>"
       }
     },
-    "owner": "zoltanfodor_dev"
+    "owner": "zoltanfodor_dev",
+    "plugins": [
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
+      ]
+    ]
   }
 }
