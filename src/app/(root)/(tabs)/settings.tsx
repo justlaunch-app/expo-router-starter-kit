@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
-import { View } from '../../../context/Themed';
+import { View } from '_context/Themed';
 
-import i18n from '../../../locales/index';
+import i18n from '_locales/index';
 
 export default function Settings() {
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
