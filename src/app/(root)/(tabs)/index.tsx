@@ -4,7 +4,6 @@ import { Text, View } from 'react-native';
 
 //i18n
 import { useTranslation } from 'react-i18next';
-import i18n from '../../../locales';
 
 export default function App() {
   const { t } = useTranslation();

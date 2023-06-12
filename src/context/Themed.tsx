@@ -9,7 +9,7 @@ import {
   View as DefaultView,
 } from 'react-native';
 
-import Colors from '../constants/Colors';
+import Colors from '_constants/Colors';
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
