@@ -21,6 +21,7 @@ module.exports = function (api) {
             _constants: './src/constants',
             _context: './src/context',
             _locales: './src/locales',
+            _utils: './src/utils',
           },
         },
       ],
