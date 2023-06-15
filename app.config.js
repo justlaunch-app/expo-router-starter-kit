@@ -1,4 +1,6 @@
-{
+require('dotenv').config();
+
+module.exports = {
   "expo": {
     "name": "expo-starter-kit",
     "slug": "expo-starter-kit",
@@ -34,7 +36,8 @@
       "eas": {
         "projectId": "771e0de4-bc78-43ea-82b5-18ea2cd74820",
         "oneSignalAppId": "<CHANGE TO YOUR ONESIGNAL KEY>"
-      }
+      },
+      ...process.env
     },
     "owner": "zoltanfodor_dev",
     "plugins": [
