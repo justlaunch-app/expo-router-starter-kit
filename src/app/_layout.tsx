@@ -31,7 +31,7 @@ export default function RootLayout() {
   });
 
   //EXAMPLE Loading ENV Variables
-  console.log('ENV', ENV.API_KEY_TEST);
+  //const env_weather_api_key = ENV.WEATHER_API_KEY;
 
   //TODO: set OneSignal HERE
   //One Signal Notifications
