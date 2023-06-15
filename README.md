@@ -71,6 +71,17 @@ I have no qualms with the Expo Push service, it has been reliable and easy to wo
 
 The OneSignal implementation in this Expo project provided by [onesignal-expo-plugin](https://github.com/OneSignal/onesignal-expo-plugin)
 
+#### ENV variables 
+1. Create a .env file in the root.
+2. Define env variables inside the .env file
+3. Use env variables everywhere by import env-loader
+
+`import ENV from '_utils/env-loader';`
+
+`const env_weather_api_key = ENV.WEATHER_API_KEY;`
+
+That's it! Nice and simple way of dealing with environment variables.
+
 ## Roadmap
 
 ### Completed Tasks:
@@ -86,8 +97,8 @@ The OneSignal implementation in this Expo project provided by [onesignal-expo-pl
 5. ~~Prettier.~~
 
 6. ~~i18next.~~
-
 7. ~~Implement One Signal notifications.~~
+8. ~~Load ENV variables in a simple way~~
 
 ### In Progress:
 
@@ -109,9 +120,7 @@ The OneSignal implementation in this Expo project provided by [onesignal-expo-pl
 
 7. Create another tab with universal elements.
 
-8. ENV variables handling
-
-9. Re-usable components (Logo, Cards, etc.)
+8. Re-usable components (Logo, Cards, etc.)
 
 ### Doubts
 
