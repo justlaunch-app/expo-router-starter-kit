@@ -15,6 +15,9 @@ import { useColorScheme } from 'react-native';
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'src/locales/index';
 
+//ENV
+import ENV from 'src/utils/env-loader';
+
 export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
@@ -26,6 +29,9 @@ export default function RootLayout() {
     ...FontAwesome.font,
     SpaceMono: SourceCodePro_400Regular,
   });
+
+  //EXAMPLE Loading ENV Variables
+  console.log('ENV', ENV.API_KEY_TEST);
 
   //TODO: set OneSignal HERE
   //One Signal Notifications
