@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "First Slide",
+    "description": "This is the first slide description",
+    "imageUrl": "https://yourdomain.com/path_to_images/image1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Second Slide",
+    "description": "This is the second slide description",
+    "imageUrl": "https://yourdomain.com/path_to_images/image2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Third Slide",
+    "description": "This is the third slide description",
+    "imageUrl": "https://yourdomain.com/path_to_images/image3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Fourth Slide",
+    "description": "This is the fourth slide description",
+    "imageUrl": "https://yourdomain.com/path_to_images/image4.jpg"
+  }
+]
