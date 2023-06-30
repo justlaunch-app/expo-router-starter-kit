@@ -18,26 +18,29 @@ export default function Index() {
   return (
     <View className="flex-1 items-center justify-center bg-white">
       <Text className="text-blue-500">Home</Text>
-      <Text>{t('greeting')}</Text>
-      <Carousel
-        data={homeData}
-        renderItem={({ item }: any) => (
-          <View
-            style={{
-              width: viewportWidth,
-              shadowColor: '#000',
-              shadowOffset: { width: 0, height: 5 },
-              shadowOpacity: 0.3,
-              shadowRadius: 3,
-              elevation: 1,
-            }}
-            className="justify-center items-center bg-white rounded-2xl p-4 m-x-4"
-          >
-            <Text className="text-5xl font-bold">{item.title}</Text>
-            <Text className="text-4xl">{item.text}</Text>
-          </View>
-        )}
-      />
+      <Text className="pt-10">{t('greeting')}</Text>
+      <View className="py-10">
+        <Carousel
+          data={homeData}
+          showPagination={true}
+          renderItem={({ item }: any) => (
+            <View
+              style={{
+                width: viewportWidth,
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 0.3,
+                shadowRadius: 3,
+                elevation: 1,
+              }}
+              className="justify-center items-center bg-white rounded-2xl p-4"
+            >
+              <Text className="text-5xl font-bold">{item.title}</Text>
+              <Text>{item.description}</Text>
+            </View>
+          )}
+        />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
