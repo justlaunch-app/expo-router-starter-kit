@@ -4,9 +4,6 @@ import { Pressable, useColorScheme } from 'react-native';
 import Colors from '_constants/Colors';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
@@ -24,7 +21,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(index)"
         // TODO: Type
         options={({ navigation }): any => ({
           title: 'Tab One',
