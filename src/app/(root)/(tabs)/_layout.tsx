@@ -17,7 +17,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="(index)"
         // TODO: Type
-        options={({ navigation }: any): any => ({
+        options={(): any => ({
           title: 'Tab One',
           tabBarIcon: ({ color }: any) => (
             <TabBarIcon name="code" color={color} />

@@ -1,18 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
+import feedData from '_assets/data/feed.json';
 
-//i18n
-import { useTranslation } from 'react-i18next';
+interface Article {
+  id: number;
+  title: string;
+  author: string;
+  datePublished: string;
+  content: string;
+}
+
+interface RenderItemProps {
+  item: Article;
+}
 
 export default function Feed() {
-  const { t } = useTranslation();
-
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-blue-500">Feed</Text>
-      <Text>{t('greeting')}</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FlashList
+      data={feedData}
+      renderItem={({ item }: RenderItemProps) => (
+        <View className="bg-blue-200 divide-y divide-solid mb-4 px-2 py-3">
+          <Text className="text-blue-800">{item.id}.</Text>
+          <Text>{item.title}</Text>
+          <Text>{item.author}</Text>
+          <Text>{item.datePublished}</Text>
+          <Text>{item.content}</Text>
+        </View>
+      )}
+      estimatedItemSize={200}
+    />
   );
 }
