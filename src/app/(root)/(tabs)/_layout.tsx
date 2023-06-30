@@ -2,14 +2,8 @@ import React from 'react';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
 import Colors from '_constants/Colors';
+import { TabBarIcon } from '_components/TabBarIcon';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -23,9 +17,11 @@ export default function TabLayout() {
       <Tabs.Screen
         name="(index)"
         // TODO: Type
-        options={({ navigation }): any => ({
+        options={({ navigation }: any): any => ({
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }: any) => (
+            <TabBarIcon name="code" color={color} />
+          ),
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
