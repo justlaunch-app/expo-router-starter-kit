@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
+
+//Data
 import feedData from '_assets/data/feed.json';
 
 interface Article {

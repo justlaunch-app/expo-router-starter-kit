@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { viewportWidth } from '_utils/viewport';
 
 //i18n
@@ -16,8 +17,8 @@ export default function Index() {
   const { t } = useTranslation();
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-blue-500">Home</Text>
+    <SafeAreaView className="flex-1 items-center justify-center bg-white">
+      <Text className="text-blue-500">HomeSADS A</Text>
       <Text className="pt-10">{t('greeting')}</Text>
       <View className="py-10">
         <Carousel
@@ -42,6 +43,6 @@ export default function Index() {
         />
       </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
