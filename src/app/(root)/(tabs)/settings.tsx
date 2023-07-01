@@ -19,16 +19,22 @@ export default function Settings() {
   };
 
   return (
-    <SafeAreaView className="flex-1 items-center justify-center">
-      <Picker
-        selectedValue={selectedLanguage}
-        onValueChange={handleValueChange}
-        style={{ height: 50, width: 150 }}
-      >
-        <Picker.Item label="English" value="en" />
-        <Picker.Item label="Spanish" value="es" />
-      </Picker>
-      <Text>Your app version is: {`${appVersion}`}</Text>
+    <SafeAreaView className="flex-1 items-center">
+      <View className="flex-1 bg-transparent">
+        <Picker
+          selectedValue={selectedLanguage}
+          onValueChange={handleValueChange}
+          style={{ height: 50, width: 150 }}
+        >
+          <Picker.Item label="English" value="en" />
+          <Picker.Item label="Spanish" value="es" />
+        </Picker>
+      </View>
+      <View className="flex-2 bg-red-500 px-4 py-2 rounded-lg">
+        <Text className="text-white">
+          Your app version is: {`${appVersion}`}
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
