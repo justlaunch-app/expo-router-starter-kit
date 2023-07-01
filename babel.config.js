@@ -22,6 +22,7 @@ module.exports = function (api) {
             _context: './src/context',
             _locales: './src/locales',
             _utils: './src/utils',
+            _layouts: './src/layouts',
           },
         },
       ],

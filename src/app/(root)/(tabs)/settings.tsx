@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { View } from '_context/Themed';
 import { MonoText as Text } from '_components/StyledText';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 //i18next
 import i18n from '_locales/index';
@@ -18,7 +19,7 @@ export default function Settings() {
   };
 
   return (
-    <View className="flex-1 items-center justify-center">
+    <SafeAreaView className="flex-1 items-center justify-center">
       <Picker
         selectedValue={selectedLanguage}
         onValueChange={handleValueChange}
@@ -28,6 +29,6 @@ export default function Settings() {
         <Picker.Item label="Spanish" value="es" />
       </Picker>
       <Text>Your app version is: {`${appVersion}`}</Text>
-    </View>
+    </SafeAreaView>
   );
 }
