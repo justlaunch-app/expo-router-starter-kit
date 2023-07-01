@@ -104,6 +104,7 @@ That's it! Nice and simple way of dealing with environment variables.
 ### In Progress:
 
 1. Dark/light theme.
+2. Settings screen with light/dark toggle switch and language selector.
 
 ### Upcoming Tasks:
 
@@ -111,15 +112,13 @@ That's it! Nice and simple way of dealing with environment variables.
 
 2. Tutorial screens.
 
-3. Settings screen with light/dark toggle switch and language selector.
+3. Create an example axios weather call and store it in zustand for creating a universal header component.
 
-4. Create an example axios weather call and store it in zustand for creating a universal header component.
+4. Create a detail page when clicking on an element on the carousel or list item.
 
-5. Create a detail page when clicking on an element on the carousel or list item.
-
-6. Create another tab with universal elements.
-
-7. Re-usable components (Logo, Cards, etc.)
+5. Create another tab with universal elements.
+  
+6. Re-usable components (Logo, Cards, etc.)
 
 ### Doubts
 
