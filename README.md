@@ -99,6 +99,7 @@ That's it! Nice and simple way of dealing with environment variables.
 6. ~~i18next.~~
 7. ~~Implement One Signal notifications.~~
 8. ~~Load ENV variables in a simple way~~
+9. ~~Home page with a carousel and two example lists with Shopify flashlist.~~
 
 ### In Progress:
 
@@ -110,17 +111,15 @@ That's it! Nice and simple way of dealing with environment variables.
 
 2. Tutorial screens.
 
-3. Home page with a carousel and two example lists with Shopify flashlist.
+3. Settings screen with light/dark toggle switch and language selector.
 
-4. Settings screen with light/dark toggle switch and language selector.
+4. Create an example axios weather call and store it in zustand for creating a universal header component.
 
-5. Create an example axios weather call and store it in zustand for creating a universal header component.
+5. Create a detail page when clicking on an element on the carousel or list item.
 
-6. Create a detail page when clicking on an element on the carousel or list item.
+6. Create another tab with universal elements.
 
-7. Create another tab with universal elements.
-
-8. Re-usable components (Logo, Cards, etc.)
+7. Re-usable components (Logo, Cards, etc.)
 
 ### Doubts
 
