@@ -11,7 +11,7 @@ import {
 } from '@react-navigation/native';
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useColorScheme } from 'react-native';
 
 import { ThemeProvider } from './../context/ThemeProvider';
@@ -21,6 +21,7 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from '../../src/locales/index';
 
 export { ErrorBoundary } from 'expo-router';
+import { ThemeContext } from '../context/ThemeProvider';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -52,7 +53,11 @@ export default function RootLayout() {
 function RootLayoutNav() {
   //dark mode
   const colorScheme = useColorScheme();
-  const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
+
+  const { theme } = useContext(ThemeContext);
+
+  console.log('THEME: ', theme);
+  // const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
 
   return (
     <I18nextProvider i18n={i18n}>

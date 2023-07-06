@@ -9,7 +9,7 @@ export default function App() {
   const { t } = useTranslation();
 
   return (
-    <View className="flex-1 items-center justify-center bg-white dark:bg-red-500">
+    <View className="flex-1 items-center justify-center">
       <Text className="text-blue-500">
         Open up App.js to start working on your app!
       </Text>

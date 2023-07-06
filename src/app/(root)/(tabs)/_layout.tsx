@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
 import Colors from '../../../constants/Colors';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { ThemeContext } from '../../../context/ThemeProvider';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -16,11 +17,14 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { theme } = useContext(ThemeContext);
 
+  console.log('THEME: ', theme);
+  console.log(Colors[colorScheme ?? 'light'].tint);
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? theme].tint,
       }}
     >
       <Tabs.Screen
