@@ -9,6 +9,8 @@ import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+
+//OneSignal
 // import OneSignal from 'react-native-onesignal';
 
 //i18next
