@@ -3,6 +3,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { viewportWidth, spacing } from '_utils/viewport';
+import { Link } from 'expo-router';
 
 //i18n
 import { useTranslation } from 'react-i18next';
@@ -31,7 +32,15 @@ export default function Index() {
           data={homeData}
           showPagination={true}
           renderItem={({ item }: any) => (
-            <View
+            <Link
+              href={{
+                pathname: '/banner/[id]',
+                params: {
+                  id: item.id,
+                  title: item.title,
+                  description: item.description,
+                },
+              }}
               style={{
                 width: viewportWidth * 0.8,
                 shadowColor: '#000',
@@ -45,7 +54,7 @@ export default function Index() {
             >
               <Text className="text-5xl font-bold">{item.title}</Text>
               <Text>{item.description}</Text>
-            </View>
+            </Link>
           )}
         />
       </View>
