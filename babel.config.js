@@ -13,7 +13,7 @@ module.exports = function (api) {
         'module-resolver',
         {
           root: ['./'],
-          extensions: ['.js', '.ts', '.tsx', '.json'],
+          extensions: ['.ts', '.tsx', '.json'],
           alias: {
             _app: './src/app',
             _assets: './src/assets',
