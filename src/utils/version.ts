@@ -1,5 +1,5 @@
 import Constants from 'expo-constants';
 
-const appVersion = Constants.manifest?.version ?? {};
+const appVersion = Constants.expoConfig?.version ?? {};
 
 export default appVersion;

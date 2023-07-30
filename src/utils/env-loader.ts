@@ -1,5 +1,5 @@
 import Constants from 'expo-constants';
 
-const ENV = Constants.manifest?.extra ?? {};
+const ENV = Constants.expoConfig?.extra ?? {};
 
 export default ENV;
