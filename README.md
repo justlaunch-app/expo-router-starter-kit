@@ -106,6 +106,7 @@ That's it! Nice and simple way of dealing with environment variables.
 
 1. Dark/light theme.
 2. Settings screen with light/dark toggle switch and language selector.
+3. Animated Splash Screen with Lottie Animations
 
 ### Upcoming Tasks:
 
