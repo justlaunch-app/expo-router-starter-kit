@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { SplashScreen } from '_components/LottieSplashScreen';
 
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
@@ -25,7 +26,7 @@ export const unstable_settings = {
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+// ExpoSplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -33,6 +34,7 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
+  const [isDelayOver, setIsDelayOver] = useState(false);
   //EXAMPLE Loading ENV Variables
   //const env_weather_api_key = ENV.WEATHER_API_KEY;
 
@@ -52,19 +54,28 @@ export default function RootLayout() {
   //   });
   // }, []);
 
+  useEffect(() => {
+    if (loaded) {
+      ExpoSplashScreen.hideAsync();
+      setTimeout(() => {
+        setIsDelayOver(true);
+      }, 2500);
+    }
+  }, [loaded]);
+
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+  // useEffect(() => {
+  //   if (loaded) {
 
-  if (!loaded) {
-    return null;
+  //   }
+  // }, [loaded]);
+
+  if (!loaded || !isDelayOver) {
+    return <SplashScreen />;
   }
 
   return <RootLayoutNav />;
