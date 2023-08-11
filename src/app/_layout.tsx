@@ -1,22 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-
-//OneSignal
-// import OneSignal from 'react-native-onesignal';
-
-//i18next
+import { SplashScreen } from '_components/LottieSplashScreen';
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'src/locales/index';
-
-//ENV
-// import ENV from 'src/utils/env-loader';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -24,8 +16,8 @@ export const unstable_settings = {
   initialRouteName: '(tabs)',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+const FONT_LOAD_DELAY = 2000;
+const SCREEN_TRANSITION_DELAY = 150;
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -33,8 +25,11 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
-  //EXAMPLE Loading ENV Variables
-  //const env_weather_api_key = ENV.WEATHER_API_KEY;
+  const [appState, setAppState] = useState({
+    fontsLoaded: false,
+    isDelayOver: false,
+    screenReady: false,
+  });
 
   //TODO: set OneSignal HERE
   //One Signal Notifications
@@ -52,34 +47,51 @@ export default function RootLayout() {
   //   });
   // }, []);
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      ExpoSplashScreen.hideAsync();
+      setAppState((prev) => ({ ...prev, fontsLoaded: true }));
     }
-  }, [loaded]);
+    if (error) {
+      console.error('Font loading error:', error); // Log the error instead of throwing it directly
+    }
+  }, [loaded, error]);
 
-  if (!loaded) {
-    return null;
+  useEffect(() => {
+    if (appState.fontsLoaded) {
+      const timer = setTimeout(() => {
+        setAppState((prev) => ({ ...prev, isDelayOver: true }));
+      }, FONT_LOAD_DELAY);
+
+      return () => clearTimeout(timer);
+    }
+  }, [appState.fontsLoaded]);
+
+  useEffect(() => {
+    if (appState.isDelayOver) {
+      setTimeout(() => {
+        setAppState((prev) => ({ ...prev, screenReady: true }));
+      }, SCREEN_TRANSITION_DELAY);
+    }
+  }, [appState.isDelayOver]);
+
+  if (!loaded || !appState.isDelayOver) {
+    return <SplashScreen animationFadeOut={appState.isDelayOver} />;
   }
 
-  return <RootLayoutNav />;
+  if (appState.screenReady) {
+    return <RootLayoutNav />;
+  }
 }
 
 function RootLayoutNav() {
   return (
-    <>
-      <I18nextProvider i18n={i18n}>
-        <Stack>
-          <Stack.Screen name="(root)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-        <StatusBar />
-      </I18nextProvider>
-    </>
+    <I18nextProvider i18n={i18n}>
+      <Stack>
+        <Stack.Screen name="(root)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+      </Stack>
+      <StatusBar />
+    </I18nextProvider>
   );
 }
