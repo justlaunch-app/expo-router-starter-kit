@@ -4,7 +4,12 @@ import {
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { SplashScreen, Stack } from 'expo-router';
+import {
+  SplashScreen,
+  Stack,
+  useRootNavigationState,
+  useRouter,
+} from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
@@ -12,8 +17,9 @@ import { useEffect } from 'react';
 // import OneSignal from 'react-native-onesignal';
 
 //i18next
-import { I18nextProvider } from 'react-i18next';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from 'src/locales/index';
+import { useAuth } from 'src/store/auth.store';
 
 //ENV
 // import ENV from 'src/utils/env-loader';
@@ -32,6 +38,13 @@ export default function RootLayout() {
     ...FontAwesome.font,
     SpaceMono: SourceCodePro_400Regular,
   });
+  const rootNavigationState = useRootNavigationState();
+  const user = useAuth((state) => state.user);
+  const router = useRouter();
+
+  const navigationKey = React.useMemo(() => {
+    return rootNavigationState?.key;
+  }, [rootNavigationState]);
 
   //EXAMPLE Loading ENV Variables
   //const env_weather_api_key = ENV.WEATHER_API_KEY;
@@ -54,7 +67,9 @@ export default function RootLayout() {
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
-    if (error) throw error;
+    if (error) {
+      throw error;
+    }
   }, [error]);
 
   useEffect(() => {
@@ -62,6 +77,13 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  useEffect(() => {
+    if (!user && navigationKey) {
+      console.log('replace');
+      router.replace('/sign-in');
+    }
+  }, [user, navigationKey]);
 
   if (!loaded) {
     return null;
@@ -71,12 +93,23 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const { t } = useTranslation();
+
   return (
     <>
       <I18nextProvider i18n={i18n}>
         <Stack>
           <Stack.Screen name="(root)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          <Stack.Screen
+            name="sign-in"
+            options={{
+              title: t('sign-in.sign-in'),
+              headerBackButtonMenuEnabled: false,
+              presentation: 'fullScreenModal',
+              headerBackVisible: false,
+            }}
+          />
         </Stack>
         <StatusBar />
       </I18nextProvider>

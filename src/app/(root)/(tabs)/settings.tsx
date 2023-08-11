@@ -3,12 +3,15 @@ import { Picker } from '@react-native-picker/picker';
 import { View } from '_context/Themed';
 import { MonoText as Text } from '_components/StyledText';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button } from 'react-native';
 
 //i18next
 import i18n from '_locales/index';
 
 //app version
 import appVersion from '_utils/version';
+import { useAuth } from 'src/store/auth.store';
+import { useTranslation } from 'react-i18next';
 
 export default function Settings() {
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
@@ -18,8 +21,19 @@ export default function Settings() {
     i18n.changeLanguage(itemValue);
   };
 
+  const { t } = useTranslation();
+
+  const logout = useAuth(({ logout }) => logout);
+  const email = useAuth(({ user }) => user?.email);
+
   return (
     <SafeAreaView className="flex-1 items-center">
+      <View className="my-4 bg-transparent gap-y-4 p-4">
+        <Text className="text-lg">
+          {t('sign-in.logged-in-as')} {email}
+        </Text>
+        <Button title={t('sign-in.sign-out')} onPress={logout} color="red" />
+      </View>
       <View className="flex-1 bg-transparent">
         <Picker
           selectedValue={selectedLanguage}

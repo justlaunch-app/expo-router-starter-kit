@@ -4,5 +4,18 @@
     "two": "Dos",
     "settings": "Ajustes"
   },
-  "greeting": "Hola, Mundo!"
+  "greeting": "Hola, Mundo!",
+  "sign-in": {
+    "errors": {
+      "password-requires": "¡Se requiere contraseña!",
+      "password-invalid": "¡La contraseña debe contener al menos 8 caracteres!",
+      "email-required": "¡Se requiere correo electrónico!",
+      "email-invalid": "¡El formato del correo electrónico es incorrecto!"
+    },
+    "email": "correo electrónico",
+    "password": "contraseña",
+    "logged-in-as": "Conectado como",
+    "sign-out": "Cerrar sesión",
+    "sign-in": "Iniciar sesión"
+  }
 }
