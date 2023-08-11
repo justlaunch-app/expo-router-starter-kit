@@ -4,18 +4,5 @@
     "two": "Two",
     "settings": "Settings"
   },
-  "greeting": "🚀 expo-starter-kit 🚀",
-  "sign-in": {
-    "errors": {
-      "password-requires": "Password is required!",
-      "password-invalid": "Password should includes at least 8 characters!",
-      "email-required": "Email is required!",
-      "email-invalid": "Email format is incorrect!"
-    },
-    "email": "email",
-    "password": "password",
-    "logged-in-as": "Logged in as",
-    "sign-out": "Sign out",
-    "sign-in": "Sign In"
-  }
+  "greeting": "🚀 expo-starter-kit 🚀"
 }
