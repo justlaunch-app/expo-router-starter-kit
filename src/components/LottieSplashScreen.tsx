@@ -3,47 +3,63 @@ import { Modal, Animated, View } from 'react-native';
 import LottieView from 'lottie-react-native';
 import lottieAnimation from 'src/assets/splash/lottie_animated_logo.json';
 
-export const SplashScreen: React.FunctionComponent<{
+interface SplashScreenProps {
   animationFadeOut: boolean;
   onHidden?: () => void;
-}> = ({ animationFadeOut, onHidden }) => {
+}
+
+const FADE_IN_DURATION = 1000;
+const FADE_OUT_DURATION = 500;
+
+export const SplashScreen: React.FunctionComponent<SplashScreenProps> = ({
+  animationFadeOut,
+  onHidden,
+}) => {
   const [visible, setVisible] = useState(true);
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1000,
+      duration: FADE_IN_DURATION,
       useNativeDriver: true,
     }).start();
   };
 
-  // Function to fade out the modal
   const fadeOut = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 500,
+      duration: FADE_OUT_DURATION,
       useNativeDriver: true,
     }).start(() => {
       setVisible(false);
-      // onHidden();
+      if (onHidden) onHidden();
     });
   };
 
   useEffect(() => {
     fadeIn();
-  }, []);
 
-  useEffect(() => {
     if (animationFadeOut) {
       fadeOut();
     }
   }, [animationFadeOut]);
 
+  const onLottieAnimationComplete = () => {
+    if (animationFadeOut) {
+      fadeOut();
+    }
+  };
+
   return (
     <Modal transparent visible={visible}>
       <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
-        <LottieView source={lottieAnimation} loop={false} autoPlay />
+        <LottieView
+          source={lottieAnimation}
+          loop={false}
+          autoPlay
+          onAnimationFinish={onLottieAnimationComplete}
+        />
       </Animated.View>
     </Modal>
   );
