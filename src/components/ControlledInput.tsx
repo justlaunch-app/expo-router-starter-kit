@@ -35,6 +35,7 @@ export function ControlledInput<T extends FieldValues>(
   const { t } = useTranslation();
 
   const { field, fieldState } = useController({ control, name, rules });
+
   return (
     <View className="bg-transparent">
       <TextInput
