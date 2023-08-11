@@ -80,7 +80,6 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (!user && navigationKey) {
-      console.log('replace');
       router.replace('/sign-in');
     }
   }, [user, navigationKey]);
