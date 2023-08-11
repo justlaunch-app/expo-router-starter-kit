@@ -22,7 +22,7 @@ export const SplashScreen: React.FunctionComponent<{
   const fadeOut = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 1000,
+      duration: 500,
       useNativeDriver: true,
     }).start(() => {
       setVisible(false);
