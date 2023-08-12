@@ -1,10 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
+import { View } from 'react-native';
 import { Link } from 'expo-router';
 
-//Data
+//DATA
 import feedData from '_assets/data/feed.json';
+
+//COMPONENTS
+import FeedItem from '_components/FeedItem';
 
 interface Article {
   id: number;
@@ -12,6 +15,7 @@ interface Article {
   author: string;
   datePublished: string;
   content: string;
+  imgSrc: string;
 }
 
 interface RenderItemProps {
@@ -23,26 +27,23 @@ export default function Feed() {
     <FlashList
       data={feedData}
       renderItem={({ item }: RenderItemProps) => (
-        <View className="bg-blue-200 divide-y divide-solid mb-4 px-2 py-3">
-          <Link
-            href={{
-              pathname: '/feed/[id]',
-              params: {
-                id: item.id,
-                title: item.title,
-                author: item.author,
-                datePublished: item.datePublished,
-                content: item.content,
-              },
-            }}
-          >
-            <Text className="text-blue-800">{item.id}.</Text>
-            <Text>{item.title}</Text>
-            <Text>{item.author}</Text>
-            <Text>{item.datePublished}</Text>
-            <Text>{item.content}</Text>
-          </Link>
-        </View>
+        <Link
+          href={{
+            pathname: '/feed/[id]',
+            params: {
+              id: item.id,
+              title: item.title,
+              author: item.author,
+              datePublished: item.datePublished,
+              content: item.content,
+              imgSrc: item.imgSrc,
+            },
+          }}
+        >
+          <View className="my-4">
+            <FeedItem item={item} />
+          </View>
+        </Link>
       )}
       estimatedItemSize={200}
     />
