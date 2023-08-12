@@ -1,18 +1,30 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Touchable } from 'react-native';
 import { Image } from 'expo-image';
 import React from 'react';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '_utils/blurhash';
+import * as Sharing from 'expo-sharing';
+import TouchableOpacity from '_components/Buttons/TouchableOpacity';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const DetailFeed = () => {
   const { id, title, author, datePublished, content, imgSrc } =
     useLocalSearchParams();
 
   return (
-    <View className="flex-1 items-center pt-20">
+    <View className="flex-1 items-center">
       <Stack.Screen
         options={{
           headerTitle: `FEED ${id}`,
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() =>
+                Sharing.shareAsync('https://linktr.zoltanfodor.dev/')
+              }
+            >
+              <Ionicons name="share" size={24} color="black" />
+            </TouchableOpacity>
+          ),
         }}
       />
       <Image
