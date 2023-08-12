@@ -64,6 +64,9 @@ export default function SignUp() {
 
   return (
     <View className="flex-1 items-center p-4 gap-y-8">
+      <View>
+        <Text className="text-3xl mt-2 font-semibold">EXPO STARTER KIT</Text>
+      </View>
       <View className="w-full bg-transparent">
         <Text className="font-bold mb-2">{t('auth.email')}</Text>
         <ControlledInput
