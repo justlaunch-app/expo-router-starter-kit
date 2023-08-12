@@ -41,8 +41,6 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
 
       Alert.alert(t(error));
       reset();
-      close();
-
       return;
     }
 
