@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import i18n from '_locales/index';
 
 //app version
-import appVersion from '_utils/version';
+import appVersion from '_config/version';
 
 export default function Settings() {
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
