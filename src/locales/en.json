@@ -5,17 +5,28 @@
     "settings": "Settings"
   },
   "greeting": "🚀 expo-starter-kit 🚀",
-  "sign-in": {
+  "auth": {
     "errors": {
-      "password-requires": "Password is required!",
       "password-invalid": "Password should includes at least 8 characters!",
       "email-required": "Email is required!",
-      "email-invalid": "Email format is incorrect!"
+      "email-invalid": "Email format is incorrect!",
+      "nickname-required": "Nickname is required!",
+      "user-does-not-exist": "User does not exist!",
+      "invalid-password": "Invalid password!",
+      "already-registered": "You are already registered"
     },
+    "reset-password": "Reset password",
+    "reset": "Reset",
     "email": "email",
+    "nickname": "nickname",
     "password": "password",
     "logged-in-as": "Logged in as",
     "sign-out": "Sign out",
-    "sign-in": "Sign In"
-  }
+    "sign-in": "Sign In",
+    "sign-up": "Sign Up",
+    "your-new-password": "Your new password",
+    "go-to-login": "Go to login"
+  },
+  "copy-to-clipboard": "Copy to clipboard",
+  "copied-to-clipboard": "Copied to clipboard"
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
@@ -8,10 +8,12 @@ import {
   SplashScreen,
   Stack,
   useRootNavigationState,
-  useRouter,
+  useSegments,
+  router,
 } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
@@ -20,6 +22,7 @@ import { useEffect } from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/auth.store';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 //ENV
 // import ENV from 'src/utils/env-loader';
@@ -33,18 +36,36 @@ export const unstable_settings = {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+function useProtectedRoute() {
+  const segments = useSegments();
+  const rootNavigationState = useRootNavigationState();
+
+  const user = useAuth(({ user }) => user);
+
+  const navigationKey = React.useMemo(() => {
+    return rootNavigationState?.key;
+  }, [rootNavigationState]);
+
+  useLayoutEffect(() => {
+    const inAuthGroup = segments[0] === '(auth)';
+
+    if (!navigationKey) {
+      return;
+    }
+
+    if (!user && !inAuthGroup) {
+      router.replace('/sign-in');
+    } else if (user && inAuthGroup) {
+      router.replace('/');
+    }
+  }, [user, segments, navigationKey]);
+}
+
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     ...FontAwesome.font,
     SpaceMono: SourceCodePro_400Regular,
   });
-  const rootNavigationState = useRootNavigationState();
-  const user = useAuth((state) => state.user);
-  const router = useRouter();
-
-  const navigationKey = React.useMemo(() => {
-    return rootNavigationState?.key;
-  }, [rootNavigationState]);
 
   //EXAMPLE Loading ENV Variables
   //const env_weather_api_key = ENV.WEATHER_API_KEY;
@@ -78,11 +99,7 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-  useEffect(() => {
-    if (!user && navigationKey) {
-      router.replace('/sign-in');
-    }
-  }, [user, navigationKey]);
+  useProtectedRoute();
 
   if (!loaded) {
     return null;
@@ -92,26 +109,15 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const { t } = useTranslation();
-
   return (
-    <>
+    <RootSiblingParent>
       <I18nextProvider i18n={i18n}>
         <Stack>
           <Stack.Screen name="(root)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-          <Stack.Screen
-            name="sign-in"
-            options={{
-              title: t('sign-in.sign-in'),
-              headerBackButtonMenuEnabled: false,
-              presentation: 'fullScreenModal',
-              headerBackVisible: false,
-            }}
-          />
         </Stack>
         <StatusBar />
       </I18nextProvider>
-    </>
+    </RootSiblingParent>
   );
 }

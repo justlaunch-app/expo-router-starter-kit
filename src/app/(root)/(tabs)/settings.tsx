@@ -24,15 +24,15 @@ export default function Settings() {
   const { t } = useTranslation();
 
   const logout = useAuth(({ logout }) => logout);
-  const email = useAuth(({ user }) => user?.email);
+  const nickname = useAuth(({ user }) => user?.nickname);
 
   return (
     <SafeAreaView className="flex-1 items-center">
       <View className="my-4 bg-transparent gap-y-4 p-4">
         <Text className="text-lg">
-          {t('sign-in.logged-in-as')} {email}
+          {t('auth.logged-in-as')} {nickname}
         </Text>
-        <Button title={t('sign-in.sign-out')} onPress={logout} color="red" />
+        <Button title={t('auth.sign-out')} onPress={logout} color="red" />
       </View>
       <View className="flex-1 bg-transparent">
         <Picker
