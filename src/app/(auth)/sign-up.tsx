@@ -21,8 +21,10 @@ const schema = z.object({
 });
 
 export default function SignUp() {
+  const { t } = useTranslation();
+  useSetTitle(t('auth.sign-up'));
+
   const isFocused = useIsFocused();
-  useSetTitle('register');
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -34,7 +36,6 @@ export default function SignUp() {
   });
 
   const register = useAuth((state) => state.register);
-  const { t } = useTranslation();
 
   const onSubmit = handleSubmit((newUser) => {
     const { error } = register(newUser) ?? {};

@@ -19,7 +19,9 @@ const schema = z.object({
 });
 
 export default function SignIn() {
-  useSetTitle('login');
+  const { t } = useTranslation();
+  useSetTitle(t('auth.sign-in'));
+
   const isFocused = useIsFocused();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +35,6 @@ export default function SignIn() {
   });
 
   const login = useAuth((state) => state.login);
-  const { t } = useTranslation();
 
   const onSubmit = handleSubmit((credentials) => {
     const { error } = login(credentials) ?? {};
