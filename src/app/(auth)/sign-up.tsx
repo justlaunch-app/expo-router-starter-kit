@@ -41,12 +41,12 @@ export default function SignUp() {
     const { error } = register(newUser) ?? {};
 
     if (!error) {
-      reset();
       Alert.alert(t('auth.sign-up-completed'), undefined, [
         {
           text: t('auth.go-to-sign-in'),
           onPress: () => {
             router.replace('/(auth)/sign-in');
+            reset();
           },
         },
       ]);
