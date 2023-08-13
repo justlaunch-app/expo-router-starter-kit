@@ -30,5 +30,6 @@
   },
   "copy-to-clipboard": "Copy to clipboard",
   "copied-to-clipboard": "Copied to clipboard",
-  "language": "Language"
+  "language": "Language",
+  "update-language": "Update language"
 }

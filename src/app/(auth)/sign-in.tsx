@@ -24,7 +24,7 @@ export default function SignIn() {
 
   const isFocused = useIsFocused();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalResetOpen, setModalResetOpen] = useState(false);
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -76,14 +76,14 @@ export default function SignIn() {
       </View>
 
       <View>
-        <Pressable onPress={() => setIsModalOpen(true)}>
+        <Pressable onPress={() => setModalResetOpen(true)}>
           <Text>{t('auth.reset-password')}</Text>
         </Pressable>
       </View>
 
       <ResetPasswordModal
-        visible={isModalOpen}
-        close={() => setIsModalOpen(false)}
+        visible={modalResetOpen}
+        close={() => setModalResetOpen(false)}
       />
     </View>
   );

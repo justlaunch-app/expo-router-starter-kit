@@ -1,65 +1,22 @@
-import React, { useState } from 'react';
-import { Picker } from '@react-native-picker/picker';
-import { View } from '_context/Themed';
-import { MonoText as Text } from '_components/StyledText';
+import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Button, Platform } from 'react-native';
 
-//i18next
-import i18n from '_locales/index';
-
-//app version
-import appVersion from '_utils/version';
-import { useAuth } from 'src/store/auth.store';
-import { useTranslation } from 'react-i18next';
-import { classNames } from '_utils/classNames';
+import { LanguagePicker } from '_components/LanguagePicker';
+import { AppVersion } from 'src/components/AppVersion';
+import { LoginInfo } from '_components/LoginInfo';
+import { View } from '_context/Themed';
 
 export default function Settings() {
-  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
-
-  const handleValueChange = (itemValue: string) => {
-    setSelectedLanguage(itemValue);
-    i18n.changeLanguage(itemValue);
-  };
-
-  const { t } = useTranslation();
-
-  const logout = useAuth(({ logout }) => logout);
-  const nickname = useAuth(({ user }) => user?.nickname);
-
   return (
     <SafeAreaView className="flex-1 items-center justify-between">
-      <View className="flex-1 my-4 bg-transparent gap-y-4 p-4">
-        <Text className="text-lg">
-          {t('auth.logged-in-as')}{' '}
-          <Text className="font-semibold text-blue-500">{nickname}</Text>
-        </Text>
-        <Button title={t('auth.sign-out')} onPress={logout} color="red" />
+      <View className="flex-1 relative bg-transparent">
+        <LoginInfo />
       </View>
       <View className="flex-1 relative bg-transparent">
-        <Text className="text-lg font-semibold">{t('language')}:</Text>
-        <View
-          className={classNames({
-            '-mt-12': Platform.OS === 'ios',
-            'bg-transparent': true,
-          })}
-        >
-          <Picker
-            selectedValue={selectedLanguage}
-            onValueChange={handleValueChange}
-            style={{ height: 50, width: 150 }}
-          >
-            <Picker.Item label="English" value="en" />
-            <Picker.Item label="Spanish" value="es" />
-          </Picker>
-        </View>
+        <LanguagePicker />
       </View>
-      <View className="flex-1 justify-end pb-4 bg-transparent">
-        <View className="bg-red-500 px-4 py-2 rounded-lg">
-          <Text className="text-white">
-            Your app version is: {`${appVersion}`}
-          </Text>
-        </View>
+      <View className="flex-1 justify-end relative bg-transparent">
+        <AppVersion />
       </View>
     </SafeAreaView>
   );

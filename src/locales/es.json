@@ -30,5 +30,6 @@
   },
   "copy-to-clipboard": "Copiar al portapapeles",
   "copied-to-clipboard": "Copiado al portapapeles",
-  "language": "Keel"
+  "language": "Keel",
+  "update-language": "uuenduskeel"
 }
