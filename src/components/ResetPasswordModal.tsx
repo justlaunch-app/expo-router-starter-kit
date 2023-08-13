@@ -8,7 +8,10 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAuth } from 'src/store/auth.store';
 import { useTranslation } from 'react-i18next';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 import IonIcons from '@expo/vector-icons/Ionicons';
 import { emailSchema } from '_utils/auth.schema';
 import * as Clipboard from 'expo-clipboard';
@@ -23,6 +26,7 @@ const schema = z.object({
 });
 export function ResetPasswordModal({ visible, close }: ResetModalProps) {
   const { t } = useTranslation();
+  const { top } = useSafeAreaInsets();
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -61,7 +65,7 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
 
   return (
     <Modal visible={visible} animationType="slide">
-      <SafeAreaView className="flex-1 h-screen">
+      <SafeAreaView className="flex-1 h-screen" style={{ top }}>
         <View className="flex items-center flex-row justify-between w-full px-4 border-b border-slate-100">
           <Text className="font-bold text-lg">{t('auth.reset-password')}</Text>
           <Pressable className="p-2" onPress={close}>
