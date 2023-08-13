@@ -29,5 +29,6 @@
     "sign-up-completed": "Sign Up completed!"
   },
   "copy-to-clipboard": "Copy to clipboard",
-  "copied-to-clipboard": "Copied to clipboard"
+  "copied-to-clipboard": "Copied to clipboard",
+  "language": "Language"
 }
