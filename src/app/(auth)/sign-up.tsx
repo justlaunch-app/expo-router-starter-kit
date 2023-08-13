@@ -42,9 +42,9 @@ export default function SignUp() {
 
     if (!error) {
       reset();
-      Alert.alert('Registered completed!', undefined, [
+      Alert.alert(t('auth.sign-up-completed'), undefined, [
         {
-          text: t('auth.go-to-login'),
+          text: t('auth.go-to-sign-in'),
           onPress: () => {
             router.replace('/(auth)/sign-in');
           },
