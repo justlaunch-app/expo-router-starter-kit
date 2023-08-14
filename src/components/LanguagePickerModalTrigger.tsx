@@ -8,7 +8,7 @@ import Animated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
-import { Keyboard } from 'react-native';
+import { Keyboard, useColorScheme } from 'react-native';
 
 export function LanguagePickerModalTrigger() {
   const opacity = useSharedValue(1);
@@ -22,6 +22,7 @@ export function LanguagePickerModalTrigger() {
   });
 
   const { open } = useLangModal();
+  const colorScheme = useColorScheme();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -48,7 +49,11 @@ export function LanguagePickerModalTrigger() {
   return (
     <Animated.View className="absolute right-8 bottom-8" style={animatedStyles}>
       <IconButton onPress={open}>
-        <IonIcons name="settings" size={24} />
+        <IonIcons
+          name="settings"
+          size={24}
+          color={colorScheme === 'dark' ? 'color: rgb(226 232 240)' : 'black'}
+        />
       </IconButton>
     </Animated.View>
   );

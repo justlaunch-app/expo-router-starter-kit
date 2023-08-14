@@ -1,7 +1,7 @@
 import { View } from '_context/Themed';
-import { TextInput, TextInputProps, Text } from 'react-native';
+import { TextInput, TextInputProps, Text, useColorScheme } from 'react-native';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Control,
   FieldValues,
@@ -23,6 +23,17 @@ export type InputControllerType<T extends FieldValues> = {
   rules?: TRule;
 };
 
+const styles = {
+  dark: {
+    className: 'bg-slate-900 text-white',
+    placeholderTextColor: 'rgba(255, 255, 255, 0.25)',
+  },
+  light: {
+    className: 'bg-white text-black',
+    placeholderTextColor: 'rgba(0,0,0,0.25)',
+  },
+};
+
 interface ControlledInputProps<T extends FieldValues>
   extends TextInputProps,
     InputControllerType<T> {}
@@ -36,6 +47,15 @@ export function ControlledInput<T extends FieldValues>(
 
   const { field, fieldState } = useController({ control, name, rules });
 
+  const colorScheme = useColorScheme();
+
+  const { placeholderTextColor, className } = useMemo(() => {
+    if (!colorScheme) {
+      return styles.light;
+    }
+    return styles[colorScheme];
+  }, []);
+
   return (
     <View className="bg-transparent">
       <TextInput
@@ -43,7 +63,8 @@ export function ControlledInput<T extends FieldValues>(
         autoCapitalize="none"
         onChangeText={field.onChange}
         value={field.value as string}
-        className="p-4 text-slate-900 w-full bg-slate-100 shadow-sm"
+        className={`p-4 w-full shadow-sm rounded-sm border-2 border-transparent focus:border-blue-500 ${className}`}
+        placeholderTextColor={placeholderTextColor}
         {...inputProps}
       />
       {fieldState.error && (
