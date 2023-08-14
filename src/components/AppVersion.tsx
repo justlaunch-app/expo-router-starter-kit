@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from '_context/Themed';
 import { MonoText as Text } from '_components/StyledText';
-import appVersion from '_utils/version';
+import appVersion from '_config/version';
 
 export function AppVersion() {
   return (

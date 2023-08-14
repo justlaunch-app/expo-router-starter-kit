@@ -12,13 +12,9 @@
       "_locales/*": ["src/locales/*"],
       "_utils/*": ["src/utils/*"],
       "_layouts/*": ["src/layouts/*"],
-      "_config/*": ["src/config/*"]
+      "_config/*": ["src/config/*"],
+      "_utils/*": ["src/utils/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

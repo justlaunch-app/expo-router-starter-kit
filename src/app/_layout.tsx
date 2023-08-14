@@ -6,14 +6,12 @@ import {
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 import {
-  SplashScreen,
   Stack,
   useRootNavigationState,
   useSegments,
   router,
+  SplashScreen as ExpoSplashScreen,
 } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
 import {
@@ -25,15 +23,12 @@ import {
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
 
-//i18next
-import { I18nextProvider, useTranslation } from 'react-i18next';
-import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
+import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen } from '_components/LottieSplashScreen';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/auth.store';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Platform, useColorScheme } from 'react-native';
+import { useColorScheme } from 'react-native';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -125,9 +120,7 @@ export default function RootLayout() {
     }
   }, [appState.isDelayOver]);
 
-
   useProtectedRoute();
-
 
   if (!loaded || !appState.isDelayOver) {
     return <SplashScreen animationFadeOut={appState.isDelayOver} />;
