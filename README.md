@@ -1,6 +1,6 @@
 # 📱 expo-starter-kit
 
-An opinionated expo-starter for building robust cross-platform apps blazingly fast! This project purpose is for creating a minimum viable product (MVP) in a single day.
+An opinionated expo-starter for building robust cross-platform apps blazingly fast with expo-router! This project purpose is for creating a minimum viable product (MVP) in a single day.
 
 ## Stack
 
@@ -21,6 +21,8 @@ An opinionated expo-starter for building robust cross-platform apps blazingly fa
 - [@shopify/flash-list](https://github.com/Shopify/flash-list) - React Native flash list component
 
 - [OneSignal](https://onesignal.com/) - Push Notification delivery
+
+- [Lottie](https://lottiefiles.com/) - Animated Splash Screen
 
 #### Why OneSignal over Expo Push ?
 
@@ -71,7 +73,12 @@ I have no qualms with the Expo Push service, it has been reliable and easy to wo
 
 The OneSignal implementation in this Expo project provided by [onesignal-expo-plugin](https://github.com/OneSignal/onesignal-expo-plugin)
 
-#### ENV variables 
+#### Lottie Splash Screen
+
+You can create awesome animated Splash Screen. You simple need the Lottie json file to be imported and you are good to go!
+
+#### ENV variables
+
 1. Create a .env file in the root.
 2. Define env variables inside the .env file
 3. Use env variables everywhere by import env-loader
@@ -101,12 +108,12 @@ That's it! Nice and simple way of dealing with environment variables.
 8. ~~Load ENV variables in a simple way~~
 9. ~~Home page with a carousel and two example lists with Shopify flashlist.~~
 10. ~~Create a detail page when clicking on an element on the carousel or list item.~~
+11. ~~Animated Splash Screen with Lottie Animations~~
 
 ### In Progress:
 
 1. Dark/light theme.
 2. Settings screen with light/dark toggle switch and language selector.
-3. Animated Splash Screen with Lottie Animations
 
 ### Upcoming Tasks:
 
@@ -117,7 +124,7 @@ That's it! Nice and simple way of dealing with environment variables.
 3. Create an example axios weather call and store it in zustand for creating a universal header component.
 
 4. Create another tab with universal elements.
-  
+
 5. Re-usable components (Logo, Cards, etc.)
 
 ### Doubts

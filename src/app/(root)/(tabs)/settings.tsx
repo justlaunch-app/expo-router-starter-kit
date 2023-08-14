@@ -1,10 +1,15 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import i18n from '_locales/index';
 
+//COMPONENTS
 import { LanguagePicker } from '_components/LanguagePicker';
 import { AppVersion } from 'src/components/AppVersion';
 import { LoginInfo } from '_components/LoginInfo';
 import { View } from '_context/Themed';
+
+//APP VERSION
+import appVersion from '_config/version';
 
 export default function Settings() {
   return (

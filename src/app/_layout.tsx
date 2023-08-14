@@ -1,9 +1,10 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 import {
   SplashScreen,
   Stack,
@@ -26,13 +27,13 @@ import {
 
 //i18next
 import { I18nextProvider, useTranslation } from 'react-i18next';
+import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { SplashScreen } from '_components/LottieSplashScreen';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/auth.store';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Platform, useColorScheme } from 'react-native';
-
-//ENV
-// import ENV from 'src/utils/env-loader';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -40,8 +41,8 @@ export const unstable_settings = {
   initialRouteName: '(tabs)',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+const FONT_LOAD_DELAY = 2000;
+const SCREEN_TRANSITION_DELAY = 150;
 
 function useProtectedRoute() {
   const segments = useSegments();
@@ -74,8 +75,11 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
-  //EXAMPLE Loading ENV Variables
-  //const env_weather_api_key = ENV.WEATHER_API_KEY;
+  const [appState, setAppState] = useState({
+    fontsLoaded: false,
+    isDelayOver: false,
+    screenReady: false,
+  });
 
   //TODO: set OneSignal HERE
   //One Signal Notifications
@@ -93,26 +97,45 @@ export default function RootLayout() {
   //   });
   // }, []);
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
+    if (loaded) {
+      ExpoSplashScreen.hideAsync();
+      setAppState((prev) => ({ ...prev, fontsLoaded: true }));
+    }
     if (error) {
       throw error;
     }
-  }, [error]);
+  }, [loaded, error]);
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    if (appState.fontsLoaded) {
+      const timer = setTimeout(() => {
+        setAppState((prev) => ({ ...prev, isDelayOver: true }));
+      }, FONT_LOAD_DELAY);
+
+      return () => clearTimeout(timer);
     }
-  }, [loaded]);
+  }, [appState.fontsLoaded]);
+
+  useEffect(() => {
+    if (appState.isDelayOver) {
+      setTimeout(() => {
+        setAppState((prev) => ({ ...prev, screenReady: true }));
+      }, SCREEN_TRANSITION_DELAY);
+    }
+  }, [appState.isDelayOver]);
+
 
   useProtectedRoute();
 
-  if (!loaded) {
-    return null;
+
+  if (!loaded || !appState.isDelayOver) {
+    return <SplashScreen animationFadeOut={appState.isDelayOver} />;
   }
 
-  return <RootLayoutNav />;
+  if (appState.screenReady) {
+    return <RootLayoutNav />;
+  }
 }
 
 function RootLayoutNav() {
