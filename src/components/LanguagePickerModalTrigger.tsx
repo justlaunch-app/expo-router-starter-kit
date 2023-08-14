@@ -9,10 +9,13 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { Keyboard, useColorScheme } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export function LanguagePickerModalTrigger() {
   const opacity = useSharedValue(1);
   const translateY = useSharedValue(0);
+
+  const { bottom } = useSafeAreaInsets();
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
@@ -47,7 +50,10 @@ export function LanguagePickerModalTrigger() {
   }, []);
 
   return (
-    <Animated.View className="absolute right-8 bottom-8" style={animatedStyles}>
+    <Animated.View
+      className="absolute right-8"
+      style={[animatedStyles, { bottom: bottom + 32 }]}
+    >
       <IconButton onPress={open}>
         <IonIcons
           name="settings"
