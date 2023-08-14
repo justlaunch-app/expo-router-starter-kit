@@ -7,7 +7,7 @@ import { ControlledInput } from '_components/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useAuth } from 'src/store/auth.store';
+import { useAuth } from 'src/store/authStore/auth.store';
 import { useTranslation } from 'react-i18next';
 import { useSetTitle } from 'src/hooks/useSetTitle';
 import { router } from 'expo-router';

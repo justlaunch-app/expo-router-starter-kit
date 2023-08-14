@@ -1,6 +1,6 @@
 import { IconButton } from '_components/IconButton';
 import { useEffect } from 'react';
-import { useLangModal } from 'src/store/lang-picker-modal.store';
+import { useLangModal } from 'src/store/langStore/lang-picker-modal.store';
 import IonIcons from '@expo/vector-icons/Ionicons';
 import Animated, {
   useAnimatedStyle,

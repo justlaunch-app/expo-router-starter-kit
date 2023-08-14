@@ -3,7 +3,7 @@ import { MaterialTopTabs } from '_layouts/material-top-tabs';
 import { useNavigation } from 'expo-router';
 import { useLayoutEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useLangModal } from 'src/store/lang-picker-modal.store';
+import { useLangModal } from 'src/store/langStore/lang-picker-modal.store';
 import { LanguagePickerModalTrigger } from 'src/components/LanguagePickerModalTrigger';
 
 export default function IndexTopTabsLayout() {

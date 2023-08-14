@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from '_context/Themed';
 import { MonoText as Text } from '_components/StyledText';
 import { Button } from 'react-native';
-import { useAuth } from 'src/store/auth.store';
+import { useAuth } from 'src/store/authStore/auth.store';
 import { useTranslation } from 'react-i18next';
 
 export function LoginInfo() {

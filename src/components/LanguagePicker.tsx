@@ -4,7 +4,7 @@ import { Platform, useColorScheme } from 'react-native';
 import { classNames } from '_utils/classNames';
 import { Picker } from '@react-native-picker/picker';
 import { useTranslation } from 'react-i18next';
-import { useLang } from 'src/store/lang.store';
+import { useLang } from 'src/store/langStore/lang.store';
 
 const options = [
   { label: 'English', value: 'en' },

@@ -27,7 +27,7 @@ import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen } from '_components/LottieSplashScreen';
 import i18n from 'src/locales/index';
-import { useAuth } from 'src/store/auth.store';
+import { useAuth } from 'src/store/authStore/auth.store';
 import { useColorScheme } from 'react-native';
 
 export { ErrorBoundary } from 'expo-router';
