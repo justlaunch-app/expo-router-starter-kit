@@ -1,5 +1,12 @@
+import Colors from '_constants/Colors';
+import { View } from '_context/Themed';
 import { classNames } from '_utils/classNames';
-import { Platform, Pressable, PressableProps } from 'react-native';
+import {
+  Platform,
+  Pressable,
+  PressableProps,
+  useColorScheme,
+} from 'react-native';
 
 type IconButtonProps = Omit<PressableProps, 'className'> & {
   classNames?: Record<string, boolean>;
@@ -10,19 +17,27 @@ export function IconButton({
   children,
   ...props
 }: IconButtonProps) {
+  const colorScheme = useColorScheme();
+
   return (
-    <Pressable
+    <View
       className={classNames({
-        'p-4 shadow-md bg-white rounded-md': true,
+        'shadow-md rounded-md overflow-hidden': true,
         'active:text-slate-100': Platform.OS === 'ios',
+        'bg-white': colorScheme === 'light',
+        'bg-slate-900': colorScheme === 'dark',
         ..._classNames,
       })}
-      android_ripple={{
-        color: 'rgb(241,245,249)',
-      }}
-      {...props}
     >
-      {children}
-    </Pressable>
+      <Pressable
+        className="w-full h-full p-4"
+        android_ripple={{
+          color: Colors[colorScheme ?? 'light'].android_ripple.color,
+        }}
+        {...props}
+      >
+        {children}
+      </Pressable>
+    </View>
   );
 }

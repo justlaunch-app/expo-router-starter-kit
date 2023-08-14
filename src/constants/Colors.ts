@@ -8,6 +8,9 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
+    android_ripple: {
+      color: 'rgb(241,245,249)',
+    },
   },
   dark: {
     text: '#fff',
@@ -15,5 +18,8 @@ export default {
     tint: tintColorDark,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
+    android_ripple: {
+      color: '#475569',
+    },
   },
 };
