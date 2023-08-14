@@ -4,5 +4,32 @@
     "two": "Dos",
     "settings": "Ajustes"
   },
-  "greeting": "Hola, Mundo!"
+  "greeting": "Hola, Mundo!",
+  "auth": {
+    "errors": {
+      "password-invalid": "¡La contraseña debe incluir al menos 8 caracteres!",
+      "email-required": "¡Se requiere correo electrónico!",
+      "email-invalid": "¡Formato de correo electrónico incorrecto!",
+      "nickname-required": "¡Se requiere apodo/nombre de usuario!",
+      "user-does-not-exist": "¡El usuario no existe!",
+      "invalid-password": "Contraseña inválida.",
+      "already-registered": "Ya estás registrado/a."
+    },
+    "reset-password": "Restablecer contraseña",
+    "reset": "Restablecer",
+    "email": "correo electrónico",
+    "nickname": "apodo/nombre de usuario",
+    "password": "contraseña",
+    "logged-in-as": "Conectado/a como",
+    "sign-out": "Cerrar sesión",
+    "sign-in": "Iniciar sesión",
+    "sign-up": "Registrarse",
+    "go-to-sign-in": "mine sisse logida",
+    "your-new-password": "Tu nueva contraseña",
+    "sign-up-completed": "registreerumine lõpetatud!"
+  },
+  "copy-to-clipboard": "Copiar al portapapeles",
+  "copied-to-clipboard": "Copiado al portapapeles",
+  "language": "Keel",
+  "update-language": "uuenduskeel"
 }

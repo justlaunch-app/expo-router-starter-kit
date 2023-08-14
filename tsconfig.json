@@ -14,5 +14,11 @@
       "_layouts/*": ["src/layouts/*"],
       "_config/*": ["src/config/*"]
     }
-  }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }

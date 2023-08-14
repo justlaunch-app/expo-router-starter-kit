@@ -1,14 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+
+import {
+  SplashScreen,
+  Stack,
+  useRootNavigationState,
+  useSegments,
+  router,
+} from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
+import { RootSiblingParent } from 'react-native-root-siblings';
+
+import {
+  ThemeProvider,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+
+//OneSignal
+// import OneSignal from 'react-native-onesignal';
+
+//i18next
+import { I18nextProvider, useTranslation } from 'react-i18next';
 import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen } from '_components/LottieSplashScreen';
-import { I18nextProvider } from 'react-i18next';
 import i18n from 'src/locales/index';
+import { useAuth } from 'src/store/auth.store';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Platform, useColorScheme } from 'react-native';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -18,6 +43,31 @@ export const unstable_settings = {
 
 const FONT_LOAD_DELAY = 2000;
 const SCREEN_TRANSITION_DELAY = 150;
+
+function useProtectedRoute() {
+  const segments = useSegments();
+  const rootNavigationState = useRootNavigationState();
+
+  const user = useAuth(({ user }) => user);
+
+  const navigationKey = React.useMemo(() => {
+    return rootNavigationState?.key;
+  }, [rootNavigationState]);
+
+  useLayoutEffect(() => {
+    const inAuthGroup = segments[0] === '(auth)';
+
+    if (!navigationKey) {
+      return;
+    }
+
+    if (!user && !inAuthGroup) {
+      router.replace('/sign-in');
+    } else if (user && inAuthGroup) {
+      router.replace('/');
+    }
+  }, [user, segments, navigationKey]);
+}
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -53,7 +103,7 @@ export default function RootLayout() {
       setAppState((prev) => ({ ...prev, fontsLoaded: true }));
     }
     if (error) {
-      console.error('Font loading error:', error); // Log the error instead of throwing it directly
+      throw error;
     }
   }, [loaded, error]);
 
@@ -75,6 +125,10 @@ export default function RootLayout() {
     }
   }, [appState.isDelayOver]);
 
+
+  useProtectedRoute();
+
+
   if (!loaded || !appState.isDelayOver) {
     return <SplashScreen animationFadeOut={appState.isDelayOver} />;
   }
@@ -85,13 +139,19 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const colorScheme = useColorScheme();
+
   return (
-    <I18nextProvider i18n={i18n}>
-      <Stack>
-        <Stack.Screen name="(root)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-      <StatusBar />
-    </I18nextProvider>
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <RootSiblingParent>
+        <I18nextProvider i18n={i18n}>
+          <Stack>
+            <Stack.Screen name="(root)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack>
+          <StatusBar style={colorScheme ?? 'light'} />
+        </I18nextProvider>
+      </RootSiblingParent>
+    </ThemeProvider>
   );
 }
