@@ -54,7 +54,7 @@ export function ControlledInput<T extends FieldValues>(
       return styles.light;
     }
     return styles[colorScheme];
-  }, []);
+  }, [colorScheme]);
 
   return (
     <View className="bg-transparent">
