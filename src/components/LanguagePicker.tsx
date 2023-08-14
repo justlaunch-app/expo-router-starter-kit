@@ -8,7 +8,7 @@ import { useLang } from 'src/store/lang.store';
 
 const options = [
   { label: 'English', value: 'en' },
-  { label: 'Spanish', value: 'se' },
+  { label: 'Spanish', value: 'es' },
 ];
 
 export function LanguagePicker() {
