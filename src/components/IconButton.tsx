@@ -22,7 +22,7 @@ export function IconButton({
   return (
     <View
       className={classNames({
-        'shadow-md rounded-md overflow-hidden': true,
+        'rounded-md overflow-hidden': true,
         'active:text-slate-100': Platform.OS === 'ios',
         'bg-white': colorScheme === 'light',
         'bg-slate-900': colorScheme === 'dark',

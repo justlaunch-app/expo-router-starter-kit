@@ -51,7 +51,7 @@ export function LanguagePickerModalTrigger() {
 
   return (
     <Animated.View
-      className="absolute right-8"
+      className="absolute right-8 shadow-sm"
       style={[animatedStyles, { bottom: bottom + 32 }]}
     >
       <IconButton onPress={open}>
