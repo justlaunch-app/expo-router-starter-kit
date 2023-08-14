@@ -13,7 +13,7 @@ export function IconButton({
   return (
     <Pressable
       className={classNames({
-        'absolute right-8 bottom-8 p-4 shadow-md bg-white rounded-md': true,
+        'p-4 shadow-md bg-white rounded-md': true,
         'active:text-slate-100': Platform.OS === 'ios',
         ..._classNames,
       })}
