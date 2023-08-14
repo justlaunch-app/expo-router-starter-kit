@@ -109,6 +109,7 @@ That's it! Nice and simple way of dealing with environment variables.
 9. ~~Home page with a carousel and two example lists with Shopify flashlist.~~
 10. ~~Create a detail page when clicking on an element on the carousel or list item.~~
 11. ~~Animated Splash Screen with Lottie Animations~~
+12. ~~Add Login Screen/ Register modal.~~ @kewinzaq1
 
 ### In Progress:
 
@@ -116,8 +117,6 @@ That's it! Nice and simple way of dealing with environment variables.
 2. Settings screen with light/dark toggle switch and language selector.
 
 ### Upcoming Tasks:
-
-1. Add Login Screen/ Register modal.
 
 2. Tutorial screens.
 
