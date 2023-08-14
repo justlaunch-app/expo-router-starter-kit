@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { viewportWidth, spacing } from '_utils/viewport';
 import { Link } from 'expo-router';
@@ -13,12 +13,20 @@ import { Carousel } from '_components/Carousel';
 
 //Data
 import homeData from '_assets/data/home.json';
+import { classNames } from '_utils/classNames';
 
 export default function Index() {
   const { t } = useTranslation();
+  const colorScheme = useColorScheme();
 
   return (
-    <SafeAreaView className="flex flex-1 items-center justify-start bg-white">
+    <SafeAreaView
+      className={classNames({
+        'flex flex-1 items-center justify-start': true,
+        'bg-white': colorScheme === 'light',
+        'bg-black': colorScheme === 'dark',
+      })}
+    >
       <Text className="text-blue-500 pt-2 text-2xl text-bold">
         {t('greeting')}
       </Text>

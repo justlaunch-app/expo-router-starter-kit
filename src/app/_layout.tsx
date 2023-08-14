@@ -15,6 +15,12 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
+import {
+  ThemeProvider,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
 
@@ -23,6 +29,7 @@ import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/auth.store';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Platform, useColorScheme } from 'react-native';
 
 //ENV
 // import ENV from 'src/utils/env-loader';
@@ -109,15 +116,19 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const colorScheme = useColorScheme();
+
   return (
-    <RootSiblingParent>
-      <I18nextProvider i18n={i18n}>
-        <Stack>
-          <Stack.Screen name="(root)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-        <StatusBar />
-      </I18nextProvider>
-    </RootSiblingParent>
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <RootSiblingParent>
+        <I18nextProvider i18n={i18n}>
+          <Stack>
+            <Stack.Screen name="(root)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack>
+          <StatusBar style={colorScheme ?? 'light'} />
+        </I18nextProvider>
+      </RootSiblingParent>
+    </ThemeProvider>
   );
 }

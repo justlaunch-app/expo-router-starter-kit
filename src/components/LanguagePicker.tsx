@@ -1,16 +1,24 @@
 import React from 'react';
 import { View, Text } from '_context/Themed';
-import { Platform } from 'react-native';
+import { Platform, useColorScheme } from 'react-native';
 import { classNames } from '_utils/classNames';
 import { Picker } from '@react-native-picker/picker';
 import { useTranslation } from 'react-i18next';
 import { useLang } from 'src/store/lang.store';
 
+const options = [
+  { label: 'English', value: 'en' },
+  { label: 'Spanish', value: 'se' },
+];
+
 export function LanguagePicker() {
   const { t } = useTranslation();
+  const colorScheme = useColorScheme();
 
   const lang = useLang(({ language }) => language);
   const setLang = useLang(({ setLang }) => setLang);
+
+  const isDark = colorScheme === 'dark';
 
   return (
     <>
@@ -24,10 +32,20 @@ export function LanguagePicker() {
         <Picker
           selectedValue={lang}
           onValueChange={setLang}
-          style={{ height: 50, width: 150 }}
+          style={{
+            height: 50,
+            width: 150,
+            color: isDark ? 'white' : 'black',
+          }}
+          dropdownIconColor={isDark ? 'white' : undefined}
         >
-          <Picker.Item label="English" value="en" />
-          <Picker.Item label="Spanish" value="es" />
+          {options.map((item) => (
+            <Picker.Item
+              {...item}
+              key={item.value}
+              color={isDark ? 'white' : 'black'}
+            />
+          ))}
         </Picker>
       </View>
     </>
