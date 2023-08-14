@@ -60,7 +60,6 @@ export default function SignIn() {
       <View className="w-full bg-transparent">
         <Text className="font-bold mb-2">{t('auth.email')}</Text>
         <ControlledInput
-          className="p-4 text-slate-900 w-full bg-slate-100 shadow-sm"
           keyboardType="email-address"
           placeholder="joe@acme.com"
           control={control}
