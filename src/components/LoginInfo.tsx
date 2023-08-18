@@ -5,7 +5,7 @@ import { Button } from 'react-native';
 import { useAuth } from 'src/store/authStore/auth.store';
 import { useTranslation } from 'react-i18next';
 
-export function LoginInfo() {
+export default function LoginInfo() {
   const { t } = useTranslation();
 
   const logout = useAuth(({ logout }) => logout);

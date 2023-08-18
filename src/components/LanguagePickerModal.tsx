@@ -2,11 +2,11 @@ import React from 'react';
 import { View } from '_context/Themed';
 import { MonoText as Text } from '_components/StyledText';
 import { Modal, Pressable, useColorScheme } from 'react-native';
-import { LanguagePicker } from 'src/components/LanguagePicker';
+import LanguagePicker from 'src/components/LanguagePicker';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import IonIcons from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
-import { AppVersion } from './AppVersion';
+import AppVersion from './AppVersion';
 
 export function LanguagePickerModal({
   visible,

@@ -11,7 +11,7 @@ const options = [
   { label: 'Spanish', value: 'es' },
 ];
 
-export function LanguagePicker() {
+export default function LanguagePicker() {
   const { t } = useTranslation();
   const colorScheme = useColorScheme();
 
