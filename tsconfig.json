@@ -1,5 +1,11 @@
 {
   "extends": "expo/tsconfig.base",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
@@ -13,8 +19,6 @@
       "_utils/*": ["src/utils/*"],
       "_layouts/*": ["src/layouts/*"],
       "_config/*": ["src/config/*"],
-      "_utils/*": ["src/utils/*"]
     }
-  },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+  }
 }
