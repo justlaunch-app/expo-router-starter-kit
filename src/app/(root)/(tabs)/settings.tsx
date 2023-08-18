@@ -1,6 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import i18n from '_locales/index';
+import SafeAreaView from 'src/containers/SafeAreaView/SafeAreaView';
 
 //COMPONENTS
 import LanguagePicker from '_components/LanguagePicker';
@@ -9,7 +8,7 @@ import LoginInfo from '_components/LoginInfo';
 import { View } from '_context/Themed';
 
 import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
-import { Pressable, Text, useColorScheme } from 'react-native';
+import { Pressable, Text } from 'react-native';
 
 export default function Settings() {
   const { colorScheme, toggleColorScheme } = nativewindUseColorScheme();
