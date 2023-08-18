@@ -4,6 +4,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
 
 import {
   Stack,
@@ -28,7 +29,6 @@ import { StatusBar } from 'expo-status-bar';
 import { SplashScreen } from '_components/LottieSplashScreen';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/authStore/auth.store';
-import { useColorScheme } from 'react-native';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -132,7 +132,7 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = nativewindUseColorScheme();
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>

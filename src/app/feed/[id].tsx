@@ -4,7 +4,7 @@ import React from 'react';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '_utils/blurhash';
 import * as Sharing from 'expo-sharing';
-import TouchableOpacity from '_components/Buttons/TouchableOpacity';
+import TouchableOpacity from '_components/Button/TouchableOpacity';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const DetailFeed = () => {

@@ -8,12 +8,19 @@ import AppVersion from 'src/components/AppVersion';
 import LoginInfo from '_components/LoginInfo';
 import { View } from '_context/Themed';
 
-//APP VERSION
-import appVersion from '_config/version';
+import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
+import { Pressable, Text, useColorScheme } from 'react-native';
 
 export default function Settings() {
+  const { colorScheme, toggleColorScheme } = nativewindUseColorScheme();
+
   return (
     <SafeAreaView className="flex-1 items-center justify-between">
+      <View className="flex-1">
+        <Pressable onPress={toggleColorScheme}>
+          <Text className="text-green-500">{`The color scheme is ${colorScheme}`}</Text>
+        </Pressable>
+      </View>
       <View className="flex-1 relative bg-transparent">
         <LoginInfo />
       </View>
