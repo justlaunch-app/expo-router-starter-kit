@@ -10,3 +10,16 @@ export const deviceTotalMemory = Device.totalMemory;
 export const deviceSupportedCpuArchitectures = Device.supportedCpuArchitectures;
 export const deviceIsDevice = Device.isDevice;
 export const deviceName = Device.deviceName;
+
+export const deviceInfo = {
+  deviceBrand,
+  deviceModel,
+  deviceOS,
+  deviceOSVersion,
+  deviceType,
+  deviceYearClass,
+  deviceTotalMemory,
+  deviceSupportedCpuArchitectures,
+  deviceIsDevice,
+  deviceName,
+};

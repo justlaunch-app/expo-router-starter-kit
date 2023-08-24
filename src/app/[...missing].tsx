@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, Stack } from 'expo-router';
 import { Text, View } from 'react-native';
+import analytics from '_utils/analytics/segment';
 
-export const NotFoundScreen: React.FC = () => {
+export default function NotFoundScreen() {
+  analytics.trackScreen('NotFoundScreen');
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
@@ -15,4 +17,4 @@ export const NotFoundScreen: React.FC = () => {
       </View>
     </>
   );
-};
+}

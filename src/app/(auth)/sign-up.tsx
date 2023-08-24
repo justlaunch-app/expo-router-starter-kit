@@ -11,6 +11,7 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { router } from 'expo-router';
 import { emailSchema } from '_utils/auth.schema';
 import { useIsFocused } from '@react-navigation/native';
+import analytics from '_utils/analytics/segment';
 
 const schema = z.object({
   email: emailSchema,
@@ -33,7 +34,13 @@ export default function SignUp() {
     },
   });
 
-  const register = useAuth((state) => state.register);
+  const register = useAuth((state) => {
+    analytics.trackIdentify(state.user?.email, {
+      username: state.user?.nickname,
+      email: state.user?.email,
+    });
+    return state.register;
+  });
 
   const onSubmit = handleSubmit((newUser) => {
     const { error } = register(newUser) ?? {};
