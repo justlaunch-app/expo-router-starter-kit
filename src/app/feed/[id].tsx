@@ -8,14 +8,13 @@ import TouchableOpacity from '_components/Button/TouchableOpacity';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const DetailFeed = () => {
-  const { id, title, author, datePublished, content, imgSrc } =
-    useLocalSearchParams();
+  const props = useLocalSearchParams();
 
   return (
     <ScrollView>
       <Stack.Screen
         options={{
-          headerTitle: `FEED ${id}`,
+          headerTitle: `FEED ${props.id}`,
           headerRight: () => (
             <TouchableOpacity
               onPress={() =>
@@ -29,18 +28,18 @@ const DetailFeed = () => {
       />
       <Image
         style={styles.image}
-        source={imgSrc}
+        source={props.imgSrc}
         placeholder={blurhash}
         contentFit="cover"
         transition={1000}
       />
       <View className="px-4 pt-5">
         <Text className="text-2xl uppercase">DetailFeed</Text>
-        <Text className="py-4 text-xl font-bold">ID: {id}</Text>
-        <Text className="italic text-lg py-4">{title}</Text>
-        <Text className="text-lg">{author}</Text>
-        <Text className="italic py-4">Created: {datePublished}</Text>
-        <Text className="px-4 pt-4">{content}</Text>
+        <Text className="py-4 text-xl font-bold">ID: {props.id}</Text>
+        <Text className="italic text-lg py-4">{props.title}</Text>
+        <Text className="text-lg">{props.author}</Text>
+        <Text className="italic py-4">Created: {props.datePublished}</Text>
+        <Text className="px-4 pt-4">{props.content}</Text>
       </View>
     </ScrollView>
   );
