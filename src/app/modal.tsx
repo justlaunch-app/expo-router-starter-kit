@@ -1,8 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Platform } from 'react-native';
-import { Text, View } from '_context/Themed';
-import { ExternalLink } from '_components/ExternalLink';
+import { View, Platform } from 'react-native';
+import { StyledText as Text } from '_components/Text/StyledText';
+import { ExternalLink } from '_components/Link/ExternalLink';
 
 export default function ModalScreen() {
   return (

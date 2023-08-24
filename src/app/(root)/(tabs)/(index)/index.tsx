@@ -9,7 +9,7 @@ import { Link } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 //Components
-import { Carousel } from '_components/Carousel';
+import { Carousel } from '_components/Carousel/Carousel';
 
 //Data
 import homeData from '_assets/data/home.json';

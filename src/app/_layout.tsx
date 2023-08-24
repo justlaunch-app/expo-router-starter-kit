@@ -26,8 +26,8 @@ import {
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import { SplashScreen } from '_components/LottieSplashScreen';
-import i18n from 'src/locales/index';
+import { SplashScreen } from '_components/LottieSplashModal';
+import i18n from 'src/locales/i18n';
 import { useAuth } from 'src/store/authStore/auth.store';
 
 export { ErrorBoundary } from 'expo-router';

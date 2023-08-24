@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-import { Alert } from 'react-native';
 import { create } from 'zustand';
 
 type Credentials = {

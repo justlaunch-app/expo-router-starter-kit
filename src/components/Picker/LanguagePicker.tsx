@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from '_context/Themed';
-import { Platform, useColorScheme } from 'react-native';
+import { View, Platform, useColorScheme } from 'react-native';
+import { StyledText as Text } from '_components/Text/StyledText';
 import { classNames } from '_utils/classNames';
 import { Picker } from '@react-native-picker/picker';
 import { useTranslation } from 'react-i18next';

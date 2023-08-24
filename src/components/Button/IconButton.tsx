@@ -1,7 +1,6 @@
-import Colors from '_constants/Colors';
-import { View } from '_context/Themed';
 import { classNames } from '_utils/classNames';
 import {
+  View,
   Platform,
   Pressable,
   PressableProps,
@@ -31,9 +30,11 @@ export function IconButton({
     >
       <Pressable
         className="w-full h-full p-4"
-        android_ripple={{
-          color: Colors[colorScheme ?? 'light'].android_ripple.color,
-        }}
+        android_ripple={
+          {
+            // color: Colors[colorScheme ?? 'light'].android_ripple.color,
+          }
+        }
         {...props}
       >
         {children}

@@ -7,7 +7,7 @@ import { Link } from 'expo-router';
 import feedData from '_assets/data/feed.json';
 
 //COMPONENTS
-import FeedItem from '_components/FeedItem';
+import FeedItem from '_components/Feed/FeedItem';
 
 interface Article {
   id: number;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Modal, Animated, View } from 'react-native';
+import { Modal, Animated } from 'react-native';
 import LottieView from 'lottie-react-native';
 import lottieAnimation from 'src/assets/splash/lottie_animated_logo.json';
 

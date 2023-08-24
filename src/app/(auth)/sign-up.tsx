@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { View } from '_context/Themed';
-import { MonoText as Text } from '_components/StyledText';
-
-import { Alert, Button } from 'react-native';
-import { ControlledInput } from '_components/ControlledInput';
+import { StyledText as Text } from '_components/Text/StyledText';
+import { View, Alert, Button } from 'react-native';
+import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';

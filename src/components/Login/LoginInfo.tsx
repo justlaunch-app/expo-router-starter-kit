@@ -1,7 +1,6 @@
 import React from 'react';
-import { View } from '_context/Themed';
-import { MonoText as Text } from '_components/StyledText';
-import { Button } from 'react-native';
+import { StyledText as Text } from '_components/Text/StyledText';
+import { View, Button } from 'react-native';
 import { useAuth } from 'src/store/authStore/auth.store';
 import { useTranslation } from 'react-i18next';
 
