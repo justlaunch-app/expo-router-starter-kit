@@ -10,14 +10,25 @@ import LoginInfo from '_components/Login/LoginInfo';
 import Divider from '_components/Divider/Divider';
 
 import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
+import analytics from '_utils/analytics/segment';
 
 export default function Settings() {
   const { colorScheme, toggleColorScheme } = nativewindUseColorScheme();
 
+  analytics.trackScreen('Settings');
+
   return (
     <SafeAreaView className="flex-1 items-center justify-between">
       <View className="flex-1">
-        <Pressable onPress={toggleColorScheme}>
+        <Pressable
+          onPress={() => {
+            toggleColorScheme;
+
+            analytics.trackEvent('Color Scheme Toggled', {
+              colorScheme: colorScheme,
+            });
+          }}
+        >
           <Text className="text-green-500">{`The color scheme is ${colorScheme}`}</Text>
         </Pressable>
       </View>

@@ -6,9 +6,14 @@ import { blurhash } from '_utils/blurhash';
 import * as Sharing from 'expo-sharing';
 import TouchableOpacity from '_components/Button/TouchableOpacity';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import analytics from '_utils/analytics/segment';
 
 const DetailFeed = () => {
   const props = useLocalSearchParams();
+
+  analytics.trackScreen('DetailFeed', {
+    feedId: props.id,
+  });
 
   return (
     <ScrollView>
@@ -17,9 +22,13 @@ const DetailFeed = () => {
           headerTitle: `FEED ${props.id}`,
           headerRight: () => (
             <TouchableOpacity
-              onPress={() =>
-                Sharing.shareAsync('https://linktr.zoltanfodor.dev/')
-              }
+              onPress={() => {
+                Sharing.shareAsync('https://linktr.zoltanfodor.dev/');
+                analytics.trackEvent('Share Creator', {
+                  feedId: props.id,
+                  url: 'https://linktr.zoltanfodor.dev/',
+                });
+              }}
             >
               <Ionicons name="share" size={24} color="black" />
             </TouchableOpacity>

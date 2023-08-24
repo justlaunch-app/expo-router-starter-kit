@@ -11,6 +11,8 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { ResetPasswordModal } from 'src/components/ResetPasswordModal';
 import { useIsFocused } from '@react-navigation/native';
 import { emailSchema } from '_utils/auth.schema';
+import analytics from '_utils/analytics/segment';
+import { deviceInfo } from '_config/device';
 
 const schema = z.object({
   email: emailSchema,
@@ -33,7 +35,13 @@ export default function SignIn() {
     },
   });
 
-  const login = useAuth((state) => state.login);
+  const login = useAuth((state) => {
+    analytics.trackEvent('User Logged In', {
+      email: state.user?.email,
+      userPhone: deviceInfo,
+    });
+    return state.login;
+  });
 
   const onSubmit = handleSubmit((credentials) => {
     const { error } = login(credentials) ?? {};
