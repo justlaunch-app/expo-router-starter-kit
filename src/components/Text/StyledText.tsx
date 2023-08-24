@@ -11,12 +11,12 @@ interface StyledTextProps {
 
 const StyledComponent = styled(Text);
 
-const StyledText: React.FC<StyledTextProps> = ({
+export function StyledText({
   children,
   className,
   selectable = false,
   fontFamily,
-}) => {
+}: StyledTextProps) {
   const { colorScheme } = nativewindUseColorScheme();
   const textColor = colorScheme === 'dark' ? 'white' : 'black';
   return (
@@ -28,6 +28,4 @@ const StyledText: React.FC<StyledTextProps> = ({
       {children}
     </StyledComponent>
   );
-};
-
-export default StyledText;
+}

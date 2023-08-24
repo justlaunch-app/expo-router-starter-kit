@@ -1,5 +1,10 @@
-import { View } from '_context/Themed';
-import { TextInput, TextInputProps, Text, useColorScheme } from 'react-native';
+import {
+  View,
+  TextInput,
+  TextInputProps,
+  Text,
+  useColorScheme,
+} from 'react-native';
 
 import React, { useMemo } from 'react';
 import {
