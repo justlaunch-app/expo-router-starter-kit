@@ -36,7 +36,7 @@ module.exports = {
       bundler: 'metro',
       favicon: './src/assets/images/favicon.png',
     },
-    owner: 'zoltanfodor_dev',
+    owner: 'ritmillio',
     plugins: [
       [
         'onesignal-expo-plugin',

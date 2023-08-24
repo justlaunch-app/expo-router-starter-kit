@@ -24,6 +24,10 @@ import {
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
 
+//SEGMENT - ANALYTICS
+import { AnalyticsProvider } from '@segment/analytics-react-native';
+import { segmentClient } from '_config/segment';
+
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen } from '_components/LottieSplashModal';
@@ -135,16 +139,18 @@ function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootSiblingParent>
-        <I18nextProvider i18n={i18n}>
-          <Stack>
-            <Stack.Screen name="(root)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-          </Stack>
-          <StatusBar style={colorScheme ?? 'light'} />
-        </I18nextProvider>
-      </RootSiblingParent>
-    </ThemeProvider>
+    <AnalyticsProvider client={segmentClient}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <RootSiblingParent>
+          <I18nextProvider i18n={i18n}>
+            <Stack>
+              <Stack.Screen name="(root)" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+            </Stack>
+            <StatusBar style={colorScheme ?? 'light'} />
+          </I18nextProvider>
+        </RootSiblingParent>
+      </ThemeProvider>
+    </AnalyticsProvider>
   );
 }
