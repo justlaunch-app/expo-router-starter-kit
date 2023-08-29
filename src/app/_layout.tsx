@@ -28,7 +28,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SplashScreen } from '_components/LottieSplashScreen';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/authStore/auth.store';
-import { useColorScheme } from 'react-native';
+import { Platform, useColorScheme } from 'react-native';
+import { Text, View } from '_context/Themed';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -123,7 +124,14 @@ export default function RootLayout() {
   useProtectedRoute();
 
   if (!loaded || !appState.isDelayOver) {
-    return <SplashScreen animationFadeOut={appState.isDelayOver} />;
+    if (Platform.OS !== 'web') {
+      return <SplashScreen animationFadeOut={appState.isDelayOver} />;
+    }
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
   }
 
   if (appState.screenReady) {
