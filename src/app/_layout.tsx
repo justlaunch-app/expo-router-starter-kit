@@ -25,13 +25,20 @@ import {
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import { SplashScreen } from '_components/LottieSplashScreen';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/authStore/auth.store';
 import { Platform, useColorScheme } from 'react-native';
-import { Text, View } from '_context/Themed';
 
 export { ErrorBoundary } from 'expo-router';
+
+let CurrentPlatformSplashScreen: any;
+if (Platform.OS === 'web') {
+  CurrentPlatformSplashScreen =
+    require('_components/LottieSplashScreenWeb').default;
+} else {
+  CurrentPlatformSplashScreen =
+    require('_components/LottieSplashScreen').default;
+}
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -124,13 +131,8 @@ export default function RootLayout() {
   useProtectedRoute();
 
   if (!loaded || !appState.isDelayOver) {
-    if (Platform.OS !== 'web') {
-      return <SplashScreen animationFadeOut={appState.isDelayOver} />;
-    }
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <CurrentPlatformSplashScreen animationFadeOut={appState.isDelayOver} />
     );
   }
 

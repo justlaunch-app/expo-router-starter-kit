@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Modal, Animated, Platform } from 'react-native';
-import Lottie from 'lottie-react-native';
+import { Modal, Animated } from 'react-native';
+import Lottie from 'lottie-react-web';
 
 import lottieAnimation from 'src/assets/splash/lottie_animated_logo.json';
 
@@ -46,20 +46,15 @@ const SplashScreen: React.FunctionComponent<SplashScreenProps> = ({
     }
   }, [animationFadeOut]);
 
-  const onLottieAnimationComplete = () => {
-    if (animationFadeOut) {
-      fadeOut();
-    }
-  };
-
   return (
     <Modal transparent visible={visible}>
       <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
         <Lottie
-          source={lottieAnimation}
-          loop={false}
-          autoPlay
-          onAnimationFinish={onLottieAnimationComplete}
+          options={{
+            animationData: lottieAnimation,
+            loop: false,
+            autoplay: true,
+          }}
         />
       </Animated.View>
     </Modal>
