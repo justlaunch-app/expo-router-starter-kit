@@ -21,6 +21,9 @@ export function LanguagePicker() {
 
   const isDark = colorScheme === 'dark';
 
+  const pickerBgColor =
+    Platform.OS !== 'web' ? undefined : isDark ? 'black' : 'white';
+
   return (
     <>
       <Label className="text-lg font-semibold" htmlFor="lang">
@@ -40,7 +43,7 @@ export function LanguagePicker() {
             height: 50,
             width: 150,
             color: isDark ? 'white' : 'black',
-            backgroundColor: isDark ? 'black' : 'white',
+            backgroundColor: pickerBgColor,
           }}
           dropdownIconColor={isDark ? 'white' : undefined}
         >
