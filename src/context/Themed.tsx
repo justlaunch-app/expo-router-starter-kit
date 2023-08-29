@@ -68,7 +68,9 @@ export function Label({ htmlFor, ...props }: LabelProps) {
   return (
     <DefaultText
       accessibilityRole={
-        'label' as ComponentProps<typeof DefaultText>['accessibilityRole']
+        Platform.OS === 'web'
+          ? ('label' as ComponentProps<typeof DefaultText>['accessibilityRole'])
+          : undefined
       }
       ref={ref}
       style={[{ color }, style]}
