@@ -8,7 +8,6 @@ import {
   useLottieSplashScreen,
 } from 'src/hooks/useLottieSplashScreen';
 import { colorSchemePrimaryBgMap } from '_utils/colorSchemePrimaryBgMap';
-import { StatusBar } from 'expo-status-bar';
 
 const SplashScreen: FunctionComponent<UseLottieSplashScreenParams> = ({
   animationFadeOut,
