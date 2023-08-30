@@ -152,7 +152,7 @@ function RootLayoutNav() {
             <Stack.Screen name="(root)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
           </Stack>
-          <StatusBar style={colorScheme ?? 'light'} />
+          <StatusBar style={'auto'} />
         </I18nextProvider>
       </RootSiblingParent>
     </ThemeProvider>

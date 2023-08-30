@@ -17,6 +17,7 @@ import { emailSchema } from '_utils/auth.schema';
 import * as Clipboard from 'expo-clipboard';
 import Toast from 'react-native-root-toast';
 import { Alert } from '_utils/alert';
+import { colorSchemePrimaryBgMap } from '_utils/colorSchemePrimaryBgMap';
 
 type ResetModalProps = {
   visible: boolean;
@@ -69,7 +70,10 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
     <Modal visible={visible} animationType="slide">
       <SafeAreaView
         className="flex-1 h-screen bg-white dark:bg-black"
-        style={{ top }}
+        style={{
+          top,
+          backgroundColor: colorSchemePrimaryBgMap[colorScheme ?? 'light'],
+        }}
       >
         <View className="flex items-center flex-row justify-between w-full px-4 border-b border-slate-100">
           <Text className="font-bold text-lg">{t('auth.reset-password')}</Text>
