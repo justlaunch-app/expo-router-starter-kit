@@ -51,7 +51,7 @@ export function LanguagePicker() {
             <Picker.Item
               {...item}
               key={item.value}
-              color={isDark ? 'white' : 'black'}
+              color={Platform.OS === 'ios' && isDark ? 'white' : 'black'}
             />
           ))}
         </Picker>
