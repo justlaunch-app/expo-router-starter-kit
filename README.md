@@ -1,4 +1,4 @@
-# 📱 expo-starter-kit
+# 📱 expo-router-starter-kit
 
 An opinionated expo-starter for building robust cross-platform apps blazingly fast with expo-router! This project purpose is for creating a minimum viable product (MVP) in a single day.
 
