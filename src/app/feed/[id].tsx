@@ -35,12 +35,14 @@ const DetailFeed = () => {
         transition={1000}
       />
       <View className="px-4 pt-5">
-        <Text className="text-2xl uppercase">DetailFeed</Text>
-        <Text className="py-4 text-xl font-bold">ID: {id}</Text>
-        <Text className="italic text-lg py-4">{title}</Text>
-        <Text className="text-lg">{author}</Text>
-        <Text className="italic py-4">Created: {datePublished}</Text>
-        <Text className="px-4 pt-4">{content}</Text>
+        <Text className="text-2xl uppercase dark:text-white">DetailFeed</Text>
+        <Text className="py-4 text-xl font-bold dark:text-white">ID: {id}</Text>
+        <Text className="italic text-lg py-4 dark:text-white">{title}</Text>
+        <Text className="text-lg dark:text-white">{author}</Text>
+        <Text className="italic py-4 dark:text-white">
+          Created: {datePublished}
+        </Text>
+        <Text className="px-4 pt-4 dark:text-white">{content}</Text>
       </View>
     </ScrollView>
   );
