@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Platform, View } from 'react-native';
+import { NativeScrollEvent, NativeSyntheticEvent, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { viewportWidth, spacing } from '_utils/viewport';
 
