@@ -50,13 +50,12 @@ export default function Index() {
                 },
               }}
               style={{
-                width: viewportWidth * 0.8,
+                width: viewportWidth - spacing,
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.3,
                 shadowRadius: 3,
                 elevation: 1,
-                marginRight: spacing,
               }}
               className="justify-center items-center bg-white rounded-2xl p-4"
             >

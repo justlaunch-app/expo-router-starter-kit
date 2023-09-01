@@ -10,8 +10,6 @@ interface CarouselProps<T> {
   className?: string;
 }
 
-const estimatedItemSize = Math.floor(viewportWidth * 0.8);
-
 export const Carousel = <T,>({
   data,
   renderItem,
@@ -25,7 +23,7 @@ export const Carousel = <T,>({
 
   const handleScroll = (event: any) => {
     const offset = event.nativeEvent.contentOffset.x;
-    const index = Math.round(offset / fullItemSize);
+    const index = Math.floor(offset / fullItemSize);
     setActiveIndex(index);
   };
 
@@ -37,13 +35,19 @@ export const Carousel = <T,>({
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        renderItem={renderItem}
+        renderItem={(renderItemProps) => (
+          <View
+            style={{
+              paddingLeft: spacing * 0.5,
+              paddingRight: spacing * 0.5,
+            }}
+          >
+            {renderItem(renderItemProps)}
+          </View>
+        )}
         keyExtractor={(item, index) => index.toString()}
         onScroll={handleScroll}
-        contentContainerStyle={{
-          paddingHorizontal: spacing,
-        }}
-        estimatedItemSize={estimatedItemSize}
+        estimatedItemSize={fullItemSize}
       />
       {showPagination && (
         <View className="flex-row justify-center mt-4">
