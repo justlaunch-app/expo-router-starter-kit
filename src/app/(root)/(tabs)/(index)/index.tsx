@@ -35,7 +35,7 @@ export default function Index() {
         expo-router
       </Text>
 
-      <View className="flex flex-1 items-center">
+      <View className="w-screen">
         <Carousel
           data={homeData}
           showPagination={true}
