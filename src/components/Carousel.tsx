@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { viewportWidth, spacing } from '_utils/viewport';
 
@@ -28,6 +28,11 @@ export const Carousel = <T,>({
     const index = Math.round(offset / fullItemSize);
     setActiveIndex(index);
   };
+
+  // todo: add support/alternative solution for the web
+  if (Platform.OS === 'web') {
+    return null;
+  }
 
   return (
     <>
