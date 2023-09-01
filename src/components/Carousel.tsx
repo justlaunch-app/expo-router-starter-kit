@@ -39,7 +39,7 @@ export const Carousel = <T,>({
         showsHorizontalScrollIndicator={false}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
-        onMomentumScrollEnd={handleScroll}
+        onScroll={handleScroll}
         contentContainerStyle={{
           paddingHorizontal: spacing,
         }}
@@ -54,7 +54,7 @@ export const Carousel = <T,>({
                 width: 8,
                 height: 8,
                 borderRadius: 4,
-                backgroundColor: activeIndex === index ? '#000' : '#ccc',
+                backgroundColor: activeIndex === index ? '#3a3a3a' : '#ccc',
                 marginHorizontal: 4,
               }}
             />
