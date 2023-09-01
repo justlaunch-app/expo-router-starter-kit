@@ -21,7 +21,7 @@ export const Carousel = <T,>({
   const itemSize = Math.floor(viewportWidth * 0.8);
   const fullItemSize = itemSize + spacing; // Item size including the space
 
-  const handleScroll = (event: any) => {
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offset = event.nativeEvent.contentOffset.x;
     const index = Math.floor(offset / fullItemSize);
     setActiveIndex(index);
