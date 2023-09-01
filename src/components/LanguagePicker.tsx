@@ -36,7 +36,7 @@ export function LanguagePicker() {
         })}
       >
         <Picker
-          nativeID="lang"
+          id="lang"
           selectedValue={lang}
           onValueChange={setLang}
           style={{
