@@ -28,10 +28,13 @@ import { StatusBar } from 'expo-status-bar';
 import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/authStore/auth.store';
 import { Platform, useColorScheme } from 'react-native';
+import { LottieSplashScreenType } from '_components/LottieSplashScreen';
 
 export { ErrorBoundary } from 'expo-router';
 
-let CurrentPlatformSplashScreen: any;
+let CurrentPlatformSplashScreen:
+  | LottieSplashScreenType
+  | React.FunctionComponent;
 if (Platform.OS === 'web') {
   CurrentPlatformSplashScreen =
     require('_components/LottieSplashScreenWeb').default;
@@ -128,7 +131,7 @@ export default function RootLayout() {
     }
   }, [appState.isDelayOver]);
 
-  useProtectedRoute();
+  // useProtectedRoute(); // todo: uncomment this
 
   if (!loaded || !appState.isDelayOver) {
     return (
