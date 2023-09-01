@@ -29,11 +29,6 @@ export const Carousel = <T,>({
     setActiveIndex(index);
   };
 
-  // todo: add support/alternative solution for the web
-  if (Platform.OS === 'web') {
-    return null;
-  }
-
   return (
     <>
       <FlashList
@@ -51,12 +46,7 @@ export const Carousel = <T,>({
         estimatedItemSize={estimatedItemSize}
       />
       {showPagination && (
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-          }}
-        >
+        <View className="flex-row justify-center mt-4">
           {data.map((_, index) => (
             <View
               key={index}
