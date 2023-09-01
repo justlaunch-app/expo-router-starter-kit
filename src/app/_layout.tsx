@@ -131,7 +131,7 @@ export default function RootLayout() {
     }
   }, [appState.isDelayOver]);
 
-  // useProtectedRoute(); // todo: uncomment this
+  useProtectedRoute();
 
   if (!loaded || !appState.isDelayOver) {
     return (
