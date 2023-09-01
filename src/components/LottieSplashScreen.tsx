@@ -9,7 +9,10 @@ import {
 } from 'src/hooks/useLottieSplashScreen';
 import { colorSchemePrimaryBgMap } from '_utils/colorSchemePrimaryBgMap';
 
-const SplashScreen: FunctionComponent<UseLottieSplashScreenParams> = ({
+export type LottieSplashScreenType =
+  FunctionComponent<UseLottieSplashScreenParams>;
+
+const SplashScreen: LottieSplashScreenType = ({
   animationFadeOut,
   onHidden,
 }) => {
