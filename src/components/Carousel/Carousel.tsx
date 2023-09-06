@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { NativeScrollEvent, NativeSyntheticEvent, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { viewportWidth, spacing } from '_utils/viewport';
 
@@ -9,8 +9,6 @@ interface CarouselProps<T> {
   showPagination?: boolean;
   className?: string;
 }
-
-const estimatedItemSize = Math.floor(viewportWidth * 0.8);
 
 export const Carousel = <T,>({
   data,
@@ -23,9 +21,9 @@ export const Carousel = <T,>({
   const itemSize = Math.floor(viewportWidth * 0.8);
   const fullItemSize = itemSize + spacing; // Item size including the space
 
-  const handleScroll = (event: any) => {
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offset = event.nativeEvent.contentOffset.x;
-    const index = Math.round(offset / fullItemSize);
+    const index = Math.floor(offset / fullItemSize);
     setActiveIndex(index);
   };
 
@@ -37,21 +35,22 @@ export const Carousel = <T,>({
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        renderItem={renderItem}
+        renderItem={(renderItemProps) => (
+          <View
+            style={{
+              paddingLeft: spacing * 0.5,
+              paddingRight: spacing * 0.5,
+            }}
+          >
+            {renderItem(renderItemProps)}
+          </View>
+        )}
         keyExtractor={(item, index) => index.toString()}
-        onMomentumScrollEnd={handleScroll}
-        contentContainerStyle={{
-          paddingHorizontal: spacing,
-        }}
-        estimatedItemSize={estimatedItemSize}
+        onScroll={handleScroll}
+        estimatedItemSize={fullItemSize}
       />
       {showPagination && (
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-          }}
-        >
+        <View className="flex-row justify-center mt-4">
           {data.map((_, index) => (
             <View
               key={index}
@@ -59,7 +58,7 @@ export const Carousel = <T,>({
                 width: 8,
                 height: 8,
                 borderRadius: 4,
-                backgroundColor: activeIndex === index ? '#000' : '#ccc',
+                backgroundColor: activeIndex === index ? '#3a3a3a' : '#ccc',
                 marginHorizontal: 4,
               }}
             />

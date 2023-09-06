@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyledText as Text } from '_components/Text/StyledText';
-import { View, Alert, Button, Pressable } from 'react-native';
-import { ControlledInput } from '_components/Input/ControlledInput';
+import { Label, View } from '_context/Themed';
+import { MonoText as Text } from '_components/StyledText';
+import { Button, Pressable } from 'react-native';
+import { ControlledInput } from '_components/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,8 +12,7 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { ResetPasswordModal } from 'src/components/ResetPasswordModal';
 import { useIsFocused } from '@react-navigation/native';
 import { emailSchema } from '_utils/auth.schema';
-import analytics from '_utils/analytics/segment';
-import { deviceInfo } from '_config/device';
+import { Alert } from '_utils/alert';
 
 const schema = z.object({
   email: emailSchema,
@@ -65,8 +65,11 @@ export default function SignIn() {
         <Text className="text-3xl mt-2">EXPO STARTER KIT</Text>
       </View>
       <View className="w-full bg-transparent">
-        <Text className="font-bold mb-2">{t('auth.email')}</Text>
+        <Label htmlFor="email-sign-in" className="font-bold mb-2">
+          {t('auth.email')}
+        </Label>
         <ControlledInput
+          id="email-sign-in"
           keyboardType="email-address"
           placeholder="joe@acme.com"
           control={control}
@@ -74,8 +77,15 @@ export default function SignIn() {
         />
       </View>
       <View className="w-full bg-transparent">
-        <Text className="font-bold mb-2">{t('auth.password')}</Text>
-        <ControlledInput control={control} name="password" secureTextEntry />
+        <Label htmlFor="password-sign-in" className="font-bold mb-2">
+          {t('auth.password')}
+        </Label>
+        <ControlledInput
+          id="password-sign-in"
+          control={control}
+          name="password"
+          secureTextEntry
+        />
       </View>
       <View className="mt-4 bg-transparent w-full">
         <Button title={t('auth.sign-in')} onPress={onSubmit} />

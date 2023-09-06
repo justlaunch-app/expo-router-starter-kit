@@ -17,10 +17,10 @@ const BannerDetail = () => {
           headerTitle: `Banner - ${props.title}`,
         }}
       />
-      <Text className="text-2xl uppercase">BannerDetail</Text>
-      <Text className="text-lg uppercase">{props.title}</Text>
-      <Text className="text-lg uppercase">{props.id}</Text>
-      <Text className="text-lg uppercase">{props.description}</Text>
+      <Text className="text-2xl uppercase dark:text-white">BannerDetail</Text>
+      <Text className="text-lg uppercase dark:text-white">{title}</Text>
+      <Text className="text-lg uppercase dark:text-white">{id}</Text>
+      <Text className="text-lg uppercase dark:text-white">{description}</Text>
     </View>
   );
 };

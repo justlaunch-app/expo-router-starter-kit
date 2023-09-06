@@ -38,7 +38,7 @@ export default function Index() {
         expo-router
       </Text>
 
-      <View className="flex flex-1 items-center">
+      <View className="w-screen">
         <Carousel
           data={homeData}
           showPagination={true}
@@ -58,13 +58,12 @@ export default function Index() {
                 },
               }}
               style={{
-                width: viewportWidth * 0.8,
+                width: viewportWidth - spacing,
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.3,
                 shadowRadius: 3,
                 elevation: 1,
-                marginRight: spacing,
               }}
               className="justify-center items-center bg-white rounded-2xl p-4"
             >

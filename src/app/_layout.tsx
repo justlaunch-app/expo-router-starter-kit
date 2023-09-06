@@ -30,11 +30,23 @@ import { segmentClient } from '_config/segment';
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import { SplashScreen } from '_components/LottieSplashModal';
-import i18n from 'src/locales/i18n';
+import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/authStore/auth.store';
+import { Platform, useColorScheme } from 'react-native';
+import { LottieSplashScreenType } from '_components/LottieSplashScreen';
 
 export { ErrorBoundary } from 'expo-router';
+
+let CurrentPlatformSplashScreen:
+  | LottieSplashScreenType
+  | React.FunctionComponent;
+if (Platform.OS === 'web') {
+  CurrentPlatformSplashScreen =
+    require('_components/LottieSplashScreenWeb').default;
+} else {
+  CurrentPlatformSplashScreen =
+    require('_components/LottieSplashScreen').default;
+}
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -127,7 +139,9 @@ export default function RootLayout() {
   useProtectedRoute();
 
   if (!loaded || !appState.isDelayOver) {
-    return <SplashScreen animationFadeOut={appState.isDelayOver} />;
+    return (
+      <CurrentPlatformSplashScreen animationFadeOut={appState.isDelayOver} />
+    );
   }
 
   if (appState.screenReady) {
@@ -139,18 +153,16 @@ function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
 
   return (
-    <AnalyticsProvider client={segmentClient}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <RootSiblingParent>
-          <I18nextProvider i18n={i18n}>
-            <Stack>
-              <Stack.Screen name="(root)" options={{ headerShown: false }} />
-              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-            </Stack>
-            <StatusBar style={colorScheme ?? 'light'} />
-          </I18nextProvider>
-        </RootSiblingParent>
-      </ThemeProvider>
-    </AnalyticsProvider>
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <RootSiblingParent>
+        <I18nextProvider i18n={i18n}>
+          <Stack>
+            <Stack.Screen name="(root)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack>
+          <StatusBar style={'auto'} />
+        </I18nextProvider>
+      </RootSiblingParent>
+    </ThemeProvider>
   );
 }
