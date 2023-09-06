@@ -1,9 +1,10 @@
-import { View, Platform, useColorScheme } from 'react-native';
+import { View, Platform } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { classNames } from '_utils/classNames';
 import { Picker } from '@react-native-picker/picker';
 import { useTranslation } from 'react-i18next';
 import { useLang } from 'src/store/langStore/lang.store';
+import { useColorScheme } from 'nativewind';
 
 const options = [
   { label: 'English', value: 'en' },
@@ -12,7 +13,7 @@ const options = [
 
 export default function LanguagePicker() {
   const { t } = useTranslation();
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   const lang = useLang(({ language }) => language);
   const setLang = useLang(({ setLang }) => setLang);
@@ -35,6 +36,7 @@ export default function LanguagePicker() {
             height: 50,
             width: 150,
             color: isDark ? 'white' : 'black',
+            backgroundColor: Platform.OS === 'web' ? 'transparent' : undefined,
           }}
           dropdownIconColor={isDark ? 'white' : undefined}
         >

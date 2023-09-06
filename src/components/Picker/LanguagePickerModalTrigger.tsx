@@ -8,8 +8,9 @@ import Animated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
-import { Keyboard, useColorScheme } from 'react-native';
+import { Keyboard } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useColorScheme } from 'nativewind';
 
 export function LanguagePickerModalTrigger() {
   const opacity = useSharedValue(1);
@@ -25,7 +26,7 @@ export function LanguagePickerModalTrigger() {
   });
 
   const { open } = useLangModal();
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(

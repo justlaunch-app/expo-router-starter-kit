@@ -32,7 +32,7 @@ import { segmentClient } from '_config/segment';
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { useAuth } from 'src/store/authStore/auth.store';
-import { Platform, useColorScheme } from 'react-native';
+import { Platform } from 'react-native';
 import { LottieSplashScreenNative } from '_components/LottieSplashScreen';
 import i18n from '_locales/i18n';
 

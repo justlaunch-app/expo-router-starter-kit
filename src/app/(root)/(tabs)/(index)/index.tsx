@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, useColorScheme } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { viewportWidth, spacing } from '_utils/viewport';
 import { Link } from 'expo-router';
@@ -14,10 +14,11 @@ import { Carousel } from '_components/Carousel/Carousel';
 //Data
 import homeData from '_assets/data/home.json';
 import { classNames } from '_utils/classNames';
+import { useColorScheme } from 'nativewind';
 
 export default function Index() {
   const { t } = useTranslation();
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   analytics.trackScreen('Home');
 

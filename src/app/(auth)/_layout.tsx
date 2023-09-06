@@ -4,13 +4,13 @@ import { useNavigation } from 'expo-router';
 import { useLayoutEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLangModal } from 'src/store/langStore/lang-picker-modal.store';
-import { useColorScheme } from 'react-native';
 import { LanguagePickerModalTrigger } from '_components/Picker/LanguagePickerModalTrigger';
+import { useColorScheme } from 'nativewind';
 
 export default function IndexTopTabsLayout() {
   const { setOptions } = useNavigation();
   const { visible, close } = useLangModal();
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   useLayoutEffect(() => {
     setOptions({

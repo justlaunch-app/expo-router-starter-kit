@@ -1,11 +1,4 @@
-import {
-  Button,
-  Modal,
-  Pressable,
-  useColorScheme,
-  View,
-  Text,
-} from 'react-native';
+import { Button, Modal, Pressable, View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -22,6 +15,9 @@ import Toast from 'react-native-root-toast';
 import { Alert } from '_utils/alert';
 import { colorSchemePrimaryBgMap } from '_utils/colorSchemePrimaryBgMap';
 import { ControlledInput } from './Input/ControlledInput';
+import { StyledText } from './Text/StyledText';
+import { Label } from './Label/StyledLabel';
+import { useColorScheme } from 'nativewind';
 
 type ResetModalProps = {
   visible: boolean;
@@ -33,7 +29,7 @@ const schema = z.object({
 export function ResetPasswordModal({ visible, close }: ResetModalProps) {
   const { t } = useTranslation();
   const { top } = useSafeAreaInsets();
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -80,7 +76,9 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
         }}
       >
         <View className="flex items-center flex-row justify-between w-full px-4 border-b border-slate-100">
-          <Text className="font-bold text-lg">{t('auth.reset-password')}</Text>
+          <StyledText className="font-bold text-lg">
+            {t('auth.reset-password')}
+          </StyledText>
           <Pressable className="p-2" onPress={close}>
             <IonIcons
               name="close"
@@ -90,8 +88,11 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
           </Pressable>
         </View>
         <View className="mt-4 p-4">
-          <Text className="font-bold mb-2">{t('auth.email')}</Text>
+          <Label htmlFor="password-reset" className="font-bold mb-2">
+            {t('auth.email')}
+          </Label>
           <ControlledInput
+            id="password-reset"
             keyboardType="email-address"
             placeholder="joe@acme.com"
             control={control}
