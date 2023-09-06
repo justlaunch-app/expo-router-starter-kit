@@ -1,48 +1,46 @@
-import { useAnalytics } from '@segment/analytics-react-native';
+import { segmentClient } from '_config/segment';
 
-// const { screen, track, identify, group, alias, reset, flush } = useAnalytics();
-// TODO: dont ship it
-//TODO: fix segment types later
-// type JsonValue = string | number | boolean | null | JsonArray | JsonMap;
-// type JsonArray = JsonValue[];
-// interface JsonMap {
-//   [key: string]: JsonValue;
-// }
+// TODO: fix segment types later
+type JsonValue = string | number | boolean | null | JsonArray | JsonMap;
+type JsonArray = JsonValue[];
+interface JsonMap {
+  [key: string]: JsonValue;
+}
 
-// export function trackScreen(name: any, properties?: any) {
-//   screen(name, properties);
-// }
+export function trackScreen(name: any, properties?: any) {
+  segmentClient.screen(name, properties);
+}
 
-// export function trackEvent(event: any, properties?: any) {
-//   track(event, properties);
-// }
+export function trackEvent(event: any, properties?: any) {
+  segmentClient.track(event, properties);
+}
 
-// export function trackIdentify(userId: any, properties?: any) {
-//   identify(userId, properties);
-// }
+export function trackIdentify(userId: any, properties?: any) {
+  segmentClient.identify(userId, properties);
+}
 
-// export function trackGroup(event: any, properties?: any) {
-//   group(event, properties);
-// }
+export function trackGroup(event: any, properties?: any) {
+  segmentClient.group(event, properties);
+}
 
-// export function trackAlias(newUserId: any) {
-//   alias(newUserId);
-// }
+export function trackAlias(newUserId: any) {
+  segmentClient.alias(newUserId);
+}
 
-// export function trackReset() {
-//   reset();
-// }
+export function trackReset() {
+  segmentClient.reset();
+}
 
-// export function trackFlush() {
-//   flush();
-// }
+export function trackFlush() {
+  segmentClient.flush();
+}
 
 export default {
-  trackScreen: () => {},
-  trackEvent: () => {},
-  trackIdentify: () => {},
-  trackGroup: () => {},
-  trackAlias: () => {},
-  trackReset: () => {},
-  trackFlush: () => {},
+  trackScreen,
+  trackEvent,
+  trackIdentify,
+  trackGroup,
+  trackAlias,
+  trackReset,
+  trackFlush,
 };
