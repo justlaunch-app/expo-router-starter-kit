@@ -1,29 +1,23 @@
+import { JsonMap } from '@segment/analytics-react-native';
 import { segmentClient } from '_config/segment';
 
-// TODO: fix segment types later
-type JsonValue = string | number | boolean | null | JsonArray | JsonMap;
-type JsonArray = JsonValue[];
-interface JsonMap {
-  [key: string]: JsonValue;
-}
-
-export function trackScreen(name: any, properties?: any) {
+export function trackScreen(name: string, properties?: JsonMap) {
   segmentClient.screen(name, properties);
 }
 
-export function trackEvent(event: any, properties?: any) {
+export function trackEvent(event: string, properties?: JsonMap) {
   segmentClient.track(event, properties);
 }
 
-export function trackIdentify(userId: any, properties?: any) {
+export function trackIdentify(userId: any, properties?: JsonMap) {
   segmentClient.identify(userId, properties);
 }
 
-export function trackGroup(event: any, properties?: any) {
+export function trackGroup(event: string, properties?: JsonMap) {
   segmentClient.group(event, properties);
 }
 
-export function trackAlias(newUserId: any) {
+export function trackAlias(newUserId: string) {
   segmentClient.alias(newUserId);
 }
 
