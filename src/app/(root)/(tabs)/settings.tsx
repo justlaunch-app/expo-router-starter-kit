@@ -21,7 +21,7 @@ export default function Settings() {
       <View className="flex-1">
         <Pressable
           onPress={() => {
-            toggleColorScheme;
+            toggleColorScheme();
 
             analytics.trackEvent('Color Scheme Toggled', {
               colorScheme: colorScheme,
