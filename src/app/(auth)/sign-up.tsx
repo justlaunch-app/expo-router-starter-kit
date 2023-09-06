@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
-import { Label, View } from '_context/Themed';
-import { MonoText as Text } from '_components/StyledText';
-
-import { Button } from 'react-native';
-import { ControlledInput } from '_components/ControlledInput';
+import * as React from 'react';
+import { StyledText as Text } from '_components/Text/StyledText';
+import { View, Button } from 'react-native';
+import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,6 +11,8 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { router } from 'expo-router';
 import { emailSchema } from '_utils/auth.schema';
 import { useIsFocused } from '@react-navigation/native';
+import analytics from '_utils/analytics/segment';
+import { Label } from '_components/Label/StyledLabel';
 import { Alert } from '_utils/alert';
 
 const schema = z.object({
@@ -64,7 +64,7 @@ export default function SignUp() {
     reset();
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isFocused) {
       reset();
     }

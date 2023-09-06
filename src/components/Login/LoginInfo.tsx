@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { View, Button } from 'react-native';
 import { useAuth } from 'src/store/authStore/auth.store';

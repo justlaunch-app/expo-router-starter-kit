@@ -1,6 +1,5 @@
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { Image } from 'expo-image';
-import React from 'react';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '_utils/blurhash';
 import * as Sharing from 'expo-sharing';
@@ -9,23 +8,24 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import analytics from '_utils/analytics/segment';
 
 const DetailFeed = () => {
-  const props = useLocalSearchParams();
+  const { id, author, imgSrc, title, datePublished, content } =
+    useLocalSearchParams();
 
   analytics.trackScreen('DetailFeed', {
-    feedId: props.id,
+    feedId: id,
   });
 
   return (
     <ScrollView>
       <Stack.Screen
         options={{
-          headerTitle: `FEED ${props.id}`,
+          headerTitle: `FEED ${id}`,
           headerRight: () => (
             <TouchableOpacity
               onPress={() => {
                 Sharing.shareAsync('https://linktr.zoltanfodor.dev/');
                 analytics.trackEvent('Share Creator', {
-                  feedId: props.id,
+                  feedId: id,
                   url: 'https://linktr.zoltanfodor.dev/',
                 });
               }}

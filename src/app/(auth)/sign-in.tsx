@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Label, View } from '_context/Themed';
-import { MonoText as Text } from '_components/StyledText';
-import { Button, Pressable } from 'react-native';
-import { ControlledInput } from '_components/ControlledInput';
+import * as React from 'react';
+import { StyledText as Text } from '_components/Text/StyledText';
+import { View, Alert, Button, Pressable } from 'react-native';
+import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,7 +11,9 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { ResetPasswordModal } from 'src/components/ResetPasswordModal';
 import { useIsFocused } from '@react-navigation/native';
 import { emailSchema } from '_utils/auth.schema';
-import { Alert } from '_utils/alert';
+import analytics from '_utils/analytics/segment';
+import { deviceInfo } from '_config/device';
+import { Label } from '_components/Label/StyledLabel';
 
 const schema = z.object({
   email: emailSchema,
@@ -25,7 +26,7 @@ export default function SignIn() {
 
   const isFocused = useIsFocused();
 
-  const [modalResetOpen, setModalResetOpen] = useState(false);
+  const [modalResetOpen, setModalResetOpen] = React.useState(false);
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -53,7 +54,7 @@ export default function SignIn() {
     Alert.alert(t(error));
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isFocused) {
       reset();
     }

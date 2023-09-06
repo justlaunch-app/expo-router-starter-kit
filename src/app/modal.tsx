@@ -1,4 +1,3 @@
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, Platform } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';

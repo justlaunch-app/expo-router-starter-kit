@@ -4,8 +4,8 @@ import { useNavigation } from 'expo-router';
 import { useLayoutEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLangModal } from 'src/store/langStore/lang-picker-modal.store';
-import { LanguagePickerModalTrigger } from 'src/components/LanguagePickerModalTrigger';
 import { useColorScheme } from 'react-native';
+import { LanguagePickerModalTrigger } from '_components/Picker/LanguagePickerModalTrigger';
 
 export default function IndexTopTabsLayout() {
   const { setOptions } = useNavigation();

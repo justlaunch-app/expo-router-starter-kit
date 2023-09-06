@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react';
 import {
   Pressable,
   ViewStyle,
@@ -11,7 +11,7 @@ type PressableComponentProps = {
   style?: StyleProp<ViewStyle>;
   children?:
     | React.ReactNode
-    | ((state: PressableStateCallbackType) => ReactNode);
+    | ((state: PressableStateCallbackType) => React.ReactNode);
   disabled?: boolean;
 };
 

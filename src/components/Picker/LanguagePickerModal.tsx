@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { Modal, Pressable, useColorScheme } from 'react-native';

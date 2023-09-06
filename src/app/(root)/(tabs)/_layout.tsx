@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 import { useColorScheme as nativewindUseColorScheme } from 'nativewind';

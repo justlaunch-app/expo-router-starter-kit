@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import * as React from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
@@ -20,6 +20,7 @@ import {
   DarkTheme,
   DefaultTheme,
 } from '@react-navigation/native';
+import { NativeWindStyleSheet } from 'nativewind';
 
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
@@ -30,15 +31,15 @@ import { segmentClient } from '_config/segment';
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import i18n from 'src/locales/index';
 import { useAuth } from 'src/store/authStore/auth.store';
 import { Platform, useColorScheme } from 'react-native';
-import { LottieSplashScreenType } from '_components/LottieSplashScreen';
+import { LottieSplashScreenNative } from '_components/LottieSplashScreen';
+import i18n from '_locales/i18n';
 
 export { ErrorBoundary } from 'expo-router';
 
 let CurrentPlatformSplashScreen:
-  | LottieSplashScreenType
+  | LottieSplashScreenNative
   | React.FunctionComponent;
 if (Platform.OS === 'web') {
   CurrentPlatformSplashScreen =
@@ -65,7 +66,7 @@ function useProtectedRoute() {
     return rootNavigationState?.key;
   }, [rootNavigationState]);
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const inAuthGroup = segments[0] === '(auth)';
 
     if (!navigationKey) {
@@ -86,7 +87,7 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
-  const [appState, setAppState] = useState({
+  const [appState, setAppState] = React.useState({
     fontsLoaded: false,
     isDelayOver: false,
     screenReady: false,
@@ -108,7 +109,7 @@ export default function RootLayout() {
   //   });
   // }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (loaded) {
       ExpoSplashScreen.hideAsync();
       setAppState((prev) => ({ ...prev, fontsLoaded: true }));
@@ -118,7 +119,7 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (appState.fontsLoaded) {
       const timer = setTimeout(() => {
         setAppState((prev) => ({ ...prev, isDelayOver: true }));
@@ -128,7 +129,7 @@ export default function RootLayout() {
     }
   }, [appState.fontsLoaded]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (appState.isDelayOver) {
       setTimeout(() => {
         setAppState((prev) => ({ ...prev, screenReady: true }));
@@ -166,3 +167,7 @@ function RootLayoutNav() {
     </ThemeProvider>
   );
 }
+
+NativeWindStyleSheet.setOutput({
+  default: 'native',
+});

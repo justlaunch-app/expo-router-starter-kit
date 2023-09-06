@@ -1,4 +1,3 @@
-import React from 'react';
 import { FlashList } from '@shopify/flash-list';
 import { View } from 'react-native';
 import { Link } from 'expo-router';

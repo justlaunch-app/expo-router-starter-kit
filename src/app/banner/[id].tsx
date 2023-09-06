@@ -4,17 +4,17 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import analytics from '_utils/analytics/segment';
 
 const BannerDetail = () => {
-  const props = useLocalSearchParams();
+  const { id, title, description } = useLocalSearchParams();
 
   analytics.trackScreen('BannerDetail', {
-    bannerId: props.id,
+    bannerId: id,
   });
 
   return (
     <View className="flex-1 items-center pt-20">
       <Stack.Screen
         options={{
-          headerTitle: `Banner - ${props.title}`,
+          headerTitle: `Banner - ${title}`,
         }}
       />
       <Text className="text-2xl uppercase dark:text-white">BannerDetail</Text>

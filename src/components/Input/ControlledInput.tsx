@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   View,
   TextInput,
@@ -5,8 +6,6 @@ import {
   Text,
   useColorScheme,
 } from 'react-native';
-
-import React, { useMemo } from 'react';
 import {
   Control,
   FieldValues,
@@ -54,7 +53,7 @@ export function ControlledInput<T extends FieldValues>(
 
   const colorScheme = useColorScheme();
 
-  const { placeholderTextColor, className } = useMemo(() => {
+  const { placeholderTextColor, className } = React.useMemo(() => {
     if (!colorScheme) {
       return styles.light;
     }

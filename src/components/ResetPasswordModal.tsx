@@ -1,8 +1,11 @@
-import React from 'react';
-import { View } from '_context/Themed';
-import { MonoText as Text } from '_components/StyledText';
-import { Button, Modal, Pressable, useColorScheme } from 'react-native';
-import { ControlledInput } from '_components/ControlledInput';
+import {
+  Button,
+  Modal,
+  Pressable,
+  useColorScheme,
+  View,
+  Text,
+} from 'react-native';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -18,6 +21,7 @@ import * as Clipboard from 'expo-clipboard';
 import Toast from 'react-native-root-toast';
 import { Alert } from '_utils/alert';
 import { colorSchemePrimaryBgMap } from '_utils/colorSchemePrimaryBgMap';
+import { ControlledInput } from './Input/ControlledInput';
 
 type ResetModalProps = {
   visible: boolean;
