@@ -1,11 +1,6 @@
 import { classNames } from '_utils/classNames';
-import {
-  View,
-  Platform,
-  Pressable,
-  PressableProps,
-  useColorScheme,
-} from 'react-native';
+import { useColorScheme } from 'nativewind';
+import { View, Platform, Pressable, PressableProps } from 'react-native';
 
 type IconButtonProps = Omit<PressableProps, 'className'> & {
   classNames?: Record<string, boolean>;
@@ -16,7 +11,7 @@ export function IconButton({
   children,
   ...props
 }: IconButtonProps) {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <View

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { StyledText as Text } from '_components/Text/StyledText';
-import { View, Alert, Button, Pressable } from 'react-native';
+import { View,  Button, Pressable } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -13,6 +13,8 @@ import { useIsFocused } from '@react-navigation/native';
 import { emailSchema } from '_utils/auth.schema';
 import analytics from '_utils/analytics/segment';
 import { deviceInfo } from '_config/device';
+import { Label } from '_components/Label/StyledLabel';
+import {Alert} from "_utils/alert";
 
 const schema = z.object({
   email: emailSchema,
@@ -25,7 +27,7 @@ export default function SignIn() {
 
   const isFocused = useIsFocused();
 
-  const [modalResetOpen, setModalResetOpen] = useState(false);
+  const [modalResetOpen, setModalResetOpen] = React.useState(false);
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -53,7 +55,7 @@ export default function SignIn() {
     Alert.alert(t(error));
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isFocused) {
       reset();
     }
@@ -62,11 +64,14 @@ export default function SignIn() {
   return (
     <View className="flex-1 items-center p-4 gap-y-8">
       <View>
-        <Text className="text-3xl mt-2">EXPO STARTER KIT</Text>
+        <Text className="text-3xl mt-2 font-semibold">EXPO STARTER KIT</Text>
       </View>
       <View className="w-full bg-transparent">
-        <Text className="font-bold mb-2">{t('auth.email')}</Text>
+        <Label htmlFor="email-sign-in" className="font-bold mb-2">
+          {t('auth.email')}
+        </Label>
         <ControlledInput
+          id="email-sign-in"
           keyboardType="email-address"
           placeholder="joe@acme.com"
           control={control}
@@ -74,8 +79,15 @@ export default function SignIn() {
         />
       </View>
       <View className="w-full bg-transparent">
-        <Text className="font-bold mb-2">{t('auth.password')}</Text>
-        <ControlledInput control={control} name="password" secureTextEntry />
+        <Label htmlFor="password-sign-in" className="font-bold mb-2">
+          {t('auth.password')}
+        </Label>
+        <ControlledInput
+          id="password-sign-in"
+          control={control}
+          name="password"
+          secureTextEntry
+        />
       </View>
       <View className="mt-4 bg-transparent w-full">
         <Button title={t('auth.sign-in')} onPress={onSubmit} />

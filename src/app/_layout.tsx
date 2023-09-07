@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import * as React from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
@@ -20,6 +20,7 @@ import {
   DarkTheme,
   DefaultTheme,
 } from '@react-navigation/native';
+import { NativeWindStyleSheet } from 'nativewind';
 
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
@@ -30,11 +31,23 @@ import { segmentClient } from '_config/segment';
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import { SplashScreen } from '_components/LottieSplashModal';
-import i18n from 'src/locales/i18n';
 import { useAuth } from 'src/store/authStore/auth.store';
+import { Platform } from 'react-native';
+import { LottieSplashScreenNative } from '_components/LottieSplashScreen';
+import i18n from '_locales/i18n';
 
 export { ErrorBoundary } from 'expo-router';
+
+let CurrentPlatformSplashScreen:
+  | LottieSplashScreenNative
+  | React.FunctionComponent;
+if (Platform.OS === 'web') {
+  CurrentPlatformSplashScreen =
+    require('_components/LottieSplashScreenWeb').default;
+} else {
+  CurrentPlatformSplashScreen =
+    require('_components/LottieSplashScreen').default;
+}
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -53,7 +66,7 @@ function useProtectedRoute() {
     return rootNavigationState?.key;
   }, [rootNavigationState]);
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const inAuthGroup = segments[0] === '(auth)';
 
     if (!navigationKey) {
@@ -74,7 +87,7 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
-  const [appState, setAppState] = useState({
+  const [appState, setAppState] = React.useState({
     fontsLoaded: false,
     isDelayOver: false,
     screenReady: false,
@@ -96,7 +109,7 @@ export default function RootLayout() {
   //   });
   // }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (loaded) {
       ExpoSplashScreen.hideAsync();
       setAppState((prev) => ({ ...prev, fontsLoaded: true }));
@@ -106,7 +119,7 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (appState.fontsLoaded) {
       const timer = setTimeout(() => {
         setAppState((prev) => ({ ...prev, isDelayOver: true }));
@@ -116,7 +129,7 @@ export default function RootLayout() {
     }
   }, [appState.fontsLoaded]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (appState.isDelayOver) {
       setTimeout(() => {
         setAppState((prev) => ({ ...prev, screenReady: true }));
@@ -127,7 +140,9 @@ export default function RootLayout() {
   useProtectedRoute();
 
   if (!loaded || !appState.isDelayOver) {
-    return <SplashScreen animationFadeOut={appState.isDelayOver} />;
+    return (
+      <CurrentPlatformSplashScreen animationFadeOut={appState.isDelayOver} />
+    );
   }
 
   if (appState.screenReady) {
@@ -139,18 +154,20 @@ function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
 
   return (
-    <AnalyticsProvider client={segmentClient}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <RootSiblingParent>
-          <I18nextProvider i18n={i18n}>
-            <Stack>
-              <Stack.Screen name="(root)" options={{ headerShown: false }} />
-              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-            </Stack>
-            <StatusBar style={colorScheme ?? 'light'} />
-          </I18nextProvider>
-        </RootSiblingParent>
-      </ThemeProvider>
-    </AnalyticsProvider>
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <RootSiblingParent>
+        <I18nextProvider i18n={i18n}>
+          <Stack>
+            <Stack.Screen name="(root)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack>
+          <StatusBar style={'auto'} />
+        </I18nextProvider>
+      </RootSiblingParent>
+    </ThemeProvider>
   );
 }
+
+NativeWindStyleSheet.setOutput({
+  default: 'native',
+});

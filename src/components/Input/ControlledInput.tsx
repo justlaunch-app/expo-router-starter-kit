@@ -1,12 +1,5 @@
-import {
-  View,
-  TextInput,
-  TextInputProps,
-  Text,
-  useColorScheme,
-} from 'react-native';
-
-import React, { useMemo } from 'react';
+import * as React from 'react';
+import { View, TextInput, TextInputProps, Text } from 'react-native';
 import {
   Control,
   FieldValues,
@@ -15,6 +8,7 @@ import {
   useController,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useColorScheme } from 'nativewind';
 
 type TRule = Omit<
   RegisterOptions,
@@ -52,9 +46,9 @@ export function ControlledInput<T extends FieldValues>(
 
   const { field, fieldState } = useController({ control, name, rules });
 
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
-  const { placeholderTextColor, className } = useMemo(() => {
+  const { placeholderTextColor, className } = React.useMemo(() => {
     if (!colorScheme) {
       return styles.light;
     }

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Text } from 'react-native';
+import { Text, TextProps } from 'react-native';
 import { useColorScheme as nativewindUseColorScheme, styled } from 'nativewind';
 
 interface StyledTextProps {
@@ -7,6 +6,7 @@ interface StyledTextProps {
   className?: string;
   selectable?: boolean;
   fontFamily?: string;
+  style?: TextProps['style'];
 }
 
 const StyledComponent = styled(Text);
@@ -16,14 +16,16 @@ export function StyledText({
   className,
   selectable = false,
   fontFamily,
+  style,
 }: StyledTextProps) {
   const { colorScheme } = nativewindUseColorScheme();
-  const textColor = colorScheme === 'dark' ? 'white' : 'black';
+  const color = colorScheme === 'dark' ? 'white' : 'black';
+
   return (
     <StyledComponent
-      className={className}
+      baseTw={className}
       selectable={selectable}
-      style={{ color: textColor, fontFamily: fontFamily }}
+      style={[{ color, fontFamily }, style]}
     >
       {children}
     </StyledComponent>

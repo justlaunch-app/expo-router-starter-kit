@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Text, View, useColorScheme } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { viewportWidth, spacing } from '_utils/viewport';
 import { Link } from 'expo-router';
@@ -15,10 +14,11 @@ import { Carousel } from '_components/Carousel/Carousel';
 //Data
 import homeData from '_assets/data/home.json';
 import { classNames } from '_utils/classNames';
+import { useColorScheme } from 'nativewind';
 
 export default function Index() {
   const { t } = useTranslation();
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   analytics.trackScreen('Home');
 
@@ -38,7 +38,7 @@ export default function Index() {
         expo-router
       </Text>
 
-      <View className="flex flex-1 items-center">
+      <View className="w-screen">
         <Carousel
           data={homeData}
           showPagination={true}
@@ -58,13 +58,12 @@ export default function Index() {
                 },
               }}
               style={{
-                width: viewportWidth * 0.8,
+                width: viewportWidth - spacing,
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 0.3,
                 shadowRadius: 3,
                 elevation: 1,
-                marginRight: spacing,
               }}
               className="justify-center items-center bg-white rounded-2xl p-4"
             >

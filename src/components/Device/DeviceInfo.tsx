@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import { deviceBrand, deviceName, deviceOS, deviceModel } from '_config/device';
 import { StyledText as Text } from '_components/Text/StyledText';

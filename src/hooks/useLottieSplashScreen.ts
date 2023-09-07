@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Modal, Animated } from 'react-native';
-import LottieView from 'lottie-react-native';
-import lottieAnimation from 'src/assets/splash/lottie_animated_logo.json';
-
-interface SplashScreenProps {
-  animationFadeOut: boolean;
-  onHidden?: () => void;
-}
+import { useState, useEffect, useRef } from 'react';
+import { Animated } from 'react-native';
 
 const FADE_IN_DURATION = 1000;
 const FADE_OUT_DURATION = 500;
 
-export const SplashScreen: React.FunctionComponent<SplashScreenProps> = ({
+export interface UseLottieSplashScreenParams {
+  animationFadeOut?: boolean;
+  onHidden?: () => void;
+}
+
+export const useLottieSplashScreen = ({
   animationFadeOut,
   onHidden,
-}) => {
+}: UseLottieSplashScreenParams) => {
   const [visible, setVisible] = useState(true);
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -51,16 +49,9 @@ export const SplashScreen: React.FunctionComponent<SplashScreenProps> = ({
     }
   };
 
-  return (
-    <Modal transparent visible={visible}>
-      <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
-        <LottieView
-          source={lottieAnimation}
-          loop={false}
-          autoPlay
-          onAnimationFinish={onLottieAnimationComplete}
-        />
-      </Animated.View>
-    </Modal>
-  );
+  return {
+    onLottieAnimationComplete,
+    visible,
+    fadeAnim,
+  };
 };

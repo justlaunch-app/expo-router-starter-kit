@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import appVersion from '_config/version';
 import { StyledText as Text } from '_components/Text/StyledText';

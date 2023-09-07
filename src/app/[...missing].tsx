@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, Stack } from 'expo-router';
 import { Text, View } from 'react-native';
 import analytics from '_utils/analytics/segment';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { SafeAreaView } from 'react-native-safe-area-context';

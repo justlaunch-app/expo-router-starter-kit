@@ -1,9 +1,7 @@
-import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 //COMPONENTS
 import { Pressable, Text, View } from 'react-native';
-import LanguagePicker from '_components/Picker/LanguagePicker';
 import DeviceInfo from '_components/Device/DeviceInfo';
 import AppVersion from '_components/Device/AppVersion';
 import LoginInfo from '_components/Login/LoginInfo';
@@ -11,6 +9,7 @@ import Divider from '_components/Divider/Divider';
 
 import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
 import analytics from '_utils/analytics/segment';
+import LanguagePicker from '_components/Picker/LanguagePicker';
 
 export default function Settings() {
   const { colorScheme, toggleColorScheme } = nativewindUseColorScheme();
@@ -22,7 +21,7 @@ export default function Settings() {
       <View className="flex-1">
         <Pressable
           onPress={() => {
-            toggleColorScheme;
+            toggleColorScheme();
 
             analytics.trackEvent('Color Scheme Toggled', {
               colorScheme: colorScheme,

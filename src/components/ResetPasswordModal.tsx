@@ -1,7 +1,4 @@
-import React from 'react';
-import { StyledText as Text } from '_components/Text/StyledText';
-import { View, Alert, Button, Modal, Pressable } from 'react-native';
-import { ControlledInput } from '_components/Input/ControlledInput';
+import { Button, Modal, Pressable, View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,6 +12,12 @@ import IonIcons from '@expo/vector-icons/Ionicons';
 import { emailSchema } from '_utils/auth.schema';
 import * as Clipboard from 'expo-clipboard';
 import Toast from 'react-native-root-toast';
+import { Alert } from '_utils/alert';
+import { colorSchemePrimaryBgMap } from '_utils/colorSchemePrimaryBgMap';
+import { ControlledInput } from './Input/ControlledInput';
+import { StyledText } from './Text/StyledText';
+import { Label } from './Label/StyledLabel';
+import { useColorScheme } from 'nativewind';
 
 type ResetModalProps = {
   visible: boolean;
@@ -26,6 +29,7 @@ const schema = z.object({
 export function ResetPasswordModal({ visible, close }: ResetModalProps) {
   const { t } = useTranslation();
   const { top } = useSafeAreaInsets();
+  const { colorScheme } = useColorScheme();
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -64,17 +68,31 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
 
   return (
     <Modal visible={visible} animationType="slide">
-      <SafeAreaView className="flex-1 h-screen" style={{ top }}>
+      <SafeAreaView
+        className="flex-1 h-screen bg-white dark:bg-black"
+        style={{
+          paddingTop: top,
+          backgroundColor: colorSchemePrimaryBgMap[colorScheme ?? 'light'],
+        }}
+      >
         <View className="flex items-center flex-row justify-between w-full px-4 border-b border-slate-100">
-          <Text className="font-bold text-lg">{t('auth.reset-password')}</Text>
+          <StyledText className="font-bold text-lg">
+            {t('auth.reset-password')}
+          </StyledText>
           <Pressable className="p-2" onPress={close}>
-            <IonIcons name="close" size={24} />
+            <IonIcons
+              name="close"
+              color={colorScheme === 'dark' ? 'white' : 'black'}
+              size={24}
+            />
           </Pressable>
         </View>
         <View className="mt-4 p-4">
-          <Text className="font-bold mb-2">{t('auth.email')}</Text>
+          <Label htmlFor="password-reset" className="font-bold mb-2">
+            {t('auth.email')}
+          </Label>
           <ControlledInput
-            className="p-4 text-slate-900 w-full bg-slate-100 shadow-sm"
+            id="password-reset"
             keyboardType="email-address"
             placeholder="joe@acme.com"
             control={control}
