@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyledText as Text } from '_components/Text/StyledText';
-import { View, Alert, Button, Pressable } from 'react-native';
+import { View,  Button, Pressable } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -14,6 +14,7 @@ import { emailSchema } from '_utils/auth.schema';
 import analytics from '_utils/analytics/segment';
 import { deviceInfo } from '_config/device';
 import { Label } from '_components/Label/StyledLabel';
+import {Alert} from "_utils/alert";
 
 const schema = z.object({
   email: emailSchema,
