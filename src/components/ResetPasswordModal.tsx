@@ -71,7 +71,7 @@ export function ResetPasswordModal({ visible, close }: ResetModalProps) {
       <SafeAreaView
         className="flex-1 h-screen bg-white dark:bg-black"
         style={{
-          top,
+          paddingTop: top,
           backgroundColor: colorSchemePrimaryBgMap[colorScheme ?? 'light'],
         }}
       >
