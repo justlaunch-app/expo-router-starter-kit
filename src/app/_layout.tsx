@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
@@ -109,7 +109,7 @@ export default function RootLayout() {
   //   });
   // }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loaded) {
       ExpoSplashScreen.hideAsync();
       setAppState((prev) => ({ ...prev, fontsLoaded: true }));
