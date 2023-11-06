@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { View,  Button, Pressable } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
@@ -27,7 +27,7 @@ export default function SignIn() {
 
   const isFocused = useIsFocused();
 
-  const [modalResetOpen, setModalResetOpen] = React.useState(false);
+  const [modalResetOpen, setModalResetOpen] = useState(false);
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -55,7 +55,7 @@ export default function SignIn() {
     Alert.alert(t(error));
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isFocused) {
       reset();
     }

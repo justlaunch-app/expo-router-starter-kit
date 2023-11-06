@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { viewportWidth, spacing } from '_utils/viewport';
@@ -16,7 +16,7 @@ export const Carousel = <T,>({
   showPagination = true,
   className,
 }: CarouselProps<T>) => {
-  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const itemSize = Math.floor(viewportWidth * 0.8);
   const fullItemSize = itemSize + spacing; // Item size including the space

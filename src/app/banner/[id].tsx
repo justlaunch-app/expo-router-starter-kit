@@ -1,5 +1,4 @@
 import { View, Text } from 'react-native';
-import React from 'react';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import analytics from '_utils/analytics/segment';
 

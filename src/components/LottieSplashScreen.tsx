@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FunctionComponent } from 'react';
 import { Modal, Animated } from 'react-native';
 import LottieView from 'lottie-react-native';
 import lottieAnimation from 'src/assets/splash/lottie_animated_logo.json';
@@ -10,7 +10,7 @@ interface SplashScreenProps {
 }
 
 export type LottieSplashScreenNative =
-  React.FunctionComponent<SplashScreenProps>;
+  FunctionComponent<SplashScreenProps>;
 
 const SplashScreen: LottieSplashScreenNative = ({
   animationFadeOut,
