@@ -1,8 +1,9 @@
+import { ReactNode } from 'react';
 import { Text, TextProps } from 'react-native';
 import { useColorScheme as nativewindUseColorScheme, styled } from 'nativewind';
 
 interface StyledTextProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   selectable?: boolean;
   fontFamily?: string;

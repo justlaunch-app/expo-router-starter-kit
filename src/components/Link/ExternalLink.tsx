@@ -1,8 +1,9 @@
+import { ComponentProps } from 'react';
 import { Link } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { Platform } from 'react-native';
 
-type ExternalLinkProps = React.ComponentProps<typeof Link> & {
+type ExternalLinkProps = ComponentProps<typeof Link> & {
   href: any;
 };
 

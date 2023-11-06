@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useLayoutEffect, useEffect , FunctionComponent, useMemo , useState } from 'react';
 import {
   SourceCodePro_400Regular,
   useFonts,
@@ -40,7 +40,7 @@ export { ErrorBoundary } from 'expo-router';
 
 let CurrentPlatformSplashScreen:
   | LottieSplashScreenNative
-  | React.FunctionComponent;
+  | FunctionComponent;
 if (Platform.OS === 'web') {
   CurrentPlatformSplashScreen =
     require('_components/LottieSplashScreenWeb').default;
@@ -62,11 +62,11 @@ function useProtectedRoute() {
 
   const user = useAuth(({ user }) => user);
 
-  const navigationKey = React.useMemo(() => {
+  const navigationKey = useMemo(() => {
     return rootNavigationState?.key;
   }, [rootNavigationState]);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     const inAuthGroup = segments[0] === '(auth)';
 
     if (!navigationKey) {
@@ -87,7 +87,7 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
-  const [appState, setAppState] = React.useState({
+  const [appState, setAppState] = useState({
     fontsLoaded: false,
     isDelayOver: false,
     screenReady: false,
@@ -119,7 +119,7 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (appState.fontsLoaded) {
       const timer = setTimeout(() => {
         setAppState((prev) => ({ ...prev, isDelayOver: true }));
@@ -129,7 +129,7 @@ export default function RootLayout() {
     }
   }, [appState.fontsLoaded]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (appState.isDelayOver) {
       setTimeout(() => {
         setAppState((prev) => ({ ...prev, screenReady: true }));

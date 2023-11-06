@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { View, Button } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
@@ -64,7 +64,7 @@ export default function SignUp() {
     reset();
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isFocused) {
       reset();
     }
