@@ -92,7 +92,7 @@ This roadmap outlines the planned development and enhancement of the `expo-route
 1.  **Carousel and other components fix**  - Address and fix carousel related issues in the current template + create/fix multiple expo base components, utils, helper functions.
 2.  **Remove Nativewind**  - Replace Nativewind due to its discontinuation and performance issues. 
 3. **Authentication Integration**  - Explore and integrate authentication providers like Clark or other alternatives.
-4. ** TanStack Query **  - Implement an example of Data Mutation.
+4. **TanStack Query**  - Implement an example of Data Mutation.
 
 #### 🛠 Phase 2: Template Expansion and CLI Development
 - Expand the project to include a variety of templates catering to different use cases. (e-commerce , barebone, base, etc)
