@@ -1449,10 +1449,10 @@
     resolve-from "^5.0.0"
     sucrase "^3.20.0"
 
-"@expo/metro-runtime@2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@expo/metro-runtime/-/metro-runtime-2.2.3.tgz#19ece4582c42a5273c52db821e294730dd6a1b05"
-  integrity sha512-SI1SfjsAKIryRLVgxcNBDywy1DN7L/EGcPZSS6+Juls3L6/mGluz97ytIJw3CTZ6S4X3hDL4QDvjyZv2szpTDA==
+"@expo/metro-runtime@2.2.13":
+  version "2.2.13"
+  resolved "https://registry.yarnpkg.com/@expo/metro-runtime/-/metro-runtime-2.2.13.tgz#cf63cdd9d38a602aae8deb231817f13e97400fba"
+  integrity sha512-DRmaRS2M0XSaofcpkpXNUbnNyFjx2v6Em4alBvL4bDqRB52Aoe5TBxIITtDLoP+SzfzxcFoupXWzvf10FB70ww==
   dependencies:
     "@bacons/react-views" "^1.1.3"
     qs "^6.10.3"
@@ -2979,9 +2979,9 @@
     "@types/istanbul-lib-report" "*"
 
 "@types/json-schema@^7.0.9":
-  version "7.0.14"
-  resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.14.tgz#74a97a5573980802f32c8e47b663530ab3b6b7d1"
-  integrity sha512-U3PUjAudAdJBeC2pgN8uTIKgxrb4nlDF3SF0++EldXQvQBGkpFZMSnwQiIoDU77tv45VgNkl/L4ouD+rEomujw==
+  version "7.0.15"
+  resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
+  integrity sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==
 
 "@types/node@*":
   version "20.8.10"
@@ -4382,10 +4382,10 @@ expo-font@~11.4.0:
   dependencies:
     fontfaceobserver "^2.1.0"
 
-expo-head@0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/expo-head/-/expo-head-0.0.11.tgz#729fa6b9c8ce09c4af1e0efdccc86b23d7124569"
-  integrity sha512-nQ/DmxuLRLmCmnWFvfKoqG0/CA1SqEe4kvPlp7sAjsptLC7BHxOTViNchLznOlXTc/9yG05YYzZbWHvjIeE08Q==
+expo-head@0.0.17:
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/expo-head/-/expo-head-0.0.17.tgz#e0a7e0407462ba5d71928929a812426b74be358c"
+  integrity sha512-N8UMN+uxQdp+tXVgSblKnd7EyMRa09EgS9dyCDxU5Sj7BpXOzt5R2p8/msBx1vWx6c0Afd5vp0BDnobUf2nAOg==
   dependencies:
     react-helmet-async "^1.3.0"
 
@@ -4437,18 +4437,18 @@ expo-modules-core@1.5.11:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
 
-expo-router@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/expo-router/-/expo-router-2.0.0.tgz#e749a084442903804d7b2265891291f0bb570788"
-  integrity sha512-K9ezwX2ll4VAOPOKmpoy6b2bcWxnakAYGFYAx+WWlhR5IABWK0fwrNODs8pCHnN0P1SmeiiFf+8zsZ7MyiXODQ==
+expo-router@2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/expo-router/-/expo-router-2.0.11.tgz#b72d5f20230fa86b6b41a17db73d2cb8f27a56ec"
+  integrity sha512-LKGWeOzrmyPAPmPCQB7dZLqf55kP9RWORp/y+BnPQ3wi2OMInK6Wl4UI/EUlpU6BWClsbg7YeifdbzBmPHICUw==
   dependencies:
     "@bacons/react-views" "^1.1.3"
-    "@expo/metro-runtime" "2.2.3"
+    "@expo/metro-runtime" "2.2.13"
     "@radix-ui/react-slot" "1.0.1"
     "@react-navigation/bottom-tabs" "~6.5.7"
     "@react-navigation/native" "~6.1.6"
     "@react-navigation/native-stack" "~6.9.12"
-    expo-head "0.0.11"
+    expo-head "0.0.17"
     expo-splash-screen "~0.20.2"
     query-string "7.1.3"
     react-helmet-async "^1.3.0"
