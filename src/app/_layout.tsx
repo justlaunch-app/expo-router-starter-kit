@@ -1,4 +1,11 @@
-import { useLayoutEffect, useEffect , FunctionComponent, useMemo , useState } from 'react';
+import {
+  useLayoutEffect,
+  useEffect,
+  FunctionComponent,
+  useMemo,
+  useState,
+} from 'react';
+import Head from 'expo-router/head';
 import {
   SourceCodePro_400Regular,
   useFonts,
@@ -38,9 +45,7 @@ import i18n from '_locales/i18n';
 
 export { ErrorBoundary } from 'expo-router';
 
-let CurrentPlatformSplashScreen:
-  | LottieSplashScreenNative
-  | FunctionComponent;
+let CurrentPlatformSplashScreen: LottieSplashScreenNative | FunctionComponent;
 if (Platform.OS === 'web') {
   CurrentPlatformSplashScreen =
     require('_components/LottieSplashScreenWeb').default;
@@ -154,17 +159,44 @@ function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootSiblingParent>
-        <I18nextProvider i18n={i18n}>
-          <Stack>
-            <Stack.Screen name="(root)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-          </Stack>
-          <StatusBar style={'auto'} />
-        </I18nextProvider>
-      </RootSiblingParent>
-    </ThemeProvider>
+    <>
+      <Head>
+        <meta property="og:title" content="Pillar Valley" />
+        <meta property="expo:handoff" content="true" />
+
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#F09458" />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <RootSiblingParent>
+          <I18nextProvider i18n={i18n}>
+            <Stack>
+              <Stack.Screen name="(root)" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+            </Stack>
+            <StatusBar style={'auto'} />
+          </I18nextProvider>
+        </RootSiblingParent>
+      </ThemeProvider>
+    </>
   );
 }
 
