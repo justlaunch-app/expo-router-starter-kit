@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 
 module.exports = {
@@ -37,7 +36,6 @@ module.exports = {
       bundler: 'metro',
       favicon: './src/assets/images/favicon.png',
     },
-    owner: 'ritmillio',
     plugins: [
       [
         'onesignal-expo-plugin',
