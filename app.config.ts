@@ -5,6 +5,7 @@ module.exports = {
     name: 'expo-starter-kit',
     experiments: {
       typedRoutes: true,
+      tsconfigPaths: true
     },
     slug: 'expo-starter-kit',
     version: '1.0.0',
