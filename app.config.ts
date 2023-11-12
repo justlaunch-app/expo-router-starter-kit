@@ -1,11 +1,9 @@
-require('dotenv').config();
-
 module.exports = {
   expo: {
     name: 'expo-starter-kit',
     experiments: {
       typedRoutes: true,
-      tsconfigPaths: true
+      tsconfigPaths: true,
     },
     slug: 'expo-starter-kit',
     version: '1.0.0',

@@ -1,5 +1,21 @@
-import Constants from 'expo-constants';
+import { TypeOf, z } from 'zod';
 
-const ENV = Constants.expoConfig?.extra ?? {};
+const schema = z.object({
+  SEGMENT_KEY: z.string().url(),
+});
 
-export default ENV;
+const parsed = schema.safeParse(process.env);
+
+if (!parsed.success) {
+  console.error(
+    '❌ Invalid environment variables:',
+    JSON.stringify(parsed.error.format(), null, 4)
+  );
+  process.exit(1);
+}
+
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv extends TypeOf<typeof schema> {}
+  }
+}
