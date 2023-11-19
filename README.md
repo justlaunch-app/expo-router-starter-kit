@@ -39,14 +39,16 @@ yarn android
 1. Create a .env file in the root of the project.
 2. Define env variables inside the .env file. Variables must begin with `EXPO_PUBLIC_`.
 3. Define new variables in `_utils/env-loader` zod scheme:
-```
+```ts
 const schema = z.object({
   EXPO_PUBLIC_MY_NEW_VARIABLE: z.string(),
 });
 ```
 4. Use env variables everywhere by import env-loader:
 
-`const my_env_var = process.env.EXPO_PUBLIC_MY_NEW_VARIABLE;`
+```ts
+const my_env_var = process.env.EXPO_PUBLIC_MY_NEW_VARIABLE;
+```
 
 That's it! Nice and simple way of dealing with environment variables.
 
