@@ -15,6 +15,9 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Pillar Valley" />
         <meta name="theme-color" content="#F09458" />
+        {/* Apple Smart Banner  */}
+        {/* replacing {ITUNES_ID} with your app's iTunes ID: */}
+        <meta name="apple-itunes-app" content="app-id={ITUNES_ID}" />
       </head>
       <script
         dangerouslySetInnerHTML={{

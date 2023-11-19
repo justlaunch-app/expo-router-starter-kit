@@ -24,12 +24,28 @@ module.exports = {
     ios: {
       supportsTablet: true,
       bundleIdentifier: 'com.zoltanfodor.expo-starter-kit',
+      associatedDomains: ['applinks:expo.dev'], // Add your custom associated domain here for Deep Linking
     },
     android: {
       adaptiveIcon: {
         foregroundImage: './src/assets/images/adaptive-icon.png',
         backgroundColor: '#ffffff',
       },
+      // Add your custom intent filters here for Deep Linking
+      intentFilters: [
+        {
+          action: 'VIEW',
+          autoVerify: true,
+          data: [
+            {
+              scheme: 'https',
+              host: '*.myapp.io',
+              pathPrefix: '/records',
+            },
+          ],
+          category: ['BROWSABLE', 'DEFAULT'],
+        },
+      ],
     },
     web: {
       bundler: 'metro',
