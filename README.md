@@ -35,14 +35,20 @@ or
 yarn android
 ```
 
-## ENVIRONMENT VARIABLES
+## Environment Variables
 1. Create a .env file in the root of the project.
-2. Define env variables inside the .env file
-3. Use env variables everywhere by import env-loader
+2. Define env variables inside the .env file. Variables must begin with `EXPO_PUBLIC_`.
+3. Define new variables in `_utils/env-loader` zod scheme:
+```
+const schema = z.object({
+  EXPO_PUBLIC_MY_NEW_VARIABLE: z.string(),
+});
+```
+4. Use env variables everywhere by import env-loader:
 
 `import ENV from '_utils/env-loader';`
 
-`const env_weather_api_key = ENV.WEATHER_API_KEY;`
+`const my_env_var = ENV.EXPO_PUBLIC_MY_NEW_VARIABLE;`
 
 That's it! Nice and simple way of dealing with environment variables.
 
