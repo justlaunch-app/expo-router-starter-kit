@@ -46,11 +46,11 @@ const schema = z.object({
 ```
 4. Use env variables everywhere by import env-loader:
 
-`import ENV from '_utils/env-loader';`
-
-`const my_env_var = ENV.EXPO_PUBLIC_MY_NEW_VARIABLE;`
+`const my_env_var = process.env.EXPO_PUBLIC_MY_NEW_VARIABLE;`
 
 That's it! Nice and simple way of dealing with environment variables.
+
+<small>Note: don't forget to restart the project once you created `.env`</small>
 
 ## File Structure
 
