@@ -1,4 +1,3 @@
-
 # expo-router-starter-kit 🏎️📱
 
 ![Supports Expo iOS](https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff)
@@ -22,28 +21,36 @@ expo-router-starter-kit is for building robust cross-platform apps blazingly fas
 
 1. Clone this template by clicking on Use this template -> Create new repository.
 2. Clone the new repository
-3. Install dependencies	
+3. Install dependencies
+
 ```bash
 yarn install
 ```
+
 4. Run the project
+
 ```bash
 yarn ios
 ```
-or 
+
+or
+
 ```bash
 yarn android
 ```
 
 ## Environment Variables
+
 1. Create a .env file in the root of the project.
 2. Define env variables inside the .env file. Variables must begin with `EXPO_PUBLIC_`.
 3. Define new variables in `_utils/env-loader` zod scheme:
+
 ```ts
 const schema = z.object({
   EXPO_PUBLIC_MY_NEW_VARIABLE: z.string(),
 });
 ```
+
 4. Use env variables everywhere by import env-loader:
 
 ```ts
@@ -53,6 +60,10 @@ const my_env_var = process.env.EXPO_PUBLIC_MY_NEW_VARIABLE;
 That's it! Nice and simple way of dealing with environment variables.
 
 <small>Note: don't forget to restart the project once you created `.env`</small>
+
+## Deep Linking
+
+To set up Deep linking you can follow this documentation provided by Expo - [Deep Linking](https://docs.expo.dev/guides/deep-linking/)
 
 ## File Structure
 
@@ -81,7 +92,6 @@ Main screens:
 - Settings Screen
 - Top Navigation , Bottom Navigation, Native Modal
 
-
 <img src="https://zoltanfodor.b-cdn.net/expo-router-starter-kit/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202023-11-05%20at%2015.21.28.png" alt="Login screen with validation" width="400"/>
 
 <img src="https://zoltanfodor.b-cdn.net/expo-router-starter-kit/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202023-11-05%20at%2015.24.42.png" alt="Signup Screen" width="400"/>
@@ -97,17 +107,22 @@ Main screens:
 This roadmap outlines the planned development and enhancement of the `expo-router` template project. Our primary goal is to create a comprehensive template covering essential Expo features, followed by the expansion into multiple templates and a CLI for tailored project initialization.
 
 #### 🚀 Phase 1: Comprehensive Template Development - currently IN PROGRESS
-1.  **Carousel and other components fix**  - Address and fix carousel related issues in the current template + create/fix multiple expo base components, utils, helper functions.
-2.  **Remove Nativewind**  - Replace Nativewind due to its discontinuation and performance issues. 
-3. **Authentication Integration**  - Explore and integrate authentication providers like Clark or other alternatives.
-4. **TanStack Query**  - Implement an example of Data Mutation.
+
+1.  **Carousel and other components fix** - Address and fix carousel related issues in the current template + create/fix multiple expo base components, utils, helper functions.
+2.  **Remove Nativewind** - Replace Nativewind due to its discontinuation and performance issues.
+3.  **Authentication Integration** - Explore and integrate authentication providers like Clark or other alternatives.
+4.  **TanStack Query** - Implement an example of Data Mutation.
 
 #### 🛠 Phase 2: Template Expansion and CLI Development
+
 - Expand the project to include a variety of templates catering to different use cases. (e-commerce , barebone, base, etc)
 - Develop a CLI to streamline the creation and management of projects based on these templates.
+
 ---
+
 ## Contributors
+
 **Hey fellow developers! We are inviting developers who are enthusiastic about Expo and React Native to join us in this venture. Whether you are looking to contribute code, share ideas, or provide feedback, we welcome all forms of collaboration.** - Join to our Discord : https://discord.gg/ns6gassHaS
 
 We would like to thank the following people who've contributed to this project:
- [@kewinzaq1](https://github.com/kewinzaq1)
+[@kewinzaq1](https://github.com/kewinzaq1)
