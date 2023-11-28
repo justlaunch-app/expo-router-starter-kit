@@ -26,6 +26,9 @@ module.exports = {
       bundleIdentifier: 'com.zoltanfodor.expo-starter-kit',
       associatedDomains: ['applinks:expo.dev'], // Add your custom associated domain here for Deep Linking
     },
+    infoPlist: {
+      ITSAppUsesNonExemptEncryption: false,
+    },
     android: {
       adaptiveIcon: {
         foregroundImage: './src/assets/images/adaptive-icon.png',
