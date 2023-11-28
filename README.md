@@ -38,7 +38,7 @@ expo-router-starter-kit is for building robust cross-platform apps blazingly fas
 
 ```bash
 
-yarn install
+pnpm install
 
 ```
 
@@ -46,7 +46,7 @@ yarn install
 
 ```bash
 
-yarn ios
+pnpm ios
 
 ```
 
@@ -54,7 +54,7 @@ or
 
 ```bash
 
-yarn android
+pnpm android
 
 ```
 
