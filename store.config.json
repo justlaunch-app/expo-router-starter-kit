@@ -1,0 +1,60 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "version": "1.0.0",
+    "copyright": "2023 ritmillio",
+    "release": {
+      "automaticRelease": true
+    },
+    "info": {
+      "en-US": {
+        "description": "Lorem ipsum dolor \n\nLorem ipsum dolor, Lorem ipsum dolor.",
+        "keywords": [
+          "some",
+          "keywords",
+          "of",
+          "your",
+          "choice",
+          "to",
+          "stand",
+          "out"
+        ],
+        "releaseNotes": "Add some release note HERE",
+        "marketingUrl": "https://expo-starter-kit.vercel.app/",
+        "promoText": "Build universal apps with expo-router-starter-kit",
+        "supportUrl": "https://github.com/ritmillio/expo-router-starter-kit/issues",
+        "title": "Expo Router Starter Kit",
+        "subtitle": "Build MVP REALLY FAST",
+        "privacyPolicyUrl": "https://expo-starter-kit.vercel.app/privacy",
+        "privacyChoicesUrl": "https://expo-starter-kit.vercel.app/privacy"
+      }
+    },
+    "categories": [["GAMES", "GAMES_CASUAL", "GAMES_FAMILY"], "ENTERTAINMENT"],
+    "advisory": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "unrestrictedWebAccess": false,
+      "kidsAgeBand": null,
+      "seventeenPlus": false
+    },
+    "review": {
+      "firstName": "<FirstName>",
+      "lastName": "<LastName>",
+      "email": "me@zoltanfodor.dev",
+      "phone": "222222222",
+      "demoRequired": false,
+      "notes": "expo-for-life"
+    }
+  }
+}
