@@ -20,6 +20,7 @@
       "_utils/*": ["src/utils/*"],
       "_layouts/*": ["src/layouts/*"],
       "_config/*": ["src/config/*"],
+      "_types/*": ["src/types/*"],
     }
   }
 }
