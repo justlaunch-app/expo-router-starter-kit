@@ -2,7 +2,9 @@
   "tabs": {
     "one": "One",
     "two": "Two",
-    "settings": "Settings"
+    "settings": "Settings",
+    "feed": "Feed",
+    "home": "Home"
   },
   "greeting": "🚀 expo-starter-kit 🚀",
   "auth": {

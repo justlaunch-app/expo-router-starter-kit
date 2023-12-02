@@ -2,7 +2,9 @@
   "tabs": {
     "one": "Uno",
     "two": "Dos",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "feed:": "Feed",
+    "home": "Home"
   },
   "greeting": "Hola, Mundo!",
   "auth": {
