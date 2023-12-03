@@ -30,7 +30,7 @@ import {
   DefaultTheme,
 } from '@react-navigation/native';
 import { NativeWindStyleSheet } from 'nativewind';
-
+import '_utils/env-loader';
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
 
@@ -44,6 +44,7 @@ import { useAuth } from 'src/store/authStore/auth.store';
 import { Platform } from 'react-native';
 import { LottieSplashScreenNative } from '_components/LottieSplashScreen';
 import i18n from '_locales/i18n';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -74,17 +75,17 @@ function useProtectedRoute() {
   }, [rootNavigationState]);
 
   useLayoutEffect(() => {
-    const inAuthGroup = segments[0] === '(auth)';
-
-    if (!navigationKey) {
-      return;
-    }
-
-    if (!user && !inAuthGroup) {
-      router.replace('/sign-in');
-    } else if (user && inAuthGroup) {
-      router.replace('/');
-    }
+    // const inAuthGroup = segments[0] === '(auth)';
+    //
+    // if (!navigationKey) {
+    //   return;
+    // }
+    //
+    // if (!user && !inAuthGroup) {
+    //   router.replace('/sign-in');
+    // } else if (user && inAuthGroup) {
+    //   router.replace('/');
+    // }
   }, [user, segments, navigationKey]);
 }
 
@@ -111,7 +112,7 @@ export default function RootLayout() {
   //     //Logic to handle notifications goes here
   //   });
   //   OneSignal.promptForPushNotificationsWithUserResponse((response) => {
-  //     console.log('OneSignal: User accepted notifications:', response);
+  //     console.log('OneSignal: Post accepted notifications:', response);
   //     //Logic to handle notifications goes here
   //   });
   // }, []);
@@ -157,6 +158,7 @@ export default function RootLayout() {
   }
 }
 
+const queryClient = new QueryClient();
 function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
   const isWeb = Platform.OS === 'web';
@@ -191,11 +193,16 @@ function RootLayoutNav() {
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <RootSiblingParent>
           <I18nextProvider i18n={i18n}>
-            <Stack>
-              <Stack.Screen name="(root)" options={{ headerShown: false }} />
-              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-            </Stack>
-            <StatusBar style={'auto'} />
+            <QueryClientProvider client={queryClient}>
+              <Stack>
+                <Stack.Screen name="(root)" options={{ headerShown: false }} />
+                <Stack.Screen
+                  name="modal"
+                  options={{ presentation: 'modal' }}
+                />
+              </Stack>
+              <StatusBar style={'auto'} />
+            </QueryClientProvider>
           </I18nextProvider>
         </RootSiblingParent>
       </ThemeProvider>

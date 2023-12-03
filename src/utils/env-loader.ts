@@ -1,7 +1,8 @@
 import { TypeOf, z } from 'zod';
 
 const schema = z.object({
-  EXPO_PUBLIC_SEGMENT_KEY: z.string().url(),
+  EXPO_PUBLIC_SEGMENT_KEY: z.string().url().optional(),
+  EXPO_PUBLIC_API_URL: z.string().url(),
 });
 
 const parsed = schema.safeParse(process.env);

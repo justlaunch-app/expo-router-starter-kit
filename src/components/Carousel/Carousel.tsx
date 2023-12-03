@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { ComponentProps, useState } from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { viewportWidth, spacing } from '_utils/viewport';
 
-interface CarouselProps<T> {
-  data: T[];
+interface CarouselProps<T extends Array<unknown>> {
+  data: T;
   renderItem: any;
   showPagination?: boolean;
   className?: string;
 }
 
-export const Carousel = <T,>({
+export const Carousel = <T extends Array<unknown>>({
   data,
   renderItem,
   showPagination = true,
