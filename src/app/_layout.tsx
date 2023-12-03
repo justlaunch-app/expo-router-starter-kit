@@ -75,17 +75,17 @@ function useProtectedRoute() {
   }, [rootNavigationState]);
 
   useLayoutEffect(() => {
-    // const inAuthGroup = segments[0] === '(auth)';
-    //
-    // if (!navigationKey) {
-    //   return;
-    // }
-    //
-    // if (!user && !inAuthGroup) {
-    //   router.replace('/sign-in');
-    // } else if (user && inAuthGroup) {
-    //   router.replace('/');
-    // }
+    const inAuthGroup = segments[0] === '(auth)';
+
+    if (!navigationKey) {
+      return;
+    }
+
+    if (!user && !inAuthGroup) {
+      router.replace('/sign-in');
+    } else if (user && inAuthGroup) {
+      router.replace('/');
+    }
   }, [user, segments, navigationKey]);
 }
 
@@ -112,7 +112,7 @@ export default function RootLayout() {
   //     //Logic to handle notifications goes here
   //   });
   //   OneSignal.promptForPushNotificationsWithUserResponse((response) => {
-  //     console.log('OneSignal: Post accepted notifications:', response);
+  //     console.log('OneSignal: User accepted notifications:', response);
   //     //Logic to handle notifications goes here
   //   });
   // }, []);
