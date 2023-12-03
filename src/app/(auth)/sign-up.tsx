@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { StyledText as Text } from '_components/Text/StyledText';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -14,6 +13,7 @@ import { useIsFocused } from '@react-navigation/native';
 import analytics from '_utils/analytics/segment';
 import { Label } from '_components/Label/StyledLabel';
 import { Alert } from '_utils/alert';
+import { Button } from '_components/Button/Button';
 
 const schema = z.object({
   email: emailSchema,
@@ -72,9 +72,6 @@ export default function SignUp() {
 
   return (
     <View className="flex-1 items-center p-4 gap-y-8">
-      <View>
-        <Text className="text-3xl mt-2 font-semibold">EXPO STARTER KIT</Text>
-      </View>
       <View className="w-full bg-transparent">
         <Label htmlFor="email-sign-up" className="font-bold mb-2">
           {t('auth.email')}

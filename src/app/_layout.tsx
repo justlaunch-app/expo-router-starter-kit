@@ -1,9 +1,10 @@
-import {
+import React, {
   useLayoutEffect,
   useEffect,
   FunctionComponent,
   useMemo,
   useState,
+  ReactNode,
 } from 'react';
 import Head from 'expo-router/head';
 import {
@@ -19,6 +20,7 @@ import {
   useSegments,
   router,
   SplashScreen as ExpoSplashScreen,
+  Navigator,
 } from 'expo-router';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
@@ -157,6 +159,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
+  const isWeb = Platform.OS === 'web';
 
   return (
     <>

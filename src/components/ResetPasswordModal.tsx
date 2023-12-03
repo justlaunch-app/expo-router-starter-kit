@@ -1,4 +1,4 @@
-import { Button, Modal, Pressable, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -18,6 +18,7 @@ import { ControlledInput } from './Input/ControlledInput';
 import { StyledText } from './Text/StyledText';
 import { Label } from './Label/StyledLabel';
 import { useColorScheme } from 'nativewind';
+import { Button } from '_components/Button/Button';
 
 type ResetModalProps = {
   visible: boolean;
