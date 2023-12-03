@@ -6,19 +6,21 @@ import { classNames } from '_utils/classNames';
 import { pathToName } from '_utils/layout';
 import { Button } from '_components/Button/Button';
 import { WebLayoutLink } from '_types/WebLayoutLink';
+import { useTranslation } from 'react-i18next';
+import { useAuth } from '../../store/authStore/auth.store';
 
 interface WebLayoutProps {
   links?: WebLayoutLink[];
   title?: string;
-  logoutTitle?: string;
 }
 
 export function WebLayout({
   links = [],
   title = 'EXPO STARTER KIT',
-  logoutTitle = 'Logout',
 }: Readonly<WebLayoutProps>) {
   const pathname = usePathname();
+  const { t } = useTranslation();
+  const logout = useAuth(({ logout }) => logout);
 
   if (Platform.OS === 'web') {
     return (
@@ -49,7 +51,7 @@ export function WebLayout({
                 </Link>
               ))}
             </View>
-            <Button title={logoutTitle} />
+            <Button title={t('auth.sign-out')} onPress={logout} />
           </View>
         </View>
         <View className={''}>
