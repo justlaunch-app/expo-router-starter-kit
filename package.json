@@ -16,8 +16,10 @@
     "@segment/analytics-react-native": "^2.16.0",
     "@segment/sovran-react-native": "^1.0.4",
     "@shopify/flash-list": "1.4.3",
+    "@tanstack/react-query": "^5.12.2",
     "@types/react": "~18.2.14",
     "@types/react-native": "^0.72.2",
+    "apisauce": "^3.0.1",
     "expo": "^49.0.0",
     "expo-clipboard": "~4.3.1",
     "expo-constants": "~14.4.2",
@@ -55,6 +57,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-tab-view": "^3.5.2",
     "react-native-web": "~0.19.6",
+    "react-query-kit": "^2.0.10",
     "react-router-dom": "^6.14.2",
     "zod": "^3.21.4",
     "zustand": "^4.3.9"

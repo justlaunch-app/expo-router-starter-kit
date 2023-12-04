@@ -21,6 +21,7 @@
       "_layouts/*": ["src/layouts/*"],
       "_config/*": ["src/config/*"],
       "_types/*": ["src/types/*"],
+      "_hooks/*": ["src/hooks/*"],
     }
   }
 }

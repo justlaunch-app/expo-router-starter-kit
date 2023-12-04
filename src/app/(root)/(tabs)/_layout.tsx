@@ -5,6 +5,38 @@ import { TabBarIcon } from '_components/Icon/TabBarIcon';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { WebLayout } from '_components/Layout/WebLayout';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
+
+type TabBarIconProps = { color: string };
+
+const TabBar = ({ color }: TabBarIconProps) => (
+  <TabBarIcon name="code" color={color} />
+);
+
+const HeaderRight = () => {
+  const { colorScheme } = useColorScheme();
+  return (
+    <Link href="/modal" asChild>
+      <Pressable>
+        {({ pressed }) => (
+          <FontAwesome
+            name="info-circle"
+            size={25}
+            color={colorScheme === 'dark' ? 'white' : 'black'}
+            style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+          />
+        )}
+      </Pressable>
+    </Link>
+  );
+};
+
+const TwoTabBarIcon = ({ color }: TabBarIconProps) => (
+  <TabBarIcon name="code" color={color} />
+);
+const SettingsTabBarIcon = ({ color }: TabBarIconProps) => (
+  <TabBarIcon name="cog" color={color} />
+);
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
@@ -44,37 +76,22 @@ export default function TabLayout() {
         name="(index)"
         options={{
           title: t('tabs.one'),
-          tabBarIcon: ({ color }: any) => (
-            <TabBarIcon name="code" color={color} />
-          ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={colorScheme === 'dark' ? 'white' : 'black'}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          tabBarIcon: TabBar,
+          headerRight: HeaderRight,
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
           title: t('tabs.two'),
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: TwoTabBarIcon,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: t('tabs.settings'),
-          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color} />,
+          tabBarIcon: SettingsTabBarIcon,
         }}
       />
     </Tabs>
