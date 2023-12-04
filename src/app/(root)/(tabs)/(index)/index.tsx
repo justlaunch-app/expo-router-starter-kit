@@ -12,13 +12,14 @@ import { useTranslation } from 'react-i18next';
 import { Carousel } from '_components/Carousel/Carousel';
 
 //Data
-import homeData from '_assets/data/home.json';
 import { classNames } from '_utils/classNames';
 import { useColorScheme } from 'nativewind';
+import { usePosts } from '_hooks/usePosts';
 
 export default function Index() {
   const { t } = useTranslation();
   const { colorScheme } = useColorScheme();
+  const { data: posts } = usePosts();
 
   analytics.trackScreen('Home');
 
@@ -39,39 +40,47 @@ export default function Index() {
       </Text>
 
       <View className="w-screen">
-        <Carousel
-          data={homeData}
-          showPagination={true}
-          renderItem={({ item }: any) => (
-            <Link
-              onPress={() => {
-                analytics.trackEvent('Banner Pressed', {
-                  bannerId: item.id,
-                });
-              }}
-              href={{
-                pathname: '/banner/[id]',
-                params: {
-                  id: item.id,
-                  title: item.title,
-                  description: item.description,
-                },
-              }}
-              style={{
-                width: viewportWidth - spacing,
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 5 },
-                shadowOpacity: 0.3,
-                shadowRadius: 3,
-                elevation: 1,
-              }}
-              className="justify-center items-center bg-white rounded-2xl p-4"
-            >
-              <Text className="text-5xl font-bold">{item.title}</Text>
-              <Text>{item.description}</Text>
-            </Link>
-          )}
-        />
+        {posts?.length ? (
+          <Carousel
+            data={posts.slice(0, 10) ?? []}
+            showPagination={true}
+            renderItem={({ item }) => (
+              <Link
+                onPress={() => {
+                  analytics.trackEvent('Banner Pressed', {
+                    bannerId: item.id,
+                  });
+                }}
+                href={{
+                  pathname: '/banner/[id]',
+                  params: {
+                    id: item.id,
+                    title: item.title,
+                    description: item.body,
+                  },
+                }}
+                style={{
+                  width: viewportWidth - spacing,
+                  shadowColor: '#000',
+                  shadowOffset: { width: 0, height: 5 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 3,
+                  elevation: 1,
+                }}
+                className="justify-center items-center bg-white rounded-2xl p-4"
+              >
+                <View className={'gap-4'}>
+                  <Text className="text-xl font-bold" numberOfLines={2}>
+                    {item.title}
+                  </Text>
+                  <Text>{item.body}</Text>
+                </View>
+              </Link>
+            )}
+          />
+        ) : (
+          <Text>{t('loading')}</Text>
+        )}
       </View>
 
       <View className="py-12 px-8">

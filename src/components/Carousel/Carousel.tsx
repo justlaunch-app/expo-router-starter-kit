@@ -1,16 +1,21 @@
 import { useState } from 'react';
-import { NativeScrollEvent, NativeSyntheticEvent, View } from 'react-native';
+import {
+  ListRenderItem,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  View,
+} from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { viewportWidth, spacing } from '_utils/viewport';
 
-interface CarouselProps<T> {
-  data: T[];
-  renderItem: any;
+interface CarouselProps<T extends Array<unknown>> {
+  data: T;
+  renderItem: ListRenderItem<T[number]>;
   showPagination?: boolean;
   className?: string;
 }
 
-export const Carousel = <T,>({
+export const Carousel = <T extends Array<unknown>>({
   data,
   renderItem,
   showPagination = true,
@@ -27,6 +32,8 @@ export const Carousel = <T,>({
     setActiveIndex(index);
   };
 
+  const RenderItem = renderItem;
+
   return (
     <>
       <FlashList
@@ -42,7 +49,8 @@ export const Carousel = <T,>({
               paddingRight: spacing * 0.5,
             }}
           >
-            {renderItem(renderItemProps)}
+            {/* @ts-expect-error chill */}
+            <RenderItem {...renderItemProps} />
           </View>
         )}
         keyExtractor={(item, index) => index.toString()}
