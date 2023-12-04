@@ -5,7 +5,11 @@ import { classNames } from '_utils/classNames';
 import { pathToName } from '_utils/layout';
 
 interface NestedLayoutProps {
-  links?: any[];
+  links?: {
+    href: string;
+    name: string;
+    isActive: (string: string) => boolean;
+  }[];
 }
 
 export function NestedWebLayout({ links = [] }: NestedLayoutProps) {

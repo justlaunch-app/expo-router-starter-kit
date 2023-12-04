@@ -48,7 +48,7 @@ export function LanguagePickerModalTrigger() {
       keyboardDidHideListener.remove();
       keyboardDidShowListener.remove();
     };
-  }, []);
+  }, [opacity, translateY]);
 
   return (
     <Animated.View

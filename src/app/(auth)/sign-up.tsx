@@ -68,7 +68,7 @@ export default function SignUp() {
     if (!isFocused) {
       reset();
     }
-  }, [isFocused]);
+  }, [isFocused, reset]);
 
   return (
     <View className="flex-1 items-center p-4 gap-y-8">

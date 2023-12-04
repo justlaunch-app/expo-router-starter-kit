@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Animated } from 'react-native';
 
 const FADE_IN_DURATION = 1000;
@@ -16,15 +16,15 @@ export const useLottieSplashScreen = ({
   const [visible, setVisible] = useState(true);
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const fadeIn = () => {
+  const fadeIn = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: FADE_IN_DURATION,
       useNativeDriver: true,
     }).start();
-  };
+  }, [fadeAnim]);
 
-  const fadeOut = () => {
+  const fadeOut = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: FADE_OUT_DURATION,
@@ -33,7 +33,7 @@ export const useLottieSplashScreen = ({
       setVisible(false);
       if (onHidden) onHidden();
     });
-  };
+  }, [fadeAnim, onHidden]);
 
   useEffect(() => {
     fadeIn();
@@ -41,7 +41,7 @@ export const useLottieSplashScreen = ({
     if (animationFadeOut) {
       fadeOut();
     }
-  }, [animationFadeOut]);
+  }, [animationFadeOut, fadeIn, fadeOut]);
 
   const onLottieAnimationComplete = () => {
     if (animationFadeOut) {
