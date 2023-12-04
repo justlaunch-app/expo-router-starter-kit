@@ -11,7 +11,10 @@ import {
   useFonts,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
+import {
+  useColorScheme as nativewindUseColorScheme,
+  NativeWindStyleSheet,
+} from 'nativewind';
 
 import {
   Stack,
@@ -19,7 +22,6 @@ import {
   useSegments,
   router,
   SplashScreen as ExpoSplashScreen,
-  Navigator,
 } from 'expo-router';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
@@ -28,7 +30,6 @@ import {
   DarkTheme,
   DefaultTheme,
 } from '@react-navigation/native';
-import { NativeWindStyleSheet } from 'nativewind';
 import '_utils/env-loader';
 //OneSignal
 // import OneSignal from 'react-native-onesignal';
@@ -40,11 +41,10 @@ import { segmentClient } from '_config/segment';
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { useAuth } from 'src/store/authStore/auth.store';
-import { Platform, TouchableOpacity } from 'react-native';
+import { Platform } from 'react-native';
 import { LottieSplashScreenNative } from '_components/LottieSplashScreen';
 import i18n from '_locales/i18n';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 export { ErrorBoundary } from 'expo-router';
 
