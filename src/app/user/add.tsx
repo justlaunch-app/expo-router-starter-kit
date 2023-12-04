@@ -5,12 +5,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Label } from '_components/Label/StyledLabel';
 import { Button } from '_components/Button/Button';
-import { createMutation } from 'react-query-kit';
-import { UserData } from '_types/Users';
-import { reqresApi } from '_utils/api';
 import { useQueryClient } from '@tanstack/react-query';
 import { useUsers } from '_hooks/useUsers';
 import { useNavigation } from 'expo-router';
+import { useUserMutation } from '_hooks/useUserMutation';
 
 const schema = z.object({
   firstName: z.string().min(2),
@@ -23,22 +21,6 @@ const DEFAULT_VALUES = {
   lastName: '',
   email: '',
 };
-
-const useUserMutation = createMutation<
-  UserData | undefined,
-  Pick<UserData, 'first_name' | 'last_name' | 'email'>,
-  Error
->({
-  mutationKey: ['createUser'],
-  mutationFn: async ({ first_name, last_name, email }) => {
-    const result = await reqresApi.post<UserData>('/users', {
-      first_name,
-      last_name,
-      email,
-    });
-    return result.data;
-  },
-});
 
 export default function AddUser() {
   const { control, handleSubmit } = useForm({

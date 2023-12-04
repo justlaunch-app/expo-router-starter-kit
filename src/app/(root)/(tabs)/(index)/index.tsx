@@ -14,7 +14,7 @@ import { Carousel } from '_components/Carousel/Carousel';
 //Data
 import { classNames } from '_utils/classNames';
 import { useColorScheme } from 'nativewind';
-import { usePosts } from '_utils/queries/usePosts';
+import { usePosts } from '_hooks/usePosts';
 
 export default function Index() {
   const { t } = useTranslation();
