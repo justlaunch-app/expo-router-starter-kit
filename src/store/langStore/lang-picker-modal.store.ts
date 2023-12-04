@@ -6,7 +6,7 @@ type LangModalState = {
   close: () => void;
 };
 
-export const useLangModal = create<LangModalState>((set, get) => ({
+export const useLangModal = create<LangModalState>((set) => ({
   visible: false,
   open() {
     set({ visible: true });

@@ -15,6 +15,7 @@ if (!parsed.success) {
 }
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface ProcessEnv extends TypeOf<typeof schema> {}
   }

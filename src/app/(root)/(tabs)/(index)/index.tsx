@@ -42,6 +42,7 @@ export default function Index() {
         <Carousel
           data={homeData}
           showPagination={true}
+          // todo: it's fixed in /feature/mutations
           renderItem={({ item }: any) => (
             <Link
               onPress={() => {

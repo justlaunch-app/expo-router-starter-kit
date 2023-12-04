@@ -10,8 +10,7 @@ type AlertOptions = AlertOption[];
 const alertPolyfill = (
   title: string,
   description?: string | undefined,
-  options?: AlertOptions,
-  extra?: any
+  options?: AlertOptions
 ): void => {
   const result = window.confirm(
     [title, description].filter(Boolean).join('\n')

@@ -21,7 +21,7 @@ export default function IndexTopTabsLayout() {
     setOptions({
       headerShown: false,
     });
-  }, []);
+  }, [setOptions]);
 
   const Layout = Platform.OS === 'web' ? WebLayout : MaterialTopTabs;
 

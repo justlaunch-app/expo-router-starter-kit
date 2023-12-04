@@ -1,6 +1,4 @@
-import { Link, Navigator, Stack, useNavigation } from 'expo-router';
-import { Platform, View } from 'react-native';
-import Slot = Navigator.Slot;
+import { Stack, useNavigation } from 'expo-router';
 
 export default function TabsLayout() {
   const navigation = useNavigation();

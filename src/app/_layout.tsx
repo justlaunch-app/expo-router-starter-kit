@@ -4,7 +4,6 @@ import React, {
   FunctionComponent,
   useMemo,
   useState,
-  ReactNode,
 } from 'react';
 import Head from 'expo-router/head';
 import {
@@ -20,7 +19,6 @@ import {
   useSegments,
   router,
   SplashScreen as ExpoSplashScreen,
-  Navigator,
 } from 'expo-router';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
@@ -35,8 +33,8 @@ import { NativeWindStyleSheet } from 'nativewind';
 // import OneSignal from 'react-native-onesignal';
 
 //SEGMENT - ANALYTICS
-import { AnalyticsProvider } from '@segment/analytics-react-native';
-import { segmentClient } from '_config/segment';
+// import { AnalyticsProvider } from '@segment/analytics-react-native';
+// import { segmentClient } from '_config/segment';
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
@@ -50,9 +48,11 @@ export { ErrorBoundary } from 'expo-router';
 let CurrentPlatformSplashScreen: LottieSplashScreenNative | FunctionComponent;
 if (Platform.OS === 'web') {
   CurrentPlatformSplashScreen =
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('_components/LottieSplashScreenWeb').default;
 } else {
   CurrentPlatformSplashScreen =
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('_components/LottieSplashScreen').default;
 }
 
@@ -159,7 +159,6 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
-  const isWeb = Platform.OS === 'web';
 
   return (
     <>

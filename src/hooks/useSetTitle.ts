@@ -6,5 +6,5 @@ export const useSetTitle = (title: string) => {
 
   useLayoutEffect(() => {
     setOptions({ title });
-  }, []);
+  }, [setOptions, title]);
 };

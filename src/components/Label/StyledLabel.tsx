@@ -11,12 +11,15 @@ export function Label({ htmlFor, ...props }: LabelProps) {
   const { colorScheme } = useColorScheme();
   const color = colorScheme === 'dark' ? 'white' : 'black';
 
-  const ref = useCallback((node: DefaultText | null) => {
-    if (Platform.OS === 'web' && node != null) {
-      // safe cast because above we already checked platform
-      (node as unknown as HTMLElement).setAttribute('for', htmlFor);
-    }
-  }, []);
+  const ref = useCallback(
+    (node: DefaultText | null) => {
+      if (Platform.OS === 'web' && node != null) {
+        // safe cast because above we already checked platform
+        (node as unknown as HTMLElement).setAttribute('for', htmlFor);
+      }
+    },
+    [htmlFor]
+  );
 
   return (
     <Text

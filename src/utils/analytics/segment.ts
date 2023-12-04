@@ -9,7 +9,7 @@ export function trackEvent(event: string, properties?: JsonMap) {
   segmentClient.track(event, properties);
 }
 
-export function trackIdentify(userId: any, properties?: JsonMap) {
+export function trackIdentify(userId: string, properties?: JsonMap) {
   segmentClient.identify(userId, properties);
 }
 
