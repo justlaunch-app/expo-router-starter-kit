@@ -19,7 +19,7 @@ expo-router-starter-kit is for building robust cross-platform apps blazingly fas
 - [nativewind](https://nativewind.io/) - Tailwind CSS for React Native
 
 - [apisauce](https://github.com/infinitered/apisauce) - Axios + standardized errors + request/response transforms.
-- [Tanstack Query](https://tanstack.com/query/latest) - Tanstack Query Powerful asynchronous state management
+- [Tanstack Query](https://tanstack.com/query/latest) - Powerful asynchronous state management
 
 - [i18next](https://www.i18next.com/) - Internationalization-framework
 
