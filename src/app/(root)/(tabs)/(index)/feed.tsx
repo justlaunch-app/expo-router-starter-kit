@@ -1,7 +1,6 @@
 import { FlashList } from '@shopify/flash-list';
 import { View } from 'react-native';
 import { Link } from 'expo-router';
-import analytics from '_utils/analytics/segment';
 
 //DATA
 import feedData from '_assets/data/feed.json';
@@ -23,24 +22,17 @@ interface RenderItemProps {
   item: Article;
 }
 
-
 export default function Feed() {
-  analytics.trackScreen('Feed');
   return (
     <View className="flex-1">
       <FlashList
         data={feedData}
         estimatedItemSize={150}
         renderItem={({ item }: RenderItemProps) => (
-          <View className='w-full'>
-            <View className='h-[150px] w-full'>
+          <View className="w-full">
+            <View className="h-[150px] w-full">
               <Link
-                className='w-full'
-                onPress={() => {
-                  analytics.trackEvent('Feed Item Pressed', {
-                    feedId: item.id,
-                  });
-                }}
+                className="w-full"
                 href={{
                   pathname: '/feed/[id]',
                   params: {
@@ -56,7 +48,7 @@ export default function Feed() {
                 <FeedItem item={item} />
               </Link>
             </View>
-            <View className='bg-white' style={{ height: spacing }} />
+            <View className="bg-white" style={{ height: spacing }} />
           </View>
         )}
       />

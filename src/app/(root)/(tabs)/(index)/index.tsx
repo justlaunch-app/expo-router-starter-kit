@@ -3,7 +3,6 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { viewportWidth, spacing } from '_utils/viewport';
 import { Link } from 'expo-router';
-import analytics from '_utils/analytics/segment';
 
 //i18n
 import { useTranslation } from 'react-i18next';
@@ -20,8 +19,6 @@ export default function Index() {
   const { t } = useTranslation();
   const { colorScheme } = useColorScheme();
   const { data: posts } = usePosts();
-
-  analytics.trackScreen('Home');
 
   return (
     <SafeAreaView
@@ -46,11 +43,6 @@ export default function Index() {
             showPagination={true}
             renderItem={({ item }) => (
               <Link
-                onPress={() => {
-                  analytics.trackEvent('Banner Pressed', {
-                    bannerId: item.id,
-                  });
-                }}
                 href={{
                   pathname: '/banner/[id]',
                   params: {

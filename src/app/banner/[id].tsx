@@ -1,13 +1,8 @@
 import { View, Text } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
-import analytics from '_utils/analytics/segment';
 
 const BannerDetail = () => {
   const { id, title, description } = useLocalSearchParams();
-
-  analytics.trackScreen('BannerDetail', {
-    bannerId: id,
-  });
 
   return (
     <View className="flex-1 items-center pt-20">
