@@ -4,7 +4,7 @@ import { Link } from "expo-router";
 import { View } from "react-native";
 import FeedItem from "./FeedItem";
 
-export function FeedLink({ item, }: {
+export function FeedLink({ item }: {
   item: Article;
 }) {
   return <View className='w-full'>
