@@ -31,12 +31,6 @@ import {
   DefaultTheme,
 } from '@react-navigation/native';
 import '_utils/env-loader';
-//OneSignal
-// import OneSignal from 'react-native-onesignal';
-
-//SEGMENT - ANALYTICS
-// import { AnalyticsProvider } from '@segment/analytics-react-native';
-// import { segmentClient } from '_config/segment';
 
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
@@ -102,22 +96,6 @@ export default function RootLayout() {
     isDelayOver: false,
     screenReady: false,
   });
-
-  //TODO: set OneSignal HERE
-  //One Signal Notifications
-  // useEffect(() => {
-
-  //   // Initialize OneSignal
-  //   OneSignal.setAppId(''); //TODO: set app id
-  //   OneSignal.setNotificationOpenedHandler((notification) => {
-  //     console.log('OneSignal: notification opened:', notification);
-  //     //Logic to handle notifications goes here
-  //   });
-  //   OneSignal.promptForPushNotificationsWithUserResponse((response) => {
-  //     console.log('OneSignal: User accepted notifications:', response);
-  //     //Logic to handle notifications goes here
-  //   });
-  // }, []);
 
   useEffect(() => {
     if (loaded) {
