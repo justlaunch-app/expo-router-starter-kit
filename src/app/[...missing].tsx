@@ -1,9 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { Text, View } from 'react-native';
-import analytics from '_utils/analytics/segment';
 
 export default function NotFoundScreen() {
-  analytics.trackScreen('NotFoundScreen');
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />

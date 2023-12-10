@@ -10,7 +10,6 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { router } from 'expo-router';
 import { emailSchema } from '_utils/auth.schema';
 import { useIsFocused } from '@react-navigation/native';
-import analytics from '_utils/analytics/segment';
 import { Label } from '_components/Label/StyledLabel';
 import { Alert } from '_utils/alert';
 import { Button } from '_components/Button/Button';
@@ -37,10 +36,6 @@ export default function SignUp() {
   });
 
   const register = useAuth((state) => {
-    analytics.trackIdentify(state.user?.email, {
-      username: state.user?.nickname,
-      email: state.user?.email,
-    });
     return state.register;
   });
 
