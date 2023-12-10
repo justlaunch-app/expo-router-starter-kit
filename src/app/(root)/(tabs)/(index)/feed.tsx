@@ -1,5 +1,5 @@
 import { FlashList } from '@shopify/flash-list';
-import { View, } from 'react-native';
+import { View } from 'react-native';
 import { Link } from 'expo-router';
 import analytics from '_utils/analytics/segment';
 
