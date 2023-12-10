@@ -3,11 +3,11 @@ import { spacing } from "_utils/viewport";
 import { Link } from "expo-router";
 import { View } from "react-native";
 import FeedItem from "./FeedItem";
-import analytics from '_utils/analytics/segment';
+import type Analytics from '_utils/analytics/segment';
 
-export function FeedLink({ item }: {
+export function FeedLink({ item, analytics }: {
   item: Article;
-  analytics?: typeof analytics
+  analytics?: typeof Analytics
 }) {
   return <View className='w-full'>
     <View className='h-[150px] w-full'>
