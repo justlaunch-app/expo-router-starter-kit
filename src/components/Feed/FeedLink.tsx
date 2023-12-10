@@ -3,21 +3,14 @@ import { spacing } from "_utils/viewport";
 import { Link } from "expo-router";
 import { View } from "react-native";
 import FeedItem from "./FeedItem";
-import type Analytics from '_utils/analytics/segment';
 
-export function FeedLink({ item, analytics }: {
+export function FeedLink({ item, }: {
   item: Article;
-  analytics?: typeof Analytics
 }) {
   return <View className='w-full'>
     <View className='h-[150px] w-full'>
       <Link
         className='w-full'
-        onPress={() => {
-          analytics?.trackEvent('Feed Item Pressed', {
-            feedId: item.id,
-          });
-        }}
         href={{
           pathname: '/feed/[id]',
           params: {
