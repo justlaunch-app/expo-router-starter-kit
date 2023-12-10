@@ -25,8 +25,6 @@ expo-router-starter-kit is for building robust cross-platform apps blazingly fas
 
 - [@shopify/flash-list](https://github.com/Shopify/flash-list) - React Native flash list component
 
-- [OneSignal](https://onesignal.com/) - Push Notification delivery
-
 - [Lottie](https://lottiefiles.com/) - Animated Splash Screen
 
 ## Installation

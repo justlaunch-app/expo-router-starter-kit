@@ -11,8 +11,6 @@ import { useSetTitle } from 'src/hooks/useSetTitle';
 import { ResetPasswordModal } from 'src/components/ResetPasswordModal';
 import { useIsFocused } from '@react-navigation/native';
 import { emailSchema } from '_utils/auth.schema';
-import analytics from '_utils/analytics/segment';
-import { deviceInfo } from '_config/device';
 import { Label } from '_components/Label/StyledLabel';
 import { Alert } from '_utils/alert';
 import { Button } from '_components/Button/Button';
@@ -39,10 +37,6 @@ export default function SignIn() {
   });
 
   const login = useAuth((state) => {
-    analytics.trackEvent('User Logged In', {
-      email: state.user?.email,
-      userPhone: deviceInfo,
-    });
     return state.login;
   });
 

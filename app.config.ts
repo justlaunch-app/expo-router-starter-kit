@@ -54,13 +54,5 @@ module.exports = {
       bundler: 'metro',
       favicon: './src/assets/images/favicon.png',
     },
-    plugins: [
-      [
-        'onesignal-expo-plugin',
-        {
-          mode: 'development',
-        },
-      ],
-    ],
   },
 };
