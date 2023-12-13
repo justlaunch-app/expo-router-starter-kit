@@ -17,7 +17,7 @@ export default function User() {
     setOptions({
       headerTitle: data?.data?.first_name,
     });
-  }, [data]);
+  }, [data, setOptions]);
 
   return (
     <SafeAreaView className={'p-4 justify-center items-center h-full'}>

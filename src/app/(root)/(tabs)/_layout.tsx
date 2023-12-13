@@ -5,7 +5,6 @@ import { TabBarIcon } from '_components/Icon/TabBarIcon';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { WebLayout } from '_components/Layout/WebLayout';
 import { useTranslation } from 'react-i18next';
-import React from 'react';
 
 type TabBarIconProps = { color: string };
 

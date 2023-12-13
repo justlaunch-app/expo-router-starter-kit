@@ -14,7 +14,7 @@ export default function TabTwoScreen() {
     return users?.pages
       .map((page) => page?.data)
       .filter(Boolean)
-      .flat() as Array<UserData>; // typescript isn't smart enough, so we need to asset the type
+      .flat() as Array<UserData>;
   }, [users]);
 
   return (
