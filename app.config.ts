@@ -1,6 +1,9 @@
+const ngrokUrl = 'ritmillio-router-sandbox.ngrok.io';
+
+/** @type {import('expo/config').ExpoConfig} */
 module.exports = {
   expo: {
-    name: 'expo-starter-kit',
+    name: 'tooolongtotest',
     experiments: {
       typedRoutes: true,
       tsconfigPaths: true,
@@ -23,8 +26,12 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.zoltanfodor.expo-starter-kit',
-      associatedDomains: ['applinks:expo.dev'], // Add your custom associated domain here for Deep Linking
+      bundleIdentifier: 'com.zoltanfodor.test-expo-router-now',
+      associatedDomains: [
+        `applinks:${ngrokUrl}`,
+        `activitycontinuation:${ngrokUrl}`,
+        `webcredentials:${ngrokUrl}`,
+      ],
     },
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
@@ -53,6 +60,19 @@ module.exports = {
     web: {
       bundler: 'metro',
       favicon: './src/assets/images/favicon.png',
+    },
+    plugins: [
+      [
+        'expo-router',
+        {
+          headOrigin: `https://${ngrokUrl}`,
+        },
+      ],
+    ],
+    extra: {
+      eas: {
+        projectId: 'c5cddb1a-4054-45f3-8212-36a4c9482807',
+      },
     },
   },
 };
