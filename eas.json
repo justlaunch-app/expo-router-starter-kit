@@ -19,6 +19,10 @@
     "production": {
       "ios": {
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://jsonplaceholder.typicode.com",
+        "EXPO_PUBLIC_REQRES_API_URL": "https://reqres.in/api"
       }
     }
   },

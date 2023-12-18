@@ -23,7 +23,6 @@ import {
   router,
   SplashScreen as ExpoSplashScreen,
 } from 'expo-router';
-import { RootSiblingParent } from 'react-native-root-siblings';
 
 import {
   ThemeProvider,
@@ -170,24 +169,22 @@ function RootLayoutNav() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <RootSiblingParent>
-          <I18nextProvider i18n={i18n}>
-            <QueryClientProvider client={queryClient}>
-              <Stack>
-                <Stack.Screen name="(root)" options={{ headerShown: false }} />
-                <Stack.Screen name="user/[id]" />
-                <Stack.Screen name="user/add" />
-                <Stack.Screen
-                  name="modal"
-                  options={{
-                    presentation: 'modal',
-                  }}
-                />
-              </Stack>
-              <StatusBar style={'auto'} />
-            </QueryClientProvider>
-          </I18nextProvider>
-        </RootSiblingParent>
+        <I18nextProvider i18n={i18n}>
+          <QueryClientProvider client={queryClient}>
+            <Stack>
+              <Stack.Screen name="(root)" options={{ headerShown: false }} />
+              <Stack.Screen name="user/[id]" />
+              <Stack.Screen name="user/add" />
+              <Stack.Screen
+                name="modal"
+                options={{
+                  presentation: 'modal',
+                }}
+              />
+            </Stack>
+            <StatusBar style={'auto'} />
+          </QueryClientProvider>
+        </I18nextProvider>
       </ThemeProvider>
     </>
   );
