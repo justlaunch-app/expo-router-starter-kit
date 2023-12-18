@@ -177,7 +177,12 @@ function RootLayoutNav() {
                 <Stack.Screen name="(root)" options={{ headerShown: false }} />
                 <Stack.Screen name="user/[id]" />
                 <Stack.Screen name="user/add" />
-                <Stack.Screen name="modal" />
+                <Stack.Screen
+                  name="modal"
+                  options={{
+                    presentation: 'modal',
+                  }}
+                />
               </Stack>
               <StatusBar style={'auto'} />
             </QueryClientProvider>
