@@ -9,7 +9,7 @@ module.exports = {
       tsconfigPaths: true,
     },
     slug: 'expo-starter-kit',
-    version: '1.0.0',
+    version: '1.3.5',
     orientation: 'portrait',
     icon: './src/assets/images/icon.png',
     scheme: 'acme',
@@ -66,6 +66,17 @@ module.exports = {
         'expo-router',
         {
           headOrigin: `https://${ngrokUrl}`,
+        },
+      ],
+      [
+        'expo-build-properties',
+        {
+          ios: {
+            newArchEnabled: true,
+          },
+          android: {
+            newArchEnabled: true,
+          },
         },
       ],
     ],

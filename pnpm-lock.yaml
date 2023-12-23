@@ -41,6 +41,9 @@ dependencies:
   expo:
     specifier: ^49.0.0
     version: 49.0.21(@babel/core@7.23.5)
+  expo-build-properties:
+    specifier: ~0.8.3
+    version: 0.8.3(expo@49.0.21)
   expo-clipboard:
     specifier: ~4.3.1
     version: 4.3.1(expo@49.0.21)
@@ -121,7 +124,7 @@ dependencies:
     version: 2.12.1(react-native@0.72.6)(react@18.2.0)
   react-native-get-random-values:
     specifier: ^1.9.0
-    version: 1.10.0(react-native@0.72.6)
+    version: 1.9.0(react-native@0.72.6)
   react-native-pager-view:
     specifier: 6.2.0
     version: 6.2.0(react-native@0.72.6)(react@18.2.0)
@@ -179,7 +182,7 @@ devDependencies:
     specifier: 3.3.2
     version: 3.3.2
   typescript:
-    specifier: ^5.3.2
+    specifier: ^5.3.3
     version: 5.3.3
 
 packages:
@@ -4289,6 +4292,16 @@ packages:
       - supports-color
     dev: false
 
+  /expo-build-properties@0.8.3(expo@49.0.21):
+    resolution: {integrity: sha512-kEDDuAadHqJTkvCGK4fXYHVrePiJO1DjyW95AicmwuGwQvGJydYFbuoauf9ybAU+4UH4arhbce8gHI3ZpIj3Jw==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      ajv: 8.12.0
+      expo: 49.0.21(@babel/core@7.23.5)
+      semver: 7.5.4
+    dev: false
+
   /expo-clipboard@4.3.1(expo@49.0.21):
     resolution: {integrity: sha512-WIsjvAsr2+/NZRa84mKxjui1EdPpdKbQIC2LN/KMBNuT7g4GQYL3oo9WO9G/C7doKQ7f7pnfdvO3N6fUnoRoJw==}
     peerDependencies:
@@ -7146,8 +7159,8 @@ packages:
       react-native: 0.72.6(@babel/core@7.23.5)(@babel/preset-env@7.23.5)(react@18.2.0)
     dev: false
 
-  /react-native-get-random-values@1.10.0(react-native@0.72.6):
-    resolution: {integrity: sha512-gZ1zbXhbb8+Jy9qYTV8c4Nf45/VB4g1jmXuavY5rPfUn7x3ok9Vl3FTl0dnE92Z4FFtfbUNNwtSfcmomdtWg+A==}
+  /react-native-get-random-values@1.9.0(react-native@0.72.6):
+    resolution: {integrity: sha512-+29IR2oxzxNVeaRwCqGZ9ABadzMI8SLTBidrIDXPOkKnm5+kEmLt34QKM4JV+d2usPErvKyS85le0OmGTHnyWQ==}
     peerDependencies:
       react-native: '>=0.56'
     dependencies:
