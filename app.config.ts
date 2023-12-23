@@ -37,6 +37,7 @@ module.exports = {
       ITSAppUsesNonExemptEncryption: false,
     },
     android: {
+      package: 'com.zoltanfodor_dev.expostarterkit',
       adaptiveIcon: {
         foregroundImage: './src/assets/images/adaptive-icon.png',
         backgroundColor: '#ffffff',
