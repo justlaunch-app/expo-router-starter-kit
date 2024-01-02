@@ -22,6 +22,17 @@ const DEFAULT_VALUES = {
   email: '',
 };
 
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+};
+
+type UsersResponse = {
+  pages: Array<{ data: User[] }>;
+};
+
 export default function AddUser() {
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(schema),
@@ -31,12 +42,33 @@ export default function AddUser() {
   const navigation = useNavigation();
   const { mutate } = useUserMutation({
     onSuccess: (newUser) => {
-      queryClient.setQueryData(
+      if (!newUser) {
+        console.error('No user data received.');
+        return;
+      }
+
+      queryClient.setQueryData<UsersResponse | undefined>(
         useUsers.getKey(undefined),
-        (currentUsers: any) => {
+        (currentUsers) => {
+          const newUserFormatted: User = {
+            id: newUser.id,
+            firstName: newUser.first_name,
+            lastName: newUser.last_name,
+            email: newUser.email,
+          };
+
+          if (!currentUsers) {
+            return { pages: [{ data: [newUserFormatted] }] };
+          }
+
           return {
             ...currentUsers,
-            pages: [{ data: newUser }, ...(currentUsers?.pages ?? [])],
+            pages: [
+              {
+                data: [newUserFormatted, ...currentUsers.pages[0].data],
+              },
+              ...currentUsers.pages.slice(1),
+            ],
           };
         }
       );

@@ -1,5 +1,5 @@
 import Slot = Navigator.Slot;
-import { Navigator, usePathname, Link } from 'expo-router';
+import { Navigator, usePathname, Link, LinkProps } from 'expo-router';
 import { Platform, View } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { classNames } from '_utils/classNames';
@@ -40,7 +40,7 @@ export function WebLayout({
               {links.map(({ href, name, isActive }) => (
                 <Link
                   key={href}
-                  href={href}
+                  href={href as LinkProps<string>['href']}
                   className={classNames({
                     'font-medium text-xl hover:underline': true,
                     'text-blue-600 dark:text-blue-500 underline':

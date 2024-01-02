@@ -4,14 +4,13 @@ import {
   ViewStyle,
   StyleProp,
   PressableStateCallbackType,
+  GestureResponderEvent,
 } from 'react-native';
 
 type PressableComponentProps = {
-  onPress: (e?: any) => void;
+  onPress: (e?: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
-  children?:
-    | ReactNode
-    | ((state: PressableStateCallbackType) => ReactNode);
+  children?: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
   disabled?: boolean;
 };
 
