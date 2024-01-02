@@ -36,7 +36,7 @@ export const useUser = createQuery<
   Error
 >({
   primaryKey: '/user',
-  queryFn: async ({ queryKey: [_, variables] }) => {
+  queryFn: async ({ queryKey: [, variables] }) => {
     const result = await reqresApi.get<Response>(
       `/users/${variables.id}`,
       undefined

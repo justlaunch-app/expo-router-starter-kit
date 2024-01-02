@@ -1,5 +1,5 @@
 export import Slot = Navigator.Slot;
-import { Link, Navigator, usePathname } from 'expo-router';
+import { Link, LinkProps, Navigator, usePathname } from 'expo-router';
 import { Platform, View } from 'react-native';
 import { classNames } from '_utils/classNames';
 import { pathToName } from '_utils/layout';
@@ -22,7 +22,7 @@ export function NestedWebLayout({ links = [] }: NestedLayoutProps) {
           {links.map(({ href, name, isActive }) => (
             <Link
               key={href}
-              href={href}
+              href={href as LinkProps<string>['href']}
               className={classNames({
                 'font-medium text-xl hover:underline': true,
                 'text-blue-600 dark:text-blue-500 underline':
