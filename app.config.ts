@@ -39,7 +39,7 @@ module.exports = {
     android: {
       package: 'com.zoltanfodor_dev.expostarterkit',
       adaptiveIcon: {
-        foregroundImage: './src/assets/images/adaptive-icon.png',
+        foregroundImage: './public/android-chrome-192x192.png',
         backgroundColor: '#ffffff',
       },
       // Add your custom intent filters here for Deep Linking
@@ -60,7 +60,7 @@ module.exports = {
     },
     web: {
       bundler: 'metro',
-      favicon: './src/assets/images/favicon.png',
+      favicon: './public/favicon-32x32.png',
     },
     plugins: [
       [
