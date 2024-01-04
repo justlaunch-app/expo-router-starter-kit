@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { View, Pressable } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
@@ -9,7 +9,6 @@ import { useAuth } from 'src/store/authStore/auth.store';
 import { useTranslation } from 'react-i18next';
 import { useSetTitle } from 'src/hooks/useSetTitle';
 import { ResetPasswordModal } from 'src/components/ResetPasswordModal';
-import { useIsFocused } from '@react-navigation/native';
 import { emailSchema } from '_utils/auth.schema';
 import { Label } from '_components/Label/StyledLabel';
 import { Alert } from '_utils/alert';
@@ -24,11 +23,9 @@ export default function SignIn() {
   const { t } = useTranslation();
   useSetTitle(t('auth.sign-in'));
 
-  const isFocused = useIsFocused();
-
   const [modalResetOpen, setModalResetOpen] = useState(false);
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
       email: '',
@@ -49,12 +46,6 @@ export default function SignIn() {
 
     Alert.alert(t(error));
   });
-
-  useEffect(() => {
-    if (!isFocused) {
-      reset();
-    }
-  }, [isFocused, reset]);
 
   return (
     <View className="flex-1 items-center p-4 gap-y-8">

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { View } from 'react-native';
 import { ControlledInput } from '_components/Input/ControlledInput';
 import { useForm } from 'react-hook-form';
@@ -9,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { useSetTitle } from 'src/hooks/useSetTitle';
 import { router } from 'expo-router';
 import { emailSchema } from '_utils/auth.schema';
-import { useIsFocused } from '@react-navigation/native';
 import { Label } from '_components/Label/StyledLabel';
 import { Alert } from '_utils/alert';
 import { Button } from '_components/Button/Button';
@@ -23,8 +21,6 @@ const schema = z.object({
 export default function SignUp() {
   const { t } = useTranslation();
   useSetTitle(t('auth.sign-up'));
-
-  const isFocused = useIsFocused();
 
   const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
@@ -58,12 +54,6 @@ export default function SignUp() {
     Alert.alert(t(error));
     reset();
   });
-
-  useEffect(() => {
-    if (!isFocused) {
-      reset();
-    }
-  }, [isFocused, reset]);
 
   return (
     <View className="flex-1 items-center p-4 gap-y-8">
