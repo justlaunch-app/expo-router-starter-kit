@@ -11,11 +11,11 @@ module.exports = {
     slug: 'expo-starter-kit',
     version: '1.3.5',
     orientation: 'portrait',
-    icon: './src/assets/images/icon.png',
+    icon: './public/favicon-32x32.png',
     scheme: 'acme',
     userInterfaceStyle: 'automatic',
     splash: {
-      image: './src/assets/images/splash.png',
+      image: './public/justlaunch.png',
       resizeMode: 'contain',
       backgroundColor: '#ffffff',
     },

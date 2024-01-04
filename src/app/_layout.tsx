@@ -1,10 +1,4 @@
-import React, {
-  useLayoutEffect,
-  useEffect,
-  FunctionComponent,
-  useMemo,
-  useState,
-} from 'react';
+import { useLayoutEffect, useEffect, useMemo } from 'react';
 import Head from 'expo-router/head';
 import {
   SourceCodePro_400Regular,
@@ -23,41 +17,20 @@ import {
   router,
   SplashScreen as ExpoSplashScreen,
 } from 'expo-router';
-
 import {
   ThemeProvider,
   DarkTheme,
   DefaultTheme,
 } from '@react-navigation/native';
 import '_utils/env-loader';
-
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { useAuth } from 'src/store/authStore/auth.store';
-import { Platform } from 'react-native';
-import { LottieSplashScreenNative } from '_components/LottieSplashScreen';
 import i18n from '_locales/i18n';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
 export { ErrorBoundary } from 'expo-router';
 
-let CurrentPlatformSplashScreen: LottieSplashScreenNative | FunctionComponent;
-if (Platform.OS === 'web') {
-  CurrentPlatformSplashScreen =
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('_components/LottieSplashScreenWeb').default;
-} else {
-  CurrentPlatformSplashScreen =
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('_components/LottieSplashScreen').default;
-}
-
-export const unstable_settings = {
-  initialRouteName: '(tabs)',
-};
-
-const FONT_LOAD_DELAY = 2000;
-const SCREEN_TRANSITION_DELAY = 150;
+const queryClient = new QueryClient();
 
 function useProtectedRoute() {
   const segments = useSegments();
@@ -90,54 +63,22 @@ export default function RootLayout() {
     SpaceMono: SourceCodePro_400Regular,
   });
 
-  const [appState, setAppState] = useState({
-    fontsLoaded: false,
-    isDelayOver: false,
-    screenReady: false,
-  });
-
   useEffect(() => {
-    if (loaded) {
-      ExpoSplashScreen.hideAsync();
-      setAppState((prev) => ({ ...prev, fontsLoaded: true }));
-    }
     if (error) {
       throw error;
     }
+    if (loaded) {
+      ExpoSplashScreen.hideAsync();
+    }
   }, [loaded, error]);
-
-  useEffect(() => {
-    if (appState.fontsLoaded) {
-      const timer = setTimeout(() => {
-        setAppState((prev) => ({ ...prev, isDelayOver: true }));
-      }, FONT_LOAD_DELAY);
-
-      return () => clearTimeout(timer);
-    }
-  }, [appState.fontsLoaded]);
-
-  useEffect(() => {
-    if (appState.isDelayOver) {
-      setTimeout(() => {
-        setAppState((prev) => ({ ...prev, screenReady: true }));
-      }, SCREEN_TRANSITION_DELAY);
-    }
-  }, [appState.isDelayOver]);
 
   useProtectedRoute();
 
-  if (!loaded || !appState.isDelayOver) {
-    return (
-      <CurrentPlatformSplashScreen animationFadeOut={appState.isDelayOver} />
-    );
-  }
-
-  if (appState.screenReady) {
+  if (loaded && !error) {
     return <RootLayoutNav />;
   }
 }
 
-const queryClient = new QueryClient();
 function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
 
