@@ -1,20 +1,10 @@
-// import { icons } from 'lucide-react-native';
-// import { StyleProp, ViewStyle } from 'react-native';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-// export const Icon = ({
-//   name,
-//   color,
-//   size,
-//   style,
-//   className
-// }: {
-//   name: keyof typeof icons;
-//   color: string;
-//   size: number;
-//   style?: StyleProp<ViewStyle>;
-//   className?: string;
-// }) => {
-//   const LucideIcon = icons[name];
-
-//   return <LucideIcon style={style} color={color} size={size} className= {className}/>;
-// };
+export default function Icon(props: {
+  name: React.ComponentProps<typeof FontAwesome>['name'];
+  color: string;
+  className?: string;
+  size?: number;
+}) {
+  return <FontAwesome className={props.className} size={props.size} {...props} />;
+}

@@ -5,13 +5,13 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '_utils/blurhash';
 import * as Sharing from 'expo-sharing';
 import TouchableOpacity from '_components/Button/TouchableOpacity';
-// import { Icon } from '_components/Icon/Icon';
-// import { useColorScheme } from 'nativewind';
+import  Icon  from '_components/Icon/Icon';
+import { useColorScheme } from 'nativewind';
 
 const DetailFeed = () => {
   const { id, author, imgSrc, title, datePublished, content } =
     useLocalSearchParams();
-  // const { colorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <ScrollView>
@@ -24,12 +24,11 @@ const DetailFeed = () => {
                 Sharing.shareAsync('https://linktr.zoltanfodor.dev/');
               }}
             >
-              {/* <Icon
-                name="Share"
+              <Icon
+                name="share"
                 size={24}
                 color={colorScheme === 'dark' ? 'white' : 'black'}
-              /> */}
-              a
+              />
             </TouchableOpacity>
           ),
         }}
