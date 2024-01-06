@@ -5,7 +5,6 @@ import { FeedLink } from '_components/Feed/FeedLink';
 
 import feedData from '_assets/data/feed.json';
 
-
 interface RenderItemProps {
   item: Article;
 }
@@ -15,9 +14,7 @@ export default function Feed() {
       <FlashList
         data={feedData}
         estimatedItemSize={150}
-        renderItem={({ item }: RenderItemProps) => (
-          <FeedLink item={item} />
-        )}
+        renderItem={({ item }: RenderItemProps) => <FeedLink item={item} />}
       />
     </View>
   );

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import Head from 'expo-router/head';
 import {
   SourceCodePro_400Regular,
@@ -10,13 +10,7 @@ import {
   NativeWindStyleSheet,
 } from 'nativewind';
 
-import {
-  Stack,
-  useRootNavigationState,
-  useSegments,
-  router,
-  SplashScreen as ExpoSplashScreen,
-} from 'expo-router';
+import { Stack, SplashScreen as ExpoSplashScreen } from 'expo-router';
 import {
   ThemeProvider,
   DarkTheme,
@@ -25,37 +19,11 @@ import {
 import '_utils/env-loader';
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import { useAuth } from 'src/store/authStore/auth.store';
 import i18n from '_locales/i18n';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 export { ErrorBoundary } from 'expo-router';
 
 const queryClient = new QueryClient();
-
-function useProtectedRoute() {
-  const segments = useSegments();
-  const rootNavigationState = useRootNavigationState();
-
-  const user = useAuth(({ user }) => user);
-
-  const navigationKey = useMemo(() => {
-    return rootNavigationState?.key;
-  }, [rootNavigationState]);
-
-  useLayoutEffect(() => {
-    const inAuthGroup = segments[0] === '(auth)';
-
-    if (!navigationKey) {
-      return;
-    }
-
-    if (!user && !inAuthGroup) {
-      router.replace('/sign-in');
-    } else if (user && inAuthGroup) {
-      router.replace('/');
-    }
-  }, [user, segments, navigationKey]);
-}
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -71,8 +39,6 @@ export default function RootLayout() {
       ExpoSplashScreen.hideAsync();
     }
   }, [loaded, error]);
-
-  useProtectedRoute();
 
   if (loaded && !error) {
     return <RootLayoutNav />;
@@ -123,7 +89,7 @@ function RootLayoutNav() {
                 }}
               />
             </Stack>
-            <StatusBar style={'auto'} />
+            <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
           </QueryClientProvider>
         </I18nextProvider>
       </ThemeProvider>

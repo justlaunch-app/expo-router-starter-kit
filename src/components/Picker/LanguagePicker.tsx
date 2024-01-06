@@ -21,7 +21,7 @@ export default function LanguagePicker() {
   const isDark = colorScheme === 'dark';
 
   return (
-    <>
+    <View>
       <Text className="text-lg font-semibold">{t('language')}:</Text>
       <View
         className={classNames({
@@ -49,6 +49,6 @@ export default function LanguagePicker() {
           ))}
         </Picker>
       </View>
-    </>
+    </View>
   );
 }
