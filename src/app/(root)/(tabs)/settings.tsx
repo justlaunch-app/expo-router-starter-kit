@@ -13,20 +13,21 @@ export default function Settings() {
   const { colorScheme, setColorScheme } = useColorScheme();
 
   return (
-    <SafeAreaView className="flex-1 items-center justify-between">
+    <SafeAreaView>
       <View className="flex-1">
-        <Text
-          onPress={() =>
-            setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
-          }
-          className="text-green-500"
-        >{`The color scheme is ${colorScheme}`}</Text>
-      </View>
-      <View className="flex-1 relative bg-transparent">
-        <LanguagePicker />
+        <View className="my-5 mx-auto">
+          <Text
+            onPress={() =>
+              setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
+            }
+            className="text-black dark:text-white text-2xl font-semibold"
+          >{`The color scheme is ${colorScheme}`}</Text>
+        </View>
+
+        <LanguagePicker className="mx-auto" />
       </View>
 
-      <View className="flex-1 justify-end relative bg-transparent mt-12">
+      <View className="">
         <Text className="text-lg font-bold">Device Info</Text>
         <DeviceInfo />
         <Divider />

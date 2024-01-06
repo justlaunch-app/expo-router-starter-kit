@@ -20,7 +20,7 @@ export default function Index() {
         'bg-black': colorScheme === 'dark',
       })}
     >
-      <Text className="text-blue-500 pt-2 text-2xl text-bold">
+      <Text className="text-blue-500 pt-2 text-2xl text-bold text-center">
         {t('greeting')}
       </Text>
       <Text className="text-blue-500 text-xl px-8 pt-5 pb-10">

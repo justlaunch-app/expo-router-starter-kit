@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { useLang } from 'src/store/langStore/lang.store';
 import { useColorScheme } from 'nativewind';
 
-const options = [
+const languages = [
   { label: 'English', value: 'en' },
   { label: 'Spanish', value: 'es' },
 ];
 
-export default function LanguagePicker() {
+export default function LanguagePicker({ className }: { className?: string }) {
   const { t } = useTranslation();
   const { colorScheme } = useColorScheme();
 
@@ -21,7 +21,7 @@ export default function LanguagePicker() {
   const isDark = colorScheme === 'dark';
 
   return (
-    <View>
+    <View className={className}>
       <Text className="text-lg font-semibold">{t('language')}:</Text>
       <View
         className={classNames({
@@ -40,7 +40,7 @@ export default function LanguagePicker() {
           }}
           dropdownIconColor={isDark ? 'white' : undefined}
         >
-          {options.map((item) => (
+          {languages.map((item) => (
             <Picker.Item
               {...item}
               key={item.value}
