@@ -19,6 +19,10 @@ import '../../global.css';
 
 const queryClient = new QueryClient();
 
+export const unstable_settings = {
+  initialRouteName: 'index',
+};
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     SpaceMono: SourceCodePro_400Regular,

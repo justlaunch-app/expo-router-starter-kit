@@ -9,7 +9,7 @@ module.exports = {
       tsconfigPaths: true,
     },
     slug: 'expo-starter-kit',
-    version: '1.5.5',
+    version: '1.5.7',
     orientation: 'portrait',
     icon: './public/favicon-32x32.png',
     scheme: 'acme',
