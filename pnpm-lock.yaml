@@ -118,7 +118,7 @@ dependencies:
     version: 2.12.1(react-native@0.72.6)(react@18.2.0)
   react-native-get-random-values:
     specifier: ^1.9.0
-    version: 1.10.0(react-native@0.72.6)
+    version: 1.9.0(react-native@0.72.6)
   react-native-pager-view:
     specifier: 6.2.0
     version: 6.2.0(react-native@0.72.6)(react@18.2.0)
@@ -7227,8 +7227,8 @@ packages:
       react-native: 0.72.6(@babel/core@7.23.7)(@babel/preset-env@7.23.7)(react@18.2.0)
     dev: false
 
-  /react-native-get-random-values@1.10.0(react-native@0.72.6):
-    resolution: {integrity: sha512-gZ1zbXhbb8+Jy9qYTV8c4Nf45/VB4g1jmXuavY5rPfUn7x3ok9Vl3FTl0dnE92Z4FFtfbUNNwtSfcmomdtWg+A==}
+  /react-native-get-random-values@1.9.0(react-native@0.72.6):
+    resolution: {integrity: sha512-+29IR2oxzxNVeaRwCqGZ9ABadzMI8SLTBidrIDXPOkKnm5+kEmLt34QKM4JV+d2usPErvKyS85le0OmGTHnyWQ==}
     peerDependencies:
       react-native: '>=0.56'
     dependencies:
