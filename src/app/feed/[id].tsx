@@ -5,7 +5,7 @@ import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '_utils/blurhash';
 import * as Sharing from 'expo-sharing';
 import TouchableOpacity from '_components/Button/TouchableOpacity';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Icon } from '_components/Icon/Icon';
 import { useColorScheme } from 'nativewind';
 
 const DetailFeed = () => {
@@ -24,8 +24,8 @@ const DetailFeed = () => {
                 Sharing.shareAsync('https://linktr.zoltanfodor.dev/');
               }}
             >
-              <Ionicons
-                name="share"
+              <Icon
+                name="Share"
                 size={24}
                 color={colorScheme === 'dark' ? 'white' : 'black'}
               />

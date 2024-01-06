@@ -1,4 +1,4 @@
-import * as Device from 'expo-device';
+import * as Device from 'expo-device'
 
 export const deviceBrand = Device.brand;
 export const deviceModel = Device.modelName;

@@ -3,7 +3,6 @@ import {
   useFonts,
   SourceCodePro_400Regular,
 } from '@expo-google-fonts/source-code-pro';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
 import {
   ThemeProvider,
@@ -22,7 +21,6 @@ const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    ...FontAwesome.font,
     SpaceMono: SourceCodePro_400Regular,
   });
 
