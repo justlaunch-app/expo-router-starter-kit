@@ -9,7 +9,7 @@ module.exports = {
       tsconfigPaths: true,
     },
     slug: 'expo-starter-kit',
-    version: '1.5.1',
+    version: '1.5.4',
     orientation: 'portrait',
     icon: './public/favicon-32x32.png',
     scheme: 'acme',
@@ -22,7 +22,7 @@ module.exports = {
     updates: {
       fallbackToCacheTimeout: 0,
     },
-    mode: 'development',
+    mode: 'production',
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,

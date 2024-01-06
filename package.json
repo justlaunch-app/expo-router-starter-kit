@@ -11,7 +11,7 @@
     "@expo-google-fonts/source-code-pro": "^0.2.3",
     "@expo/cli": "^0.10.11",
     "@hookform/resolvers": "^3.2.0",
-    "@react-native-picker/picker": "2.4.10",
+    "@react-native-picker/picker": "2.6.1",
     "@react-navigation/material-top-tabs": "^6.6.3",
     "@shopify/flash-list": "1.4.3",
     "@tanstack/react-query": "^5.12.2",

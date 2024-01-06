@@ -1,4 +1,4 @@
-import { View, Platform } from 'react-native';
+import { View } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { classNames } from '_utils/classNames';
 import { Picker } from '@react-native-picker/picker';
@@ -25,7 +25,7 @@ export default function LanguagePicker({ className }: { className?: string }) {
       <Text className="text-lg font-semibold">{t('language')}:</Text>
       <View
         className={classNames({
-          '-mt-14': Platform.OS === 'ios',
+          // '-mt-14': Platform.OS === 'ios',
           'bg-transparent': true,
         })}
       >
@@ -36,7 +36,7 @@ export default function LanguagePicker({ className }: { className?: string }) {
             height: 50,
             width: 150,
             color: isDark ? 'white' : 'black',
-            backgroundColor: Platform.OS === 'web' ? 'transparent' : undefined,
+            // backgroundColor: Platform.OS === 'web' ? 'transparent' : undefined,
           }}
           dropdownIconColor={isDark ? 'white' : undefined}
         >
