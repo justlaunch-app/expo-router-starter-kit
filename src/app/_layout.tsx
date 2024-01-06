@@ -1,49 +1,69 @@
-import { useEffect } from 'react';
-import Head from 'expo-router/head';
+import { useEffect, useState } from 'react';
 import {
-  SourceCodePro_400Regular,
   useFonts,
+  SourceCodePro_400Regular,
 } from '@expo-google-fonts/source-code-pro';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {
-  useColorScheme as nativewindUseColorScheme,
-  NativeWindStyleSheet,
-} from 'nativewind';
-
-import { Stack, SplashScreen as ExpoSplashScreen } from 'expo-router';
+import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
 import {
   ThemeProvider,
   DarkTheme,
   DefaultTheme,
 } from '@react-navigation/native';
-import '_utils/env-loader';
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
-import i18n from '_locales/i18n';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-export { ErrorBoundary } from 'expo-router';
+import Head from 'expo-router/head';
+import i18n from '_locales/i18n';
+import {
+  useColorScheme as nativewindUseColorScheme,
+  NativeWindStyleSheet,
+} from 'nativewind';
 
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
+  const [fontsLoaded] = useFonts({
     ...FontAwesome.font,
     SpaceMono: SourceCodePro_400Regular,
   });
 
+  const [appIsReady, setAppIsReady] = useState(false);
+
   useEffect(() => {
-    if (error) {
-      throw error;
+    async function prepare() {
+      try {
+        // Wait for fonts to load and for at least 2000 milliseconds
+        await Promise.all([
+          fontsLoaded,
+          new Promise((resolve) => setTimeout(resolve, 2000)),
+        ]);
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Now fonts are loaded and 2 seconds have passed
+        setAppIsReady(true);
+      }
     }
-    if (loaded) {
+
+    prepare();
+  }, [fontsLoaded]);
+
+  useEffect(() => {
+    if (appIsReady) {
+      // Hide the splash screen only when app is ready
       ExpoSplashScreen.hideAsync();
     }
-  }, [loaded, error]);
+  }, [appIsReady]);
 
-  if (loaded && !error) {
-    return <RootLayoutNav />;
+  if (!appIsReady) {
+    return null;
   }
+
+  return <RootLayoutNav />;
 }
+
+ExpoSplashScreen.preventAutoHideAsync();
 
 function RootLayoutNav() {
   const { colorScheme } = nativewindUseColorScheme();
@@ -80,8 +100,6 @@ function RootLayoutNav() {
           <QueryClientProvider client={queryClient}>
             <Stack>
               <Stack.Screen name="(root)" options={{ headerShown: false }} />
-              <Stack.Screen name="user/[id]" />
-              <Stack.Screen name="user/add" />
               <Stack.Screen
                 name="modal"
                 options={{

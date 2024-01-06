@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Pressable, Text, View } from 'react-native';
 import DeviceInfo from '_components/Device/DeviceInfo';
 import AppVersion from '_components/Device/AppVersion';
-import LoginInfo from '_components/Login/LoginInfo';
 import Divider from '_components/Divider/Divider';
 
 import { useColorScheme as nativewindUseColorScheme } from 'nativewind';
@@ -23,9 +22,6 @@ export default function Settings() {
         >
           <Text className="text-green-500">{`The color scheme is ${colorScheme}`}</Text>
         </Pressable>
-      </View>
-      <View className="flex-1 relative bg-transparent">
-        <LoginInfo />
       </View>
       <View className="flex-1 relative bg-transparent">
         <LanguagePicker />
