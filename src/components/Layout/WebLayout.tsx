@@ -4,10 +4,7 @@ import { Platform, View } from 'react-native';
 import { StyledText as Text } from '_components/Text/StyledText';
 import { classNames } from '_utils/classNames';
 import { pathToName } from '_utils/layout';
-import { Button } from '_components/Button/Button';
 import { WebLayoutLink } from '_types/WebLayoutLink';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '../../store/authStore/auth.store';
 
 interface WebLayoutProps {
   links?: WebLayoutLink[];
@@ -19,8 +16,6 @@ export function WebLayout({
   title = 'EXPO STARTER KIT',
 }: Readonly<WebLayoutProps>) {
   const pathname = usePathname();
-  const { t } = useTranslation();
-  const logout = useAuth(({ logout }) => logout);
 
   if (Platform.OS === 'web') {
     return (
@@ -51,12 +46,9 @@ export function WebLayout({
                 </Link>
               ))}
             </View>
-            <Button title={t('auth.sign-out')} onPress={logout} />
           </View>
         </View>
-        <View className={''}>
-          <Slot />
-        </View>
+        <Slot />
       </View>
     );
   }
