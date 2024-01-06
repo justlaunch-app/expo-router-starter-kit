@@ -1,38 +1,32 @@
 import { Link, Tabs } from 'expo-router';
-import { Pressable, Text } from 'react-native';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Pressable } from 'react-native';
 import { useColorScheme } from 'nativewind';
-// import { Icon } from '_components/Icon/Icon';
 import { useTranslation } from 'react-i18next';
-// import { icons } from 'lucide-react-native';
 
-// type TabBarIconWrapperProps = {
-//   name: keyof typeof icons;
-//   color: string;
-// };
+function TabBarIcon(props: {
+  name: React.ComponentProps<typeof FontAwesome>['name'];
+  color: string;
+}) {
+  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+}
 
 const HeaderRight = () => {
-  // const { colorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
+
   return (
     <Link href="/modal" asChild>
       <Pressable>
         {() => (
-          // <Icon
-          //   name="AlertOctagon"
-          //   size={25}
-          //   color={colorScheme === 'dark' ? 'white' : 'black'}
-          //   className='mb-1 mr-5'
-          // />
-          <Text>a</Text>
+          <TabBarIcon
+            name="plus"
+            color={colorScheme === 'dark' ? 'white' : 'black'}
+          />
         )}
       </Pressable>
     </Link>
   );
 };
-
-const TabBarIconWrapper = () => (
-  // <Icon name={name} size={25} color={color} />
-  <Text>a</Text>
-);
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
@@ -49,7 +43,7 @@ export default function TabLayout() {
         name="(index)"
         options={{
           title: t('tabs.one'),
-          tabBarIcon: () => <TabBarIconWrapper />,
+          tabBarIcon: () => <TabBarIcon name='code' color={colorScheme === 'dark' ? 'white' : 'black'}/>,
           headerRight: HeaderRight,
         }}
       />
@@ -57,14 +51,14 @@ export default function TabLayout() {
         name="two"
         options={{
           title: t('tabs.two'),
-          tabBarIcon: () => <TabBarIconWrapper />,
+          tabBarIcon: () => <TabBarIcon name='code' color={colorScheme === 'dark' ? 'white' : 'black'}/>,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: t('tabs.settings'),
-          tabBarIcon: () => <TabBarIconWrapper />,
+          tabBarIcon: () => <TabBarIcon name='cog' color={colorScheme === 'dark' ? 'white' : 'black'} />,
         }}
       />
     </Tabs>
