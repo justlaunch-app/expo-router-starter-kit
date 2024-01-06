@@ -15,10 +15,8 @@ import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Head from 'expo-router/head';
 import i18n from '_locales/i18n';
-import {
-  useColorScheme as nativewindUseColorScheme,
-  NativeWindStyleSheet,
-} from 'nativewind';
+import { useColorScheme } from 'nativewind';
+import '../../global.css';
 
 const queryClient = new QueryClient();
 
@@ -66,7 +64,7 @@ export default function RootLayout() {
 ExpoSplashScreen.preventAutoHideAsync();
 
 function RootLayoutNav() {
-  const { colorScheme } = nativewindUseColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <>
@@ -114,7 +112,3 @@ function RootLayoutNav() {
     </>
   );
 }
-
-NativeWindStyleSheet.setOutput({
-  default: 'native',
-});
