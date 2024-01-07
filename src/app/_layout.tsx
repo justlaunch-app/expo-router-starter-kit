@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { SplashScreen as ExpoSplashScreen, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
 import {
   ThemeProvider,
   DarkTheme,
@@ -22,7 +23,7 @@ export const unstable_settings = {
   initialRouteName: 'index',
 };
 
-ExpoSplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -36,7 +37,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (loaded) {
-      ExpoSplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [loaded]);
 
