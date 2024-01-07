@@ -14,10 +14,7 @@ import i18n from '_locales/i18n';
 import { useColorScheme } from 'nativewind';
 import '../../global.css';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+export { ErrorBoundary } from 'expo-router';
 
 const queryClient = new QueryClient();
 
