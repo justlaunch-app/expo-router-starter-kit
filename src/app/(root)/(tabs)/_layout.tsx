@@ -7,8 +7,9 @@ import { useTranslation } from 'react-i18next';
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
+  className?: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome className={props.className} size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 const HeaderRight = () => {
@@ -19,8 +20,9 @@ const HeaderRight = () => {
       <Pressable>
         {() => (
           <TabBarIcon
-            name="plus"
+            name="exclamation-circle"
             color={colorScheme === 'dark' ? 'white' : 'black'}
+            className="mr-3"
           />
         )}
       </Pressable>
