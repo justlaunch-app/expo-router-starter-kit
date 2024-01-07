@@ -1,4 +1,4 @@
-import i18n from '_locales/i18n';
+import i18n from '@locales/i18n';
 import { create } from 'zustand';
 
 type LangState = {

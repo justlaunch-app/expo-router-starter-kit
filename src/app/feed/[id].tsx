@@ -1,11 +1,11 @@
 import { View, ScrollView } from 'react-native';
-import { StyledText as Text } from '_components/Text/StyledText';
+import { StyledText as Text } from '@components/Text/StyledText';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, Stack } from 'expo-router';
-import { blurhash } from '_utils/blurhash';
+import { blurhash } from '@utils/blurhash';
 import * as Sharing from 'expo-sharing';
-import TouchableOpacity from '_components/Button/TouchableOpacity';
-import  Icon  from '_components/Icon/Icon';
+import TouchableOpacity from '@components/Button/TouchableOpacity';
+import Icon from '@components/Icon/Icon';
 import { useColorScheme } from 'nativewind';
 
 const DetailFeed = () => {

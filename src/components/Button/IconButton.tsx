@@ -1,4 +1,4 @@
-import { classNames } from '_utils/classNames';
+import { classNames } from '@utils/classNames';
 import { useColorScheme } from 'nativewind';
 import { View, Platform, Pressable, PressableProps } from 'react-native';
 

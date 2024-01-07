@@ -4,24 +4,25 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "app.config.js"  ],
+    "expo-env.d.ts",
+    "app.config.js"
+  ],
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
     "jsx": "react-jsx",
     "paths": {
-      "_app/*": ["src/app/*"],
-      "_assets/*": ["src/assets/*"],
-      "_components/*": ["src/components/*"],
-      "_constants/*": ["src/constants/*"],
-      "_context/*": ["src/context/*"],
-      "_locales/*": ["src/locales/*"],
-      "_utils/*": ["src/utils/*"],
-      "_layouts/*": ["src/layouts/*"],
-      "_config/*": ["src/config/*"],
-      "_types/*": ["src/types/*"],
-      "_hooks/*": ["src/hooks/*"],
+      "@app/*": ["src/app/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@context/*": ["src/context/*"],
+      "@locales/*": ["src/locales/*"],
+      "@utils/*": ["src/utils/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@config/*": ["src/config/*"],
+      "@types/*": ["src/types/*"],
+      "@hooks/*": ["src/hooks/*"]
     }
   }
 }

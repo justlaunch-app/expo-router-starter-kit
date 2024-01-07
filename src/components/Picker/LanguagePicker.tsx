@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { StyledText as Text } from '_components/Text/StyledText';
-import { classNames } from '_utils/classNames';
+import { StyledText as Text } from '@components/Text/StyledText';
+import { classNames } from '@utils/classNames';
 import { Picker } from '@react-native-picker/picker';
 import { useTranslation } from 'react-i18next';
 import { useLang } from 'src/store/langStore/lang.store';

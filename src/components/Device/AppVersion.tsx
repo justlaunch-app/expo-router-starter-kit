@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import appVersion from '_config/version';
-import { StyledText as Text } from '_components/Text/StyledText';
+import appVersion from '@config/version';
+import { StyledText as Text } from '@components/Text/StyledText';
 
 export default function AppVersion() {
   return (

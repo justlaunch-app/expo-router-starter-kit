@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
 //Data
-import { classNames } from '_utils/classNames';
+import { classNames } from '@utils/classNames';
 import { useColorScheme } from 'nativewind';
 
 export default function Index() {

@@ -11,7 +11,7 @@ import {
 import { I18nextProvider } from 'react-i18next';
 import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import i18n from '_locales/i18n';
+import i18n from '@locales/i18n';
 import { useColorScheme } from 'nativewind';
 import '../../global.css';
 

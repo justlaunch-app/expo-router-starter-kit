@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { deviceBrand, deviceName, deviceOS, deviceModel } from '_config/device';
-import { StyledText as Text } from '_components/Text/StyledText';
+import { deviceBrand, deviceName, deviceOS, deviceModel } from '@config/device';
+import { StyledText as Text } from '@components/Text/StyledText';
 
 export default function AppVersion() {
   return (

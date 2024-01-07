@@ -1,10 +1,10 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text, View } from 'react-native';
-import DeviceInfo from '_components/Device/DeviceInfo';
-import AppVersion from '_components/Device/AppVersion';
-import Divider from '_components/Divider/Divider';
+import DeviceInfo from '@components/Device/DeviceInfo';
+import AppVersion from '@components/Device/AppVersion';
+import Divider from '@components/Divider/Divider';
 import { useColorScheme } from 'nativewind';
-import LanguagePicker from '_components/Picker/LanguagePicker';
+import LanguagePicker from '@components/Picker/LanguagePicker';
 
 export default function Settings() {
   const { colorScheme, setColorScheme } = useColorScheme();

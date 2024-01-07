@@ -1,8 +1,8 @@
 import { View, FlatList } from 'react-native';
-import { Article } from '_types/Article';
-import { FeedLink } from '_components/Feed/FeedLink';
+import { Article } from '@types/Article';
+import { FeedLink } from '@components/Feed/FeedLink';
 
-import feedData from '_assets/data/feed.json';
+import feedData from '@assets/data/feed.json';
 
 interface RenderItemProps {
   item: Article;
