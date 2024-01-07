@@ -1,5 +1,5 @@
 import { View, FlatList } from 'react-native';
-import { Article } from '@types/Article';
+import { Article } from '@srcTypes/Article';
 import { FeedLink } from '@components/Feed/FeedLink';
 
 import feedData from '@assets/data/feed.json';

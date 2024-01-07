@@ -21,7 +21,7 @@
       "@utils/*": ["src/utils/*"],
       "@layouts/*": ["src/layouts/*"],
       "@config/*": ["src/config/*"],
-      "@types/*": ["src/types/*"],
+      "@srcTypes/*": ["src/types/*"],
       "@hooks/*": ["src/hooks/*"]
     }
   }

@@ -1,4 +1,4 @@
-import { Article } from '@types/Article';
+import { Article } from '@srcTypes/Article';
 import { Link } from 'expo-router';
 import { View } from 'react-native';
 import FeedItem from './FeedItem';
