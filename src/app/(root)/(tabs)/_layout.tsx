@@ -1,28 +1,28 @@
 import { Link, Tabs } from 'expo-router';
-import { Platform, Pressable } from 'react-native';
-import { useColorScheme } from 'nativewind';
-import { TabBarIcon } from '_components/Icon/TabBarIcon';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { WebLayout } from '_components/Layout/WebLayout';
+import { Pressable } from 'react-native';
+import { useColorScheme } from 'nativewind';
 import { useTranslation } from 'react-i18next';
 
-type TabBarIconProps = { color: string };
-
-const TabBar = ({ color }: TabBarIconProps) => (
-  <TabBarIcon name="code" color={color} />
-);
+function TabBarIcon(props: {
+  name: React.ComponentProps<typeof FontAwesome>['name'];
+  color: string;
+  className?: string;
+}) {
+  return <FontAwesome className={props.className} size={28} style={{ marginBottom: -3 }} {...props} />;
+}
 
 const HeaderRight = () => {
   const { colorScheme } = useColorScheme();
+
   return (
     <Link href="/modal" asChild>
       <Pressable>
-        {({ pressed }) => (
-          <FontAwesome
-            name="info-circle"
-            size={25}
+        {() => (
+          <TabBarIcon
+            name="exclamation-circle"
             color={colorScheme === 'dark' ? 'white' : 'black'}
-            style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+            className="mr-3"
           />
         )}
       </Pressable>
@@ -30,52 +30,22 @@ const HeaderRight = () => {
   );
 };
 
-const TwoTabBarIcon = ({ color }: TabBarIconProps) => (
-  <TabBarIcon name="code" color={color} />
-);
-const SettingsTabBarIcon = ({ color }: TabBarIconProps) => (
-  <TabBarIcon name="cog" color={color} />
-);
-
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
+  const iconColor = colorScheme === 'dark' ? 'white' : 'black';
   const { t } = useTranslation();
-  if (Platform.OS === 'web') {
-    return (
-      <WebLayout
-        links={[
-          {
-            href: '/(root)/(tabs)/(index)',
-            name: t('tabs.one'),
-            isActive: (path) =>
-              path.toLowerCase() === '/' || path.toLowerCase().includes('feed'),
-          },
-          {
-            href: '/(root)/(tabs)/two',
-            name: t('tabs.two'),
-            isActive: (path) => path.toLowerCase().includes('two'),
-          },
-          {
-            href: '/(root)/(tabs)/settings',
-            name: t('tabs.settings'),
-            isActive: (path) => path.toLowerCase().includes('settings'),
-          },
-        ]}
-      />
-    );
-  }
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: colorScheme === 'dark' ? 'white' : 'black',
+        tabBarActiveTintColor: iconColor,
       }}
     >
       <Tabs.Screen
         name="(index)"
         options={{
           title: t('tabs.one'),
-          tabBarIcon: TabBar,
+          tabBarIcon: () => <TabBarIcon name='code' color={colorScheme === 'dark' ? 'white' : 'black'}/>,
           headerRight: HeaderRight,
         }}
       />
@@ -83,14 +53,14 @@ export default function TabLayout() {
         name="two"
         options={{
           title: t('tabs.two'),
-          tabBarIcon: TwoTabBarIcon,
+          tabBarIcon: () => <TabBarIcon name='code' color={colorScheme === 'dark' ? 'white' : 'black'}/>,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: t('tabs.settings'),
-          tabBarIcon: SettingsTabBarIcon,
+          tabBarIcon: () => <TabBarIcon name='cog' color={colorScheme === 'dark' ? 'white' : 'black'} />,
         }}
       />
     </Tabs>

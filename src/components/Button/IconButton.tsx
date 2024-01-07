@@ -23,15 +23,7 @@ export function IconButton({
         ..._classNames,
       })}
     >
-      <Pressable
-        className="w-full h-full p-4"
-        android_ripple={
-          {
-            // color: Colors[colorScheme ?? 'light'].android_ripple.color,
-          }
-        }
-        {...props}
-      >
+      <Pressable className="w-full h-full p-4" {...props}>
         {children}
       </Pressable>
     </View>

@@ -1,15 +1,12 @@
-const ngrokUrl = 'ritmillio-router-sandbox.ngrok.io';
-
-/** @type {import('expo/config').ExpoConfig} */
 module.exports = {
   expo: {
-    name: 'tooolongtotest',
+    name: 'justlaunch.app - expo-router-starter-kit',
     experiments: {
       typedRoutes: true,
       tsconfigPaths: true,
     },
     slug: 'expo-starter-kit',
-    version: '1.3.5',
+    version: '1.7.0',
     orientation: 'portrait',
     icon: './public/favicon-32x32.png',
     scheme: 'acme',
@@ -17,21 +14,16 @@ module.exports = {
     splash: {
       image: './public/justlaunch.png',
       resizeMode: 'contain',
-      backgroundColor: '#ffffff',
+      backgroundColor: '#000000',
     },
     updates: {
       fallbackToCacheTimeout: 0,
     },
-    mode: 'development',
+    mode: 'production',
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.zoltanfodor.test-expo-router-now',
-      associatedDomains: [
-        `applinks:${ngrokUrl}`,
-        `activitycontinuation:${ngrokUrl}`,
-        `webcredentials:${ngrokUrl}`,
-      ],
+      bundleIdentifier: 'com.zoltanfodor.test-expo-router-now'
     },
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
@@ -65,21 +57,7 @@ module.exports = {
     plugins: [
       [
         'expo-router',
-        {
-          headOrigin: `https://${ngrokUrl}`,
-        },
-      ],
-      [
-        'expo-build-properties',
-        {
-          ios: {
-            newArchEnabled: true,
-          },
-          android: {
-            newArchEnabled: true,
-          },
-        },
-      ],
+      ]
     ],
     extra: {
       eas: {
