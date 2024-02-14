@@ -15,14 +15,9 @@
       "@app/*": ["src/app/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@context/*": ["src/context/*"],
-      "@locales/*": ["src/locales/*"],
       "@utils/*": ["src/utils/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@config/*": ["src/config/*"],
-      "@srcTypes/*": ["src/types/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@srcTypes/*": ["src/types/*"]
     }
   }
 }

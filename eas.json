@@ -21,8 +21,8 @@
         "resourceClass": "m-medium"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://jsonplaceholder.typicode.com",
-        "EXPO_PUBLIC_REQRES_API_URL": "https://reqres.in/api"
+        "EXPO_PUBLIC_API_URL": "<ADD-YOUR-ENV-VARIABLES>",
+        "EXPO_PUBLIC_REQRES_API_URL": "<ADD-YOUR-ENV-VARIABLES>"
       }
     }
   },

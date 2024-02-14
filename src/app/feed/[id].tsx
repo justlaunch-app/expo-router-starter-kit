@@ -3,34 +3,16 @@ import { StyledText as Text } from '@components/Text/StyledText';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '@utils/blurhash';
-import * as Sharing from 'expo-sharing';
-import TouchableOpacity from '@components/Button/TouchableOpacity';
-import Icon from '@components/Icon/Icon';
-import { useColorScheme } from 'nativewind';
 
 const DetailFeed = () => {
   const { id, author, imgSrc, title, datePublished, content } =
     useLocalSearchParams();
-  const { colorScheme } = useColorScheme();
 
   return (
     <ScrollView>
       <Stack.Screen
         options={{
           headerTitle: `FEED ${id}`,
-          headerRight: () => (
-            <TouchableOpacity
-              onPress={() => {
-                Sharing.shareAsync('https://linktr.zoltanfodor.dev/');
-              }}
-            >
-              <Icon
-                name="share"
-                size={24}
-                color={colorScheme === 'dark' ? 'white' : 'black'}
-              />
-            </TouchableOpacity>
-          ),
         }}
       />
       <Image

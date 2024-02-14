@@ -5,8 +5,8 @@ module.exports = {
       typedRoutes: true,
       tsconfigPaths: true,
     },
-    slug: 'expo-starter-kit',
-    version: '1.7.0',
+    slug: 'expo-router-starter-kit',
+    version: '1.0.0',
     orientation: 'portrait',
     icon: './public/favicon-32x32.png',
     scheme: 'acme',
@@ -23,13 +23,13 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.zoltanfodor.test-expo-router-now'
+      bundleIdentifier: 'com.your.bundle.identifier'
     },
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
     },
     android: {
-      package: 'com.zoltanfodor_dev.expostarterkit',
+      package: 'com.your.bundle.identifier',
       adaptiveIcon: {
         foregroundImage: './public/android-chrome-192x192.png',
         backgroundColor: '#ffffff',

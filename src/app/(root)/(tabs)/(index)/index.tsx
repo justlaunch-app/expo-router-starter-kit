@@ -1,15 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-//i18n
-import { useTranslation } from 'react-i18next';
-
-//Data
 import { classNames } from '@utils/classNames';
 import { useColorScheme } from 'nativewind';
 
 export default function Index() {
-  const { t } = useTranslation();
   const { colorScheme } = useColorScheme();
 
   return (
@@ -21,7 +16,7 @@ export default function Index() {
       })}
     >
       <Text className="text-blue-500 pt-2 text-2xl text-bold text-center">
-        {t('greeting')}
+        Hello World
       </Text>
       <Text className="text-blue-500 text-xl px-8 pt-5 pb-10">
         This is an example of using Material Top Tabs with Bottom navigation in

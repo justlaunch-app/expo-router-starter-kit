@@ -2,27 +2,6 @@
 
 Expo-router-starter-kit is a streamlined template for building cross-platform mobile apps with Expo. This template provides a starting point with updated features and simplified components for efficient development.
 
-## 🌟 Updates
-
-- **SDK Update**: Upgraded to version 50 (canary).
-- **NativeWind**: Updated to version 4.
-- **React-native-picker**: Latest version implemented.
-- **Template Simplification**: Removed certain components/pages for a leaner template.
-- **Shopify/Flashlist Removal**: Currently incompatible with expo-router.
-- **Type Updates**: Enhanced and updated type definitions.
-- **Splash Screen Fix**: Replaced Lottie with an alternative solution.
-- **UI Adjustments**: Minor improvements in UI, especially for FontAwesome icons on iOS.
-
-## 🚀 Features
-
-- **Expo**
-- **[Expo Router](https://expo.github.io/router)**
-- **expo-image**
-- **[Zustand](https://github.com/pmndrs/zustand)** for state management
-- **[Tanstack Query](https://tanstack.com/query/latest)** for asynchronous state management
-- **[i18next](https://www.i18next.com/)** for internationalization
-- **[Apisauce](https://github.com/infinitered/apisauce)** for HTTP communication
-
 ## 💻 Installation
 
 ```bash
@@ -72,11 +51,6 @@ The project is organized as follows:
 - /components  - Reusable components.
 - /screens     - Application screens.
 - /assets      - Application assets (all assets stored here will be bundled).
-- /config      - Application configuration files.
-- /constants   - Application constants.
-- /context     - Application theme and context.
-- /locales     - Localization files (i18n, i18next, expo-localization).
-- /store       - Zustand store for state management.
 - /utils       - Helper functions and utilities.
 ```
 

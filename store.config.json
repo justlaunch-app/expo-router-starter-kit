@@ -2,7 +2,7 @@
   "configVersion": 0,
   "apple": {
     "version": "1.0.0",
-    "copyright": "2023 ritmillio",
+    "copyright": "ritmillio",
     "release": {
       "automaticRelease": true
     },
@@ -29,7 +29,7 @@
         "privacyChoicesUrl": "https://expo-starter-kit.vercel.app/privacy"
       }
     },
-    "categories": [["GAMES", "GAMES_CASUAL", "GAMES_FAMILY"], "ENTERTAINMENT"],
+    "categories": ["BUSINESS"],
     "advisory": {
       "alcoholTobaccoOrDrugUseOrReferences": "NONE",
       "contests": "NONE",
@@ -54,7 +54,7 @@
       "email": "me@zoltanfodor.dev",
       "phone": "222222222",
       "demoRequired": false,
-      "notes": "expo-for-life"
+      "notes": "expo-router-starter-kit"
     }
   }
 }
