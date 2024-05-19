@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { classNames } from '@utils/classNames';
 import { useColorScheme } from 'nativewind';
+import Icon from '@components/LucideIcon';
 
 export default function Index() {
   const { colorScheme } = useColorScheme();
@@ -18,6 +19,7 @@ export default function Index() {
       <Text className="text-blue-500 pt-2 text-2xl text-bold text-center">
         Hello World
       </Text>
+      <Icon name="AirVent" />
       <Text className="text-blue-500 text-xl px-8 pt-5 pb-10">
         This is an example of using Material Top Tabs with Bottom navigation in
         expo-router

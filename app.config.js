@@ -1,12 +1,12 @@
 module.exports = {
   expo: {
-    name: 'justlaunch.app - expo-router-starter-kit',
+    name: 'lucide-expo-try-out',
     experiments: {
       typedRoutes: true,
       tsconfigPaths: true,
     },
     slug: 'expo-router-starter-kit',
-    version: '1.0.0',
+    version: '3.2.0',
     orientation: 'portrait',
     icon: './public/favicon-32x32.png',
     scheme: 'acme',
@@ -23,7 +23,7 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.your.bundle.identifier'
+      bundleIdentifier: 'com.lucide-expo-router-starter-kit.justlaunch.app'
     },
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
@@ -61,8 +61,8 @@ module.exports = {
     ],
     extra: {
       eas: {
-        projectId: 'c5cddb1a-4054-45f3-8212-36a4c9482807',
-      },
+        projectId: "564f22dd-cb02-43e7-b4a9-d0f7c49ea2ef"
+      }
     },
   },
 };
