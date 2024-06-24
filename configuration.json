@@ -1,0 +1,18 @@
+{
+  "light": {
+    "background": "red",
+    "text": "#fff",
+    "primary": "#0070f3"
+  },
+  "dark": {
+    "background": "#121212",
+    "text": "#ffffff",
+    "primary": "#bb86fc"
+  },
+  "borderRadius": {
+    "custom": "10px"
+  },
+  "spacing": {
+    "custom": "10rem"
+  }
+}

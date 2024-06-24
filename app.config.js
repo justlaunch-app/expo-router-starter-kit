@@ -1,6 +1,7 @@
 module.exports = {
   expo: {
     name: 'lucide-expo-try-out',
+    owner: "zoltanfodor_dev",
     experiments: {
       typedRoutes: true,
       tsconfigPaths: true,
@@ -18,9 +19,21 @@ module.exports = {
     },
     updates: {
       fallbackToCacheTimeout: 0,
+      url: "https://u.expo.dev/564f22dd-cb02-43e7-b4a9-d0f7c49ea2ef"
     },
     mode: 'production',
     assetBundlePatterns: ['**/*'],
+    build: {
+      development: {
+        distribution: "internal"
+      },
+      preview: {
+        distribution: "internal"
+      },
+      production: {
+        distribution: "store"
+      }
+    },
     ios: {
       supportsTablet: true,
       bundleIdentifier: 'com.lucide-expo-router-starter-kit.justlaunch.app'
@@ -59,6 +72,9 @@ module.exports = {
         'expo-router',
       ]
     ],
+    runtimeVersion: {
+      policy: "appVersion"
+    },
     extra: {
       eas: {
         projectId: "564f22dd-cb02-43e7-b4a9-d0f7c49ea2ef"

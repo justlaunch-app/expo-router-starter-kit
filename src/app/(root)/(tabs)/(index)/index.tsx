@@ -16,7 +16,7 @@ export default function Index() {
         'bg-black': colorScheme === 'dark',
       })}
     >
-      <Text className="text-blue-500 pt-2 text-2xl text-bold text-center">
+      <Text className="text-light-text pt-2 text-2xl text-bold text-center">
         Hello World
       </Text>
       <Icon name="AirVent" />
