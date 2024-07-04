@@ -9,15 +9,9 @@ export default function Index() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <SafeAreaView
-      className={classNames({
-        'flex flex-1 items-center justify-start': true,
-        'bg-white': colorScheme === 'light',
-        'bg-black': colorScheme === 'dark',
-      })}
-    >
-      <Text className="text-light-text pt-2 text-2xl text-bold text-center">
-        Hello World
+    <View className={colorScheme === 'light' ? 'bg-red-500' : 'bg-green-500'}>
+      <Text className="text-light-text dark:text-dark-text pt-2 text-2xl text-bold text-center">
+        Hello World {colorScheme}
       </Text>
       <Icon name="AirVent" />
       <Text className="text-blue-500 text-xl px-8 pt-5 pb-10">
@@ -33,6 +27,6 @@ export default function Index() {
         </Text>
       </View>
       <StatusBar style="auto" />
-    </SafeAreaView>
+    </View>
   );
 }

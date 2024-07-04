@@ -1,7 +1,7 @@
 {
   "light": {
     "background": "red",
-    "text": "#fff",
+    "text": "#000",
     "primary": "#0070f3"
   },
   "dark": {
