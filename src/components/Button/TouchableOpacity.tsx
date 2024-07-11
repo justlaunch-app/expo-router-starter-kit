@@ -12,6 +12,7 @@ type PressableComponentProps = {
   style?: StyleProp<ViewStyle>;
   children?: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
   disabled?: boolean;
+  className?: string;
 };
 
 const PressableComponent: FC<PressableComponentProps> = ({
@@ -19,12 +20,17 @@ const PressableComponent: FC<PressableComponentProps> = ({
   style,
   children,
   disabled = false,
+  className,
 }) => {
   return (
     <Pressable
       disabled={disabled}
       onPress={onPress}
-      style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, style]}
+      style={({ pressed }) => [
+        style,
+        { opacity: pressed ? 0.5 : 1, backgroundColor: 'red' },
+      ]}
+      className={className}
     >
       {children}
     </Pressable>

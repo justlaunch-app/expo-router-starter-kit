@@ -15,7 +15,7 @@
     "@react-native-picker/picker": "2.7.5",
     "@react-navigation/material-top-tabs": "^6.6.3",
     "@types/react-native": "^0.72.2",
-    "expo": "51.0.18",
+    "expo": "51.0.19",
     "expo-font": "~12.0.7",
     "expo-image": "~1.12.12",
     "expo-linking": "^6.3.1",
