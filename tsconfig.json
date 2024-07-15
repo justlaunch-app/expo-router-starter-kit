@@ -1,23 +1,12 @@
 {
   "extends": "./tsconfig.base",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "app.config.js"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "app.config.js"],
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
     "jsx": "react-jsx",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@srcTypes/*": ["src/types/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

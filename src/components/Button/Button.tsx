@@ -6,17 +6,13 @@ import {
   PressableProps,
   Text,
 } from 'react-native';
-import { buttonClasses } from '@utils/buttonClasses';
+import { buttonClasses } from '@/lib/buttonClasses';
 
 type Props = PressableProps & ButtonProps;
 export function Button(props: Props) {
   if (Platform.OS === 'web') {
     return (
-      <Pressable
-        className={buttonClasses}
-        {...props}
-        accessibilityRole={'button'}
-      >
+      <Pressable className={buttonClasses} {...props} accessibilityRole={'button'}>
         <Text className={'text-white'}>{props.title}</Text>
       </Pressable>
     );

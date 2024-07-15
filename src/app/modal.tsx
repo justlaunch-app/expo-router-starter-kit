@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { StyledText as Text } from '@components/Text/StyledText';
-import { ExternalLink } from '@components/Link/ExternalLink';
+import { StyledText as Text } from '@/components/Text/StyledText';
+import { ExternalLink } from '@/components/Link/ExternalLink';
 
 export default function ModalScreen() {
   return (
@@ -11,9 +11,8 @@ export default function ModalScreen() {
         href="https://github.com/ritmillio/expo-starter-kit"
       >
         <Text className="text-center">
-          Check out the GitHub repo for this project! If you find it helpful or
-          interesting, please consider giving it a star ⭐️. Your support is
-          greatly appreciated!
+          Check out the GitHub repo for this project! If you find it helpful or interesting, please
+          consider giving it a star ⭐️. Your support is greatly appreciated!
         </Text>
       </ExternalLink>
     </View>

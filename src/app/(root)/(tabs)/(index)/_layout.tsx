@@ -1,4 +1,4 @@
-import { MaterialTopTabs } from '@layouts/material-top-tabs';
+import { MaterialTopTabs } from '@/layouts/material-top-tabs';
 import { useColorScheme } from 'nativewind';
 
 export default function IndexTopTabsLayout() {

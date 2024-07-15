@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { StyledText as Text } from '@components/Text/StyledText';
-import PressableComponent from '@components/Button/TouchableOpacity';
+import { StyledText as Text } from '@/components/Text/StyledText';
+import PressableComponent from '@/components/Button/TouchableOpacity';
 
 export default function TabTwoScreen() {
   return (

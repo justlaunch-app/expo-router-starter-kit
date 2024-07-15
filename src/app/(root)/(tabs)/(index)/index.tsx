@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
 import { useColorScheme } from 'nativewind';
-import Icon from '@components/LucideIcon';
+import Icon from '@/components/LucideIcon';
 
 export default function Index() {
   const { colorScheme } = useColorScheme();
