@@ -1,37 +1,12 @@
 import { Link, Tabs } from 'expo-router';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Pressable } from 'react-native';
 import { useColorScheme } from 'nativewind';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-  className?: string;
-}) {
-  return (
-    <FontAwesome
-      className={props.className}
-      size={28}
-      style={{ marginBottom: -3 }}
-      {...props}
-    />
-  );
-}
+import { TabBarIcon } from '@/components/core/icon';
 
 const HeaderRight = () => {
-  const { colorScheme } = useColorScheme();
-
   return (
     <Link href="/modal" asChild>
-      <Pressable>
-        {() => (
-          <TabBarIcon
-            name="exclamation-circle"
-            color={colorScheme === 'dark' ? 'white' : 'black'}
-            className="mr-3"
-          />
-        )}
-      </Pressable>
+      <Pressable>{() => <TabBarIcon pathname="/modal" name="exclamation-circle" />}</Pressable>
     </Link>
   );
 };
@@ -50,12 +25,7 @@ export default function TabLayout() {
         name="(index)"
         options={{
           title: 'Home',
-          tabBarIcon: () => (
-            <TabBarIcon
-              name="code"
-              color={colorScheme === 'dark' ? 'white' : 'black'}
-            />
-          ),
+          tabBarIcon: () => <TabBarIcon name="code" pathname="/" />,
           headerRight: HeaderRight,
         }}
       />
@@ -63,24 +33,14 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
-          tabBarIcon: () => (
-            <TabBarIcon
-              name="code"
-              color={colorScheme === 'dark' ? 'white' : 'black'}
-            />
-          ),
+          tabBarIcon: () => <TabBarIcon name="code" pathname="/two" />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
-          tabBarIcon: () => (
-            <TabBarIcon
-              name="cog"
-              color={colorScheme === 'dark' ? 'white' : 'black'}
-            />
-          ),
+          tabBarIcon: () => <TabBarIcon name="cog" pathname="/settings" />,
         }}
       />
     </Tabs>

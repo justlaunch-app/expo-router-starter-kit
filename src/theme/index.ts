@@ -1,5 +1,4 @@
 import { Theme } from '@react-navigation/native';
-
 import { COLORS } from './colors';
 
 const NAV_THEME: { light: Theme; dark: Theme } = {
@@ -27,4 +26,37 @@ const NAV_THEME: { light: Theme; dark: Theme } = {
     },
 };
 
-export { NAV_THEME };
+const TAB_THEME = {
+    light: {
+        activeTintColor: COLORS.light.primary,
+        inactiveTintColor: COLORS.light.grey3,
+        activeBackgroundColor: COLORS.light.background,
+        inactiveBackgroundColor: COLORS.light.background,
+        labelStyle: {
+            fontSize: 14,
+            strokeWidth: 1,
+        },
+        activeLabelStyle: {
+            fontSize: 15,
+            fontWeight: 'bold',
+            strokeWidth: 1.5,
+        },
+    },
+    dark: {
+        activeTintColor: COLORS.dark.primary,
+        inactiveTintColor: COLORS.dark.grey3,
+        activeBackgroundColor: COLORS.dark.background,
+        inactiveBackgroundColor: COLORS.dark.background,
+        labelStyle: {
+            fontSize: 14,
+            strokeWidth: 1,
+        },
+        activeLabelStyle: {
+            fontSize: 15,
+            fontWeight: 'bold',
+            strokeWidth: 1.5,
+        },
+    },
+};
+
+export { NAV_THEME, TAB_THEME };
