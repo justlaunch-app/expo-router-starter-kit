@@ -1,21 +1,15 @@
-import { View } from 'react-native';
-import { StyledText as Text } from '@/components/Text/StyledText';
-import PressableComponent from '@/components/Button/TouchableOpacity';
+import { SafeAreaView } from '@/components/core/safe-area-view';
+import { Text } from '@/components/core/text';
 
 export default function TabTwoScreen() {
   return (
-    <View className={'px-4 flex-1'}>
-      <View className={'flex-row justify-between items-center'}>
-        <Text className={'text-2xl py-4'}>Page Two</Text>
-        <PressableComponent
-          onPress={() => {
-            console.log('hole');
-          }}
-          className="bg-blue-500"
-        >
-          <Text>Test</Text>
-        </PressableComponent>
-      </View>
-    </View>
+    <SafeAreaView>
+      <Text variant="largeTitle">Page Two</Text>
+      <Text variant="callout" className="pt-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum dolorum ducimus excepturi,
+        necessitatibus ea ad molestiae beatae dolores sequi numquam ipsam eaque iste perferendis
+        sunt corporis. Qui, dicta. Deleniti, eius.
+      </Text>
+    </SafeAreaView>
   );
 }

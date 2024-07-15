@@ -1,5 +1,5 @@
 import { View, ScrollView } from 'react-native';
-import { StyledText as Text } from '@/components/Text/StyledText';
+import { Text } from '@/components/core/text';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { blurhash } from '@/lib/blurhash';
