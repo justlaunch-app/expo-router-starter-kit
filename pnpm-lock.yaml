@@ -29,6 +29,9 @@ dependencies:
   '@types/react-native':
     specifier: ^0.72.2
     version: 0.72.8(react-native@0.74.3)
+  clsx:
+    specifier: ^2.1.1
+    version: 2.1.1
   expo:
     specifier: 51.0.20
     version: 51.0.20(@babel/core@7.24.7)(@babel/preset-env@7.23.9)
@@ -101,6 +104,9 @@ dependencies:
   react-native-tab-view:
     specifier: ^3.5.2
     version: 3.5.2(react-native-pager-view@6.3.0)(react-native@0.74.3)(react@18.2.0)
+  tailwind-merge:
+    specifier: ^2.4.0
+    version: 2.4.0
   zod:
     specifier: ^3.21.4
     version: 3.22.4
@@ -4442,6 +4448,11 @@ packages:
   /clone@2.1.2:
     resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
     engines: {node: '>=0.8'}
+    dev: false
+
+  /clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert@1.9.3:
@@ -8815,6 +8826,10 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /tailwind-merge@2.4.0:
+    resolution: {integrity: sha512-49AwoOQNKdqKPd9CViyH5wJoSKsCDjUlzL8DxuGp3P1FsGY36NJDAa18jLZcaHAUUuTj+JB8IAo8zWgBNvBF7A==}
+    dev: false
 
   /tailwindcss@3.3.2:
     resolution: {integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==}
