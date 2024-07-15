@@ -5,7 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ThemeToggle } from '@/components/core/toggle/theme-toggle';
+import { ThemeToggle } from '@/components/core/toggle';
 
 // Providers
 import { ThemeProvider } from '@react-navigation/native';
