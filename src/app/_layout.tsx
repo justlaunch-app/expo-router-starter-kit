@@ -54,7 +54,10 @@ function RootLayoutNav() {
 
   return (
     <>
-      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+      <StatusBar
+        style={colorScheme === 'dark' ? 'light' : 'dark'}
+        key={`root-status-bar-${colorScheme === 'dark' ? 'light' : 'dark'}`}
+      />
       <KeyboardProvider statusBarTranslucent navigationBarTranslucent>
         <ThemeProvider value={NAV_THEME[colorScheme]}>
           <GestureHandlerRootView style={{ flex: 1 }}>
