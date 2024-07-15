@@ -3,14 +3,6 @@ import { Pressable } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import { TabBarIcon } from '@/components/core/icon';
 
-const HeaderRight = () => {
-  return (
-    <Link href="/modal" asChild>
-      <Pressable>{() => <TabBarIcon pathname="/modal" name="exclamation-circle" />}</Pressable>
-    </Link>
-  );
-};
-
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
   const iconColor = colorScheme === 'dark' ? 'white' : 'black';
@@ -46,3 +38,11 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+
+const HeaderRight = () => {
+  return (
+    <Link className="mr-3" href="/modal" asChild>
+      <Pressable>{() => <TabBarIcon name="rocket" />}</Pressable>
+    </Link>
+  );
+};

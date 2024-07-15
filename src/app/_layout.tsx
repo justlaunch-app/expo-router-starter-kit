@@ -5,6 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ThemeToggle } from '@/components/core/toggle/theme-toggle';
 
 // Providers
 import { ThemeProvider } from '@react-navigation/native';
@@ -84,7 +85,7 @@ function RootLayoutNav() {
                 animation: 'fade_from_bottom',
 
                 /** You have the ability to add left and right header JSX/TSX component here fx.: a Pressable Icon component or a Close Icon module*/
-                headerRight: () => null,
+                headerRight: () => <ThemeToggle />,
                 headerLeft: () => null,
               }}
             />

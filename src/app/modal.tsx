@@ -1,20 +1,28 @@
-import { View } from 'react-native';
-import { StyledText as Text } from '@/components/Text/StyledText';
+import { Platform, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { useColorScheme } from 'nativewind';
+import { Text } from '@/components/core/text';
 import { ExternalLink } from '@/components/core/external-link';
 
 export default function ModalScreen() {
+  const { colorScheme } = useColorScheme();
   return (
-    <View className="flex-1 items-center justify-center max-w-sm mx-auto">
-      <Text className="text-2xl font-bold pb-5">Modal</Text>
-      <ExternalLink
-        className="px-8 text-center"
-        href="https://github.com/ritmillio/expo-starter-kit"
-      >
-        <Text className="text-center">
-          Check out the GitHub repo for this project! If you find it helpful or interesting, please
-          consider giving it a star ⭐️. Your support is greatly appreciated!
-        </Text>
-      </ExternalLink>
-    </View>
+    <>
+      <StatusBar
+        style={Platform.OS === 'ios' ? 'light' : colorScheme === 'dark' ? 'light' : 'dark'}
+      />
+      <View className="px-4 pt-5">
+        <Text variant="largeTitle">Modal</Text>
+        <ExternalLink
+          className="pt-2"
+          href="https://github.com/justlaunch-app/expo-router-starter-kit"
+        >
+          <Text variant="body">
+            This is a modal screen. Click here to view the source code on{' '}
+            <Text className="text-blue-500 text-lg">Github</Text>.
+          </Text>
+        </ExternalLink>
+      </View>
+    </>
   );
 }

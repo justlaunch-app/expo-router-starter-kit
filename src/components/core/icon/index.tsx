@@ -107,18 +107,21 @@ export const Ionicon = ({
 export const TabBarIcon = ({
   name,
   pathname,
+  className,
 }: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
-  pathname: string;
+  pathname?: string;
+  className?: string;
 }) => {
   const currentPath = usePathname();
   const { colorScheme } = useColorScheme();
 
-  const isActive = currentPath === pathname;
+  const isActive = currentPath === (pathname || '');
   const color = TAB_THEME[colorScheme || 'light'];
 
   return (
     <Icon
+      className={className}
       name={name}
       size={isActive ? 32 : 28}
       color={isActive ? color.activeTintColor : color.inactiveTintColor}

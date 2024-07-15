@@ -1,4 +1,4 @@
-import { ReactNode, FC } from 'react';
+import { ReactNode } from 'react';
 import {
   Pressable,
   ViewStyle,
@@ -7,20 +7,18 @@ import {
   GestureResponderEvent,
 } from 'react-native';
 
-type PressableComponentProps = {
-  onPress: (e?: GestureResponderEvent) => void;
-  style?: StyleProp<ViewStyle>;
-  children?: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
-  disabled?: boolean;
-  className?: string;
-};
-
-const PressableComponent: FC<PressableComponentProps> = ({
+export const TouchableOpacity = ({
   onPress,
   style,
   children,
   disabled = false,
   className,
+}: {
+  onPress?: (e?: GestureResponderEvent) => void;
+  style?: StyleProp<ViewStyle>;
+  children?: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
+  disabled?: boolean;
+  className?: string;
 }) => {
   return (
     <Pressable
@@ -33,5 +31,3 @@ const PressableComponent: FC<PressableComponentProps> = ({
     </Pressable>
   );
 };
-
-export default PressableComponent;

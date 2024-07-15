@@ -1,2 +1,11 @@
+/**
+ * Button classes - Tailwind CSS
+ * @see https://tailwindcss.com/docs
+ *
+ * You can modify buttonClasses to customize the base button style.
+ * You can also add more classes to the buttonClasses variable to customize the button style.
+ *
+ */
+
 export const buttonClasses =
-  'h-full w-max text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 flex items-center justify-center';
+  'flex p-4 rounded-2xl gap-3 flex-row items-center m-2';
