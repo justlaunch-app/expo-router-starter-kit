@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Stack } from 'expo-router';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
@@ -42,7 +43,7 @@ function RootLayoutNav() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <Stack>
         <Stack.Screen name="(root)" options={{ headerShown: false }} />
         <Stack.Screen
@@ -53,6 +54,6 @@ function RootLayoutNav() {
         />
       </Stack>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-    </>
+    </GestureHandlerRootView>
   );
 }
