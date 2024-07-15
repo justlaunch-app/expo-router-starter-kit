@@ -23,6 +23,9 @@ dependencies:
   '@react-navigation/material-top-tabs':
     specifier: ^6.6.3
     version: 6.6.5(@react-navigation/native@6.1.10)(react-native-pager-view@6.3.0)(react-native-tab-view@3.5.2)(react-native@0.74.3)(react@18.2.0)
+  '@react-navigation/native':
+    specifier: ^6.1.7
+    version: 6.1.10(react-native@0.74.3)(react@18.2.0)
   '@types/react-native':
     specifier: ^0.72.2
     version: 0.72.8(react-native@0.74.3)

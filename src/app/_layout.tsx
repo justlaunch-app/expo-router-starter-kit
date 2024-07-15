@@ -6,9 +6,14 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
+import { ThemeProvider } from '@react-navigation/native';
+import { NAV_THEME } from 'src/theme';
 import '../../global.css';
 
-export { ErrorBoundary } from 'expo-router';
+export {
+  // Catch any errors thrown by the Layout component.
+  ErrorBoundary,
+} from 'expo-router';
 
 export const unstable_settings = {
   initialRouteName: 'index',
@@ -43,17 +48,27 @@ function RootLayoutNav() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Stack>
-        <Stack.Screen name="(root)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="modal"
-          options={{
-            presentation: 'modal',
-          }}
-        />
-      </Stack>
+    <>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-    </GestureHandlerRootView>
+      <ThemeProvider value={NAV_THEME[colorScheme]}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Stack screenOptions={{ animation: 'ios' }}>
+            <Stack.Screen name="(root)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="modal"
+              options={{
+                title: 'Modal',
+                presentation: 'modal',
+                animation: 'fade_from_bottom',
+
+                /** You have the ability to add left and right header JSX/TSX component here fx.: a Pressable Icon component or a Close Icon module*/
+                headerRight: () => null,
+                headerLeft: () => null,
+              }}
+            />
+          </Stack>
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </>
   );
 }
