@@ -1,5 +1,7 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { SafeAreaView } from '@/components/core/safe-area-view';
+import { Text } from '@/components/core/text';
+import { Toggle } from '@/components/core/toggle';
 import { useColorScheme } from 'nativewind';
 
 export default function Settings() {
@@ -7,17 +9,12 @@ export default function Settings() {
 
   return (
     <SafeAreaView>
-      <View className="flex justify-between h-full max-w-sm mx-auto">
-        <View className="my-5 mx-auto">
-          <Text
-            onPress={() =>
-              setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
-            }
-            className="text-black dark:text-white text-2xl font-semibold"
-          >
-            {`The color scheme is ${colorScheme}`}
-          </Text>
-        </View>
+      <View className="flex flex-row items-center justify-between">
+        <Text variant="title1">{`The color scheme is ${colorScheme}`}</Text>
+        <Toggle
+          value={colorScheme === 'dark'}
+          onValueChange={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')}
+        />
       </View>
     </SafeAreaView>
   );
