@@ -2,13 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import { Text } from '@/components/core/text';
 import { useColorScheme } from 'nativewind';
+import { SafeAreaView } from '@/components/core/safe-area-view';
 import Icon from '@/components/LucideIcon';
 
 export default function Index() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <View>
+    <SafeAreaView>
       <Text variant="largeTitle" color="primary">
         Hello World {colorScheme}
       </Text>
@@ -25,6 +26,6 @@ export default function Index() {
         </Text>
       </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
