@@ -93,30 +93,41 @@ export const Ionicon = ({
   color,
   size,
   className,
+  style,
   onPress,
 }: {
   name: React.ComponentProps<typeof Ionicons>['name'];
   color?: ColorValue;
   size?: number;
   className?: string;
+  style?: StyleProp<TextStyle>;
   onPress?: () => void;
 }) => {
-  return <Ionicons onPress={onPress} name={name} color={color} className={className} size={size} />;
+  return (
+    <Ionicons
+      style={style}
+      onPress={onPress}
+      name={name}
+      color={color}
+      className={className}
+      size={size}
+    />
+  );
 };
 
 export const TabBarIcon = ({
   name,
-  pathname,
+  pathnames = [],
   className,
 }: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
-  pathname?: string;
+  pathnames?: string[];
   className?: string;
 }) => {
   const currentPath = usePathname();
   const { colorScheme } = useColorScheme();
 
-  const isActive = currentPath === (pathname || '');
+  const isActive = pathnames.includes(currentPath);
   const color = TAB_THEME[colorScheme || 'light'];
 
   return (

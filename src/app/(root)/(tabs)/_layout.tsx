@@ -17,7 +17,7 @@ export default function TabLayout() {
         name="(index)"
         options={{
           title: 'Home',
-          tabBarIcon: () => <TabBarIcon name="code" pathname="/" />,
+          tabBarIcon: () => <TabBarIcon name="code" pathnames={['/', '/feed']} />,
           headerRight: HeaderRight,
         }}
       />
@@ -25,14 +25,15 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
-          tabBarIcon: () => <TabBarIcon name="code" pathname="/two" />,
+          headerShown: false,
+          tabBarIcon: () => <TabBarIcon name="code" pathnames={['/two']} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
-          tabBarIcon: () => <TabBarIcon name="cog" pathname="/settings" />,
+          tabBarIcon: () => <TabBarIcon name="cog" pathnames={['/settings']} />,
         }}
       />
     </Tabs>
