@@ -1,21 +1,21 @@
 module.exports = {
   expo: {
-    name: 'lucide-expo-try-out',
-    owner: "zoltanfodor_dev",
+    name: 'expo-router-starter-kit-(expo-go)',
+    owner: "ritmillio",
     experiments: {
       typedRoutes: true,
       tsconfigPaths: true,
     },
-    slug: 'expo-router-starter-kit',
-    version: '3.2.0',
+    slug: 'expo-router-starter-kit-(expo-go)',
+    version: '1.0.0',
     orientation: 'portrait',
-    icon: './public/favicon-32x32.png',
+    icon: './public/favicon.png',
     scheme: 'acme',
     userInterfaceStyle: 'automatic',
     splash: {
-      image: './public/justlaunch.png',
+      image: './public/splash.png',
       resizeMode: 'contain',
-      backgroundColor: '#000000',
+      backgroundColor: '#fff',
     },
     updates: {
       fallbackToCacheTimeout: 0,
@@ -36,7 +36,7 @@ module.exports = {
     },
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.lucide-expo-router-starter-kit.justlaunch.app'
+      bundleIdentifier: 'com.your.bundle.identifier'
     },
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
@@ -44,7 +44,7 @@ module.exports = {
     android: {
       package: 'com.your.bundle.identifier',
       adaptiveIcon: {
-        foregroundImage: './public/android-chrome-192x192.png',
+        foregroundImage: './public/adaptive-icon.png',
         backgroundColor: '#ffffff',
       },
       // Add your custom intent filters here for Deep Linking
@@ -65,7 +65,7 @@ module.exports = {
     },
     web: {
       bundler: 'metro',
-      favicon: './public/favicon-32x32.png',
+      favicon: './public/favicon.png',
     },
     plugins: [
       [

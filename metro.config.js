@@ -20,5 +20,5 @@ module.exports = (async () => {
     },
   };
 
-  return withNativeWind(modifiedConfig, { input: './global.css' });
+  return withNativeWind(modifiedConfig, { input: './global.css', inlineRem: 16 });
 })();
