@@ -26,7 +26,7 @@
     "expo-router": "3.5.18",
     "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
-    "expo-updates": "~0.25.19",
+    "expo-updates": "~0.25.20",
     "expo-web-browser": "~13.0.3",
     "lucide-react-native": "^0.359.0",
     "nativewind": "^4.0.22",

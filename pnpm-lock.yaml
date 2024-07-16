@@ -60,8 +60,8 @@ dependencies:
     specifier: ~1.12.1
     version: 1.12.1
   expo-updates:
-    specifier: ~0.25.19
-    version: 0.25.19(expo@51.0.20)
+    specifier: ~0.25.20
+    version: 0.25.20(expo@51.0.20)
   expo-web-browser:
     specifier: ~13.0.3
     version: 13.0.3(expo@51.0.20)
@@ -2291,8 +2291,8 @@ packages:
       - supports-color
     dev: false
 
-  /@expo/fingerprint@0.10.0:
-    resolution: {integrity: sha512-yW2WV4YUGaak4K6MCJHR0sXRrOKA7IWtWsK3uG640eSug55t5VQBoF5KPx7n4+60QUKYKmw7u3vFZZb96OZFlA==}
+  /@expo/fingerprint@0.10.1:
+    resolution: {integrity: sha512-0d0lniPAm6tOZinoj6d8JPozdeaYL12hNW2lZy76YaRRfBoAVGD1xwx6pilRumgKJGFL2SxOGnRoC4ZarZel4g==}
     hasBin: true
     dependencies:
       '@expo/spawn-async': 1.7.2
@@ -5249,7 +5249,7 @@ packages:
     peerDependencies:
       expo: '*'
     dependencies:
-      '@expo/config': 9.0.1
+      '@expo/config': 9.0.3
       expo: 51.0.20(@babel/core@7.24.7)(@babel/preset-env@7.23.9)
       expo-json-utils: 0.13.1
     transitivePeerDependencies:
@@ -5347,16 +5347,16 @@ packages:
       expo: 51.0.20(@babel/core@7.24.7)(@babel/preset-env@7.23.9)
     dev: false
 
-  /expo-updates@0.25.19(expo@51.0.20):
-    resolution: {integrity: sha512-jogDCmy/RveTGMhnJfffBFiUIHNsMlo4JUtcZvBKHQRzdNSzkwqgXtIgYevFACKZKqYDfpXyy/jxneUsbXi8fw==}
+  /expo-updates@0.25.20(expo@51.0.20):
+    resolution: {integrity: sha512-EfxRZDPNUWFXTsjn4Ii+AwIp/KLHXGKG59R8kyWzz/nHeMxXqGUDQF79qcgXcaq5lOMUpeGNlZqOBGho9cvUEg==}
     hasBin: true
     peerDependencies:
       expo: '*'
     dependencies:
       '@expo/code-signing-certificates': 0.0.5
-      '@expo/config': 9.0.1
+      '@expo/config': 9.0.3
       '@expo/config-plugins': 8.0.8
-      '@expo/fingerprint': 0.10.0
+      '@expo/fingerprint': 0.10.1
       '@expo/spawn-async': 1.7.2
       arg: 4.1.0
       chalk: 4.1.2
