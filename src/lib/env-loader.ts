@@ -1,3 +1,9 @@
+/**
+ * This file is used to load environment variables from a `.env` file and validate them using Zod.
+ * It will throw an error if the environment variables are invalid.
+ *
+ */
+
 import { TypeOf, z } from 'zod';
 
 const schema = z.object({
@@ -19,6 +25,6 @@ if (!parsed.success) {
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
-    interface ProcessEnv extends TypeOf<typeof schema> {}
+    interface ProcessEnv extends TypeOf<typeof schema> { }
   }
 }
