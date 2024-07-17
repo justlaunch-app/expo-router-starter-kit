@@ -6,7 +6,7 @@ module.exports = {
       typedRoutes: true,
       tsconfigPaths: true,
     },
-    slug: 'expo-router-starter-kit-(expo-go)',
+    slug: 'expo-router-starter-kit',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './public/favicon.png',

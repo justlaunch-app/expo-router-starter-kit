@@ -50,10 +50,11 @@ export default function RootLayout() {
     if (error) throw error;
   }, [error]);
 
+  /** Adjust or remove hide Splash Screen TimeOut based on preference */
   useEffect(() => {
-    if (loaded) {
+    setTimeout(() => {
       SplashScreen.hideAsync();
-    }
+    }, 1000);
   }, [loaded]);
 
   if (!loaded) {
