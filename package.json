@@ -19,7 +19,7 @@
     "@types/react-native": "^0.72.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "expo": "51.0.37",
+    "expo": "51.0.38",
     "expo-font": "~12.0.10",
     "expo-image": "~1.13.0",
     "expo-linking": "^6.3.1",
